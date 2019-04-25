@@ -1,0 +1,25 @@
+.tricker-cont{
+    border-bottom-width: .01em;
+    border-bottom-color: rgb(214, 214, 214);
+    border-bottom-style: solid;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+.tricker {
+    font-size: 20px;
+}
+
+.shares{
+    font-size: 14px;
+    color: #9FABB6;
+    margin-top:-5px;
+}
+
+.flex-grid {
+    display: flex;
+}
+.col {
+    flex: 1;
+}
