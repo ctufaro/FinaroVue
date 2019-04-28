@@ -64,7 +64,7 @@ a:focus {
     color:#fff;
     line-height:25px;
     text-align:center;
-    background:#21CE99
+    background:#0079FF
 }
 
 .avatar
@@ -100,7 +100,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 10px;
-    background: #21CE99;
+    background: #0079FF;
     text-align: center;
     color:#fff !important;
     font-size: 2.5rem;
@@ -191,7 +191,7 @@ a.article:hover {
     border-bottom-width: .01em;
     border-bottom-color: rgb(214, 214, 214);
     border-bottom-style: solid;
-    max-height:80px;
+    max-height:72px;
 }
 
 .searchcolumn-table{

@@ -3,7 +3,8 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <i class="fas fa-feather-alt"></i>
+                <!--<i class="fas fa-feather-alt"></i>-->
+                <img src="@/assets/images/trendxlogo.png" style="width:120px;"/>
             </div>
 
             <ul class="list-unstyled components">

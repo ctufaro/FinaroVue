@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import './plugins/vuetify'
 import Home from './Home.vue'
 import router from './router'
 

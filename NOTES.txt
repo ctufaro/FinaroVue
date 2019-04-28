@@ -1,0 +1,10 @@
+Bootstrap Hexadecimal Colors:
+-Primary (blue): #0079FF
+-Secondary (gray): #6B757B
+-Success (green): #29A642
+-Danger (red): #DE3442
+-Warning (yellow): #FFC300
+-Info (light blue) :#10A2BD
+-Light (off-white): #FFFBFF
+-Dark (midnight): #313842
+-Link (almost white): #FFFBFF
