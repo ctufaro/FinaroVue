@@ -9,7 +9,7 @@
             <v-sparkline :value="value" color="#0079FF" line-width="5" padding="16"></v-sparkline>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-primary btn-sm">$105.67</button>
+                <button type="button" v-on:click.prevent="success" class="btn btn-primary btn-sm">$105.67</button>
             </div>
         </div>
         <div class="flex-grid tricker-cont">
@@ -21,7 +21,7 @@
                 <v-sparkline :value="value" color="#DE3442" line-width="5" padding="16"></v-sparkline>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-danger btn-sm">$105.67</button>
+                <button type="button" v-on:click.prevent="error" class="btn btn-danger btn-sm">$105.67</button>
             </div>
         </div>
         <div class="flex-grid tricker-cont">
@@ -115,7 +115,23 @@ export default {
         250,
         240
       ]
-    })
+    }),
+    methods: {
+        success: function(){
+                this.$swal({
+                type: 'success',
+                title: 'Success!',
+                text: 'Excellent Work!'
+            });
+        },
+        error: function(){
+                this.$swal({
+                type: 'error',
+                title: 'Error!',
+                text: 'Oy vey!'
+            });
+        }       
+    }
 }
 </script>
 

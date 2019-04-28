@@ -13,6 +13,7 @@
     "sass-loader": "^7.1.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
+    "vue-sweetalert2": "^1.6.4",
     "vuetify": "^1.5.5"
   },
   "devDependencies": {
