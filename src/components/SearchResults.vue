@@ -33,7 +33,7 @@
                 <v-sparkline :value="value" color="#0079FF" line-width="5" padding="16"></v-sparkline>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-primary btn-sm">$105.67</button>
+                <button type="button" v-on:click.prevent="toastTopEnd" class="btn btn-primary btn-sm">$105.67</button>
             </div>
         </div>
         <div class="flex-grid tricker-cont">
@@ -105,16 +105,7 @@ export default {
     name: 'SearchResults',
     data: () => ({
       balls:true,
-      value: [
-        200,
-        675,
-        410,
-        390,
-        310,
-        460,
-        250,
-        240
-      ]
+      value: [200,675,410,390,310,460,250,240]
     }),
     methods: {
         success: function(){
@@ -130,7 +121,18 @@ export default {
                 title: 'Error!',
                 text: 'Oy vey!'
             });
-        }       
+        },
+        toastTopEnd() {
+            this.$swal({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                type: 'success',
+                title: 'Who am ?',
+                text: `I'm a pop-up!`
+            });
+        }
     }
 }
 </script>

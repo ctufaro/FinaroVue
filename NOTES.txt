@@ -8,3 +8,6 @@ Bootstrap Hexadecimal Colors:
 -Light (off-white): #FFFBFF
 -Dark (midnight): #313842
 -Link (almost white): #FFFBFF
+
+Sweet Alerts Github page:
+-https://github.com/avil13/vue-sweetalert2
