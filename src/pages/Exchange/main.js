@@ -1,13 +1,13 @@
 import Vue from 'vue'
-import './plugins/vuetify'
+import '../../plugins/vuetify'
 import VueSweetalert2 from 'vue-sweetalert2';
-import Home from './views/Home.vue'
-import router from './router'
+import vueHeadful from 'vue-headful';
+import App from './App.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueSweetalert2, {confirmButtonColor: '#0079FF'});
+Vue.component('vue-headful', vueHeadful);
 
 new Vue({
-  router,
-  render: h => h(Home)
+  render: h => h(App)
 }).$mount('#app')

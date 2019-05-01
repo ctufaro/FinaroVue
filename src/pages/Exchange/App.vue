@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper">
+        <vue-headful title="trndx Exchange" description=""/>
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -28,8 +29,8 @@
                 <li>
                     <a href="#">Buy stocks</a>
                 </li>                                                
-                <li>
-                    <router-link to="/about">Pending orders</router-link>
+                <li>                    
+                    <a href="#">Pending orders</a>
                 </li>
                 <li>
                     <a href="#">Insights</a>
@@ -107,7 +108,7 @@ export default {
     return{
         greeting: 'Hi Dick'
     }    
-  }
+  },
 }
 </script>
 
