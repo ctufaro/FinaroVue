@@ -5,7 +5,9 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <!--<i class="fas fa-feather-alt"></i>-->
-                <img src="@/assets/images/trndxlogo.png" style="width:120px;"/>
+                <a href='/'>
+                    <img src="@/assets/images/trndxlogo.png" style="width:120px;"/>
+                </a>
             </div>
 
             <ul class="list-unstyled components">

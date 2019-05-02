@@ -8,7 +8,7 @@ module.exports = {
       },
       'exchange': {
         entry: './src/pages/Exchange/main.js',
-        template: 'public/index.html',
+        template: 'public/exchange.html',
         title: 'Exchange Page!',
         chunks: [ 'chunk-vendors', 'chunk-common', 'exchange' ]
       }
