@@ -7,7 +7,7 @@
         <v-btn color="success"  v-on:click.prevent="domesomething()">Sign Up</v-btn>
       </div>
       <div class="main-content">
-        <img src="@/assets/images/trndxlogo.png"/>
+        <img src="@/assets/images/trndxmainlogo.png"/>
       </div>
     </span>
     <v-footer class="ftr">
