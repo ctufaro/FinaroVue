@@ -1,4 +1,4 @@
-.tricker-cont{
+.sr-container {
     border-bottom-width: .01em;
     border-bottom-color: rgb(214, 214, 214);
     border-bottom-style: solid;
@@ -6,8 +6,20 @@
     padding-bottom: 15px;
 }
 
+.r-row {
+    display: flex;
+}
 
-.tricker {
+.r-row div {
+    height:100%;
+}
+
+.r-row i{
+    padding:7px;
+    font-size:20px;
+}
+
+.tag {
     font-size: 20px;
 }
 
@@ -17,9 +29,4 @@
     margin-top:-5px;
 }
 
-.flex-grid {
-    display: flex;
-}
-.col {
-    flex: 1;
-}
+

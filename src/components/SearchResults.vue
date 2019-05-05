@@ -1,101 +1,31 @@
 <template>
     <div>
-        <div class="flex-grid tricker-cont">
-            <div class="col">
-                <div class="tricker">AAPL</div>
-                <div class="shares">120 SHARES</div>
+        <span v-for="trend in trends" :key="trend.id">
+            <div class="sr-container">
+                <div>
+                    <div class="tag">{{trend.name}}</div>                    
+                </div>
+                <div class="r-row">
+                    <div style="flex:70%;">
+                        <v-sparkline :value="trend.prices" color="#DE3442" line-width="3" padding="8"></v-sparkline> 
+                    </div>  
+                    <div style="flex:30%;">                 
+                        <button type="button" style="width:60px;" v-on:click.prevent="error" class="btn btn-danger btn-sm">{{trend.price}}</button>
+                    </div>
+                </div>
+                <div class="r-row">
+                    <div style="flex:70%;">
+                        <div class="shares">120 PEOPLE TRADING</div>
+                    </div>  
+                    <div style="flex:30%;">                 
+                        <div>
+                            <i class="far fa-bell"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>               
             </div>
-            <div class="col">
-            <v-sparkline :value="value" color="#0079FF" line-width="5" padding="16"></v-sparkline>
-            </div>
-            <div class="col">
-                <button type="button" v-on:click.prevent="success" class="btn btn-primary btn-sm">$105.67</button>
-            </div>
-        </div>
-        <div class="flex-grid tricker-cont">
-            <div class="col">
-                <div class="tricker">AAPL</div>
-                <div class="shares">120 SHARES</div>
-            </div>
-            <div class="col">
-                <v-sparkline :value="value" color="#DE3442" line-width="5" padding="16"></v-sparkline>
-            </div>
-            <div class="col">
-                <button type="button" v-on:click.prevent="error" class="btn btn-danger btn-sm">$105.67</button>
-            </div>
-        </div>
-        <div class="flex-grid tricker-cont">
-            <div class="col">
-                <div class="tricker">AAPL</div>
-                <div class="shares">120 SHARES</div>
-            </div>
-            <div class="col">
-                <v-sparkline :value="value" color="#0079FF" line-width="5" padding="16"></v-sparkline>
-            </div>
-            <div class="col">
-                <button type="button" v-on:click.prevent="toastTopEnd" class="btn btn-primary btn-sm">$105.67</button>
-            </div>
-        </div>
-        <div class="flex-grid tricker-cont">
-            <div class="col">
-                <div class="tricker">AAPL</div>
-                <div class="shares">120 SHARES</div>
-            </div>
-            <div class="col">
-                <v-sparkline :value="value" color="#DE3442" line-width="5" padding="16"></v-sparkline>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-danger btn-sm">$105.67</button>
-            </div>
-        </div>
-        <div class="flex-grid tricker-cont">
-            <div class="col">
-                <div class="tricker">AAPL</div>
-                <div class="shares">120 SHARES</div>
-            </div>
-            <div class="col">
-            <v-sparkline :value="value" color="#0079FF" line-width="5" padding="16"></v-sparkline>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-primary btn-sm">$105.67</button>
-            </div>
-        </div>
-        <div class="flex-grid tricker-cont">
-            <div class="col">
-                <div class="tricker">AAPL</div>
-                <div class="shares">120 SHARES</div>
-            </div>
-            <div class="col">
-                <v-sparkline :value="value" color="#DE3442" line-width="5" padding="16"></v-sparkline>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-danger btn-sm">$105.67</button>
-            </div>
-        </div>
-        <div class="flex-grid tricker-cont">
-            <div class="col">
-                <div class="tricker">AAPL</div>
-                <div class="shares">120 SHARES</div>
-            </div>
-            <div class="col">
-                <v-sparkline :value="value" color="#0079FF" line-width="5" padding="16"></v-sparkline>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-primary btn-sm">$105.67</button>
-            </div>
-        </div>
-        <div class="flex-grid tricker-cont">
-            <div class="col">
-                <div class="tricker">AAPL</div>
-                <div class="shares">120 SHARES</div>
-            </div>
-            <div class="col">
-                <v-sparkline :value="value" color="#DE3442" line-width="5" padding="16"></v-sparkline>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-danger btn-sm">$105.67</button>
-            </div>
-        </div>
+        </span>       
     </div>
 </template>
 
@@ -105,7 +35,9 @@ export default {
     name: 'SearchResults',
     data: () => ({
       balls:true,
-      value: [200,675,410,390,310,460,250,240]
+      //value: [200,675,410,390,310,460,250,240],
+      trends:[{key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$10.00'},
+              {key:2, name:"#thisisfuckingcorny",prices:[200,675,410,390,310,460,250,240],price:'$10.00'}]
     }),
     methods: {
         success: function(){
@@ -130,7 +62,7 @@ export default {
                 timer: 3000,
                 type: 'success',
                 title: 'Who am ?',
-                text: `I'm a pop-up!`
+                text: this.trends.price
             });
         }
     }

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <span>
-      <vue-headful title="trndx" description=""/>
+      <vue-headful title="trndx - own the trend" description=""/>
       <div class="menu">
         <v-btn color="info" href="/exchange.html">Visit Exchange</v-btn>
         <v-btn color="success"  v-on:click.prevent="domesomething()">Sign Up</v-btn>
