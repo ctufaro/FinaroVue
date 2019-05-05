@@ -7,7 +7,7 @@
                 </div>
                 <div class="r-row">
                     <div style="flex:60%;">
-                        <v-sparkline :value="trend.prices" color="#DE3442" line-width="5" padding="8"></v-sparkline> 
+                        <v-sparkline :value="trend.prices" color="#DE3442" line-width="4" padding="8"></v-sparkline> 
                     </div>  
                     <div style="flex:40%;">                 
                         <button type="button" style="width:95px;font-size:20px;" v-on:click.prevent="error" class="btn btn-danger btn-sm">{{trend.price}}</button>
@@ -37,7 +37,7 @@ export default {
       balls:true,
       //value: [200,675,410,390,310,460,250,240],
       trends:[{key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$1.00'},
-              {key:2, name:"#thisisfuckingcorny",prices:[200,675,410,390,310,460,250,240],price:'$1.00'}]
+              {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$1.00'}]
     }),
     methods: {
         success: function(){
