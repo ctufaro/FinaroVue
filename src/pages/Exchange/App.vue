@@ -52,12 +52,13 @@
 
         <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:7px 0px 7px 0px;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:7px 0px 1px 0px;">
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-primary">
                         <i class="fas fa-align-justify"></i>
                         <span>Toggle Sidebar</span>
                     </button>
+                    <img src="@/assets/images/trndxlogo-blue.png" style="width:35%"/>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
