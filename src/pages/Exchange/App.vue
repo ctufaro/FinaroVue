@@ -83,13 +83,8 @@
                 </div>
             </nav>
             <div class="row justify-content-center h-100" >
-                <div class="col-md-3 searchcolumn" style="padding-left:0px;padding-right:0px;">
-                    <div class="searchcolumn-header">
-                       <input class="form-control searchtext" type="text" placeholder="Search" aria-label="Search">
-                    </div>
-                    <div class="searchcolumn-table">
-                        <SearchResults/>
-                    </div>
+                <div class="col-md-3 searchcolumn" style="padding-left:0px;padding-right:0px;">                    
+                    <SearchResults/>
                 </div>
                 <div class="col-md-9 pricecolumn">
                    <div class="market">

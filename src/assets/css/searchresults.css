@@ -21,6 +21,7 @@
     padding-right:10px;
     padding-top:10px;
     font-size:24px;
+    color: #9FABB6;
 }
 
 .r-row button{
@@ -31,6 +32,13 @@
 
 .tag {
     font-size: 18px;
+    color:black;
+}
+
+.noresults {
+    font-size: 18px;
+    color:black;
+    padding-top:5px;
 }
 
 .shares{

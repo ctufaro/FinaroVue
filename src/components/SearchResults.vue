@@ -1,43 +1,56 @@
 <template>
-    <div>
-        <span v-for="trend in trends" :key="trend.id">
-            <div class="sr-container">
-                <div>
-                    <div class="tag">{{trend.name}}</div>                    
-                </div>
-                <div class="r-row">
+    <span>
+        <div class="searchcolumn-header">
+            <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search a tag" aria-label="Search">
+        </div>
+        <div class="searchcolumn-table">
+            <span v-for="trend in trends" :key="trend.id">
+                <div class="sr-container">
                     <div>
-                        <v-sparkline :value="trend.prices" :color="trend.color" line-width="4" :auto-draw="true" padding="8"></v-sparkline> 
-                    </div>  
-                    <div style="text-align: right;">                 
-                        <button type="button" v-on:click.prevent="error" class="btn btn-danger btn-sm">{{trend.price}}</button>
+                        <div class="tag">{{trend.name}}</div>                    
                     </div>
-                </div>
-                <div class="r-row">
-                    <div>
-                        <div class="shares">1200000</div>
-                    </div>  
-                    <div style="text-align: right;">                 
+                    <div class="r-row">
                         <div>
-                            <i class="far fa-bell"></i>
-                            <i class="far fa-star"></i>
+                            <!-- :auto-draw="true" :auto-draw-duration="1000" -->
+                            <v-sparkline :value="trend.prices" :color="trend.color" line-width="4" padding="8"></v-sparkline> 
+                        </div>  
+                        <div style="text-align: right;">                 
+                            <button type="button" v-on:click.prevent="rowSelect(trend)" :class="trend.class">{{trend.price}}</button>
                         </div>
                     </div>
-                </div>               
+                    <div class="r-row">
+                        <div>
+                            <div class="shares">1200000</div>
+                        </div>  
+                        <div style="text-align: right;">                 
+                            <div>
+                                <i class="far fa-bell"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+            <div class="noresults" :style="[this.trends.length>0 ? {'display':'none'} : {'display':'block'}]">
+                0 results found
             </div>
-        </span>       
-    </div>
+        </div>
+    </span>    
 </template>
 
 <script>
 
+const savedTrends=[ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$1.00',color:'#DE3442', class:'btn btn-danger btn-sm'},
+                    {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$1.00',color:'#0079FF', class:'btn btn-primary btn-sm' },
+                    {key:3, name:"#chrisisprettycool",prices:[1,2,3,4,50,600,7,100],price:'$1.00',color:'#0079FF', class:'btn btn-primary btn-sm' },
+                    {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$1.00',color:'#DE3442', class:'btn btn-danger btn-sm' },
+                  ];
+
 export default {
     name: 'SearchResults',
     data: () => ({
-      balls:true,
-      //value: [200,675,410,390,310,460,250,240],
-      trends:[{key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$1.00',color:'#DE3442'},
-              {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$1.00',color:'#0079FF'}]
+      searchTxt:'',
+      trends:savedTrends
     }),
     methods: {
         success: function(){
@@ -47,12 +60,14 @@ export default {
                 text: 'Excellent Work!'
             });
         },
+        rowSelect: function(trend){     
+            // eslint-disable-next-line       
+            console.log(trend.key);
+            // eslint-disable-next-line
+            console.log(this.searchTxt); 
+        },
         error: function(){
-                this.$swal({
-                type: 'error',
-                title: 'Error!',
-                text: 'Oy vey!'
-            });
+            this.$swal({type: 'error', title: 'Error!', text: 'Oy vey!'});            
         },
         toastTopEnd() {
             this.$swal({
@@ -64,8 +79,13 @@ export default {
                 title: 'Who am ?',
                 text: this.trends.price
             });
+        },
+    },
+    watch:{
+        searchTxt: function(val) {
+            this.trends = savedTrends.filter(w => w.name.trim().toLowerCase().startsWith('#'+val.trim().toLowerCase()));
         }
-    }
+    }    
 }
 </script>
 
