@@ -4,6 +4,7 @@ db.json
 *.log
 node_modules/
 dist/
+.vscode/
 .deploy*/
 src/_drafts
 package-lock.json

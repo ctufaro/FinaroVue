@@ -3,13 +3,20 @@
         <vue-headful title="trndx Exchange" description=""/>
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <a href='/'>
-                    <img src="@/assets/images/avatar.png" style="width:50px;"/>
-                </a>
-                <a href='/'>
-                    <img src="@/assets/images/trndxlogo.png" style="width:125px;padding-left:25px;"/>
-                </a>                
+            <div class="sidebar-header profile">
+                <div style="flex:40%;">
+                    <a href='/'>
+                        <img src="@/assets/images/avatar.png" style="width:65px;padding-left:5px;"/>
+                    </a>
+                </div>
+                <div style="flex:60%;">
+                    <a href='/' id="sidebar-logo">
+                        <img src="@/assets/images/trndxlogo-white.png" style="width:145px;padding-left:25px;"/>
+                    </a>
+                    <span class="profile-name">
+                        Christopher Tufaro
+                    </span>
+                </div>
             </div>
 
             <ul class="list-unstyled components">
@@ -56,7 +63,7 @@
                         <i class="fas fa-align-justify"></i>
                         <span>Toggle Sidebar</span>
                     </button>
-                    <img src="@/assets/images/trndxlogo-blue.png" style="width:45%"/>
+                    <img src="@/assets/images/trndxlogo-blue.png" style="width:40%"/>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
@@ -112,3 +119,27 @@ export default {
 
 
 <style src="@/assets/css/home.css"></style>
+
+<style scoped>
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-name{
+    font-size:16px;
+    float:right;
+}
+
+/*MOBILE*/
+@media (max-width: 768px) {
+  #sidebar-logo {
+    display:none;
+  }
+
+  .profile-name {
+    margin-top:18px;
+  }
+}
+</style>

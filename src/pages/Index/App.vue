@@ -40,6 +40,7 @@ img {
   width:20em;
 }
 
+/*MOBILE*/
 @media (max-width: 768px) {
   img {
     width:15em;

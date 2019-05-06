@@ -1,5 +1,0 @@
-{
-    "git.ignoreLimitWarning": true,
-    "appService.deploySubpath": "dist",
-    "appService.defaultWebAppToDeploy": "/subscriptions/46a5029a-e5ab-4308-b552-4a3c8ac976a2/resourceGroups/Finaro/providers/Microsoft.Web/sites/finarovue"
-}
