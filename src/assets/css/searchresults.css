@@ -2,8 +2,8 @@
     border-bottom-width: .01em;
     border-bottom-color: rgb(214, 214, 214);
     border-bottom-style: solid;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .r-row {
@@ -13,6 +13,7 @@
 
 .r-row div {
     height:100%;
+    flex:50%;
 }
 
 .r-row i{
@@ -22,8 +23,14 @@
     font-size:24px;
 }
 
+.r-row button{
+    width:95px;
+    font-size:20px;
+    margin-right:10px;
+}
+
 .tag {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .shares{

@@ -4,10 +4,12 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <!--<i class="fas fa-feather-alt"></i>-->
                 <a href='/'>
-                    <img src="@/assets/images/trndxlogo.png" style="width:120px;"/>
+                    <img src="@/assets/images/avatar.png" style="width:50px;"/>
                 </a>
+                <a href='/'>
+                    <img src="@/assets/images/trndxlogo.png" style="width:125px;padding-left:25px;"/>
+                </a>                
             </div>
 
             <ul class="list-unstyled components">
@@ -44,10 +46,6 @@
                     <a href="#">History</a>
                 </li>                                                                                                
             </ul>
-
-            <!--<div class="fixed-bottom" style="padding-left:40px;padding-bottom:40px;">
-                <img alt="Avatar" class="avatar" src="@/assets/images/avatar.png">
-            </div>-->
         </nav>
 
         <!-- Page Content  -->
@@ -58,7 +56,7 @@
                         <i class="fas fa-align-justify"></i>
                         <span>Toggle Sidebar</span>
                     </button>
-                    <img src="@/assets/images/trndxlogo-blue.png" style="width:35%"/>
+                    <img src="@/assets/images/trndxlogo-blue.png" style="width:45%"/>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">

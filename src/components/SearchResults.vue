@@ -6,18 +6,18 @@
                     <div class="tag">{{trend.name}}</div>                    
                 </div>
                 <div class="r-row">
-                    <div style="flex:60%;">
-                        <v-sparkline :value="trend.prices" color="#DE3442" line-width="4" padding="8"></v-sparkline> 
+                    <div>
+                        <v-sparkline :value="trend.prices" :color="trend.color" line-width="4" :auto-draw="true" padding="8"></v-sparkline> 
                     </div>  
-                    <div style="flex:40%;">                 
-                        <button type="button" style="width:95px;font-size:20px;" v-on:click.prevent="error" class="btn btn-danger btn-sm">{{trend.price}}</button>
+                    <div style="text-align: right;">                 
+                        <button type="button" v-on:click.prevent="error" class="btn btn-danger btn-sm">{{trend.price}}</button>
                     </div>
                 </div>
                 <div class="r-row">
-                    <div style="flex:50%;">
+                    <div>
                         <div class="shares">1200000</div>
                     </div>  
-                    <div style="flex:50%;text-align: right;">                 
+                    <div style="text-align: right;">                 
                         <div>
                             <i class="far fa-bell"></i>
                             <i class="far fa-star"></i>
@@ -36,8 +36,8 @@ export default {
     data: () => ({
       balls:true,
       //value: [200,675,410,390,310,460,250,240],
-      trends:[{key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$1.00'},
-              {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$1.00'}]
+      trends:[{key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$1.00',color:'#DE3442'},
+              {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$1.00',color:'#0079FF'}]
     }),
     methods: {
         success: function(){
