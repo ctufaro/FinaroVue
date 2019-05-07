@@ -1,7 +1,7 @@
 <template>
     <span>
         <div class="searchcolumn-header">
-            <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search a tag" aria-label="Search">
+            <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search a trend" aria-label="Search">
         </div>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.id">
@@ -40,10 +40,10 @@
 
 <script>
 
-const savedTrends=[ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$1.00',color:'#DE3442', class:'btn btn-danger btn-sm'},
-                    {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$1.00',color:'#0079FF', class:'btn btn-primary btn-sm' },
-                    {key:3, name:"#chrisisprettycool",prices:[1,2,3,4,50,600,7,100],price:'$1.00',color:'#0079FF', class:'btn btn-primary btn-sm' },
-                    {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$1.00',color:'#DE3442', class:'btn btn-danger btn-sm' },
+const savedTrends=[ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$227.00',color:'#DE3442', class:'btn btn-danger btn-sm'},
+                    {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$13.00',color:'#0079FF', class:'btn btn-primary btn-sm' },
+                    {key:3, name:"#chrisisprettycool",prices:[1,2,3,4,50,600,7,100],price:'$1.50',color:'#0079FF', class:'btn btn-primary btn-sm' },
+                    {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$56.00',color:'#DE3442', class:'btn btn-danger btn-sm' },
                   ];
 
 export default {
@@ -60,11 +60,8 @@ export default {
                 text: 'Excellent Work!'
             });
         },
-        rowSelect: function(trend){     
-            // eslint-disable-next-line       
-            console.log(trend.key);
-            // eslint-disable-next-line
-            console.log(this.searchTxt); 
+        rowSelect: function(trend){
+            this.$emit('trendClick', trend);
         },
         error: function(){
             this.$swal({type: 'error', title: 'Error!', text: 'Oy vey!'});            

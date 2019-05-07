@@ -1,0 +1,51 @@
+/*view-source:https://fiddle.jshell.net/yuyokk/sad7yv2p/3/show/light/*/
+
+@media (max-width: 767px) {
+    .overflow-hidden-xs {
+      overflow: hidden;
+    }
+  }
+  
+  .sidebar-offcanvas {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  
+    width: 30%;
+    height: 100%;
+    padding: 10px 15px 15px 15px;
+
+  
+    overflow-y: auto;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+  
+  @media (max-width: 767px) {
+    .sidebar-offcanvas {
+      right: -100%;
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .sidebar-offcanvas {
+      right: -30%;
+      width: 30%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .sidebar-offcanvas {
+      right: -40%;
+      width: 40%;
+    }
+  }
+  
+  .slide-in {
+    right: 0;
+  }
+  
+  /* styles for a close sliding menu window button X */
+  

@@ -13,9 +13,6 @@
                     <a href='/' id="sidebar-logo">
                         <img src="@/assets/images/trndxlogo-white.png" style="width:145px;padding-left:25px;"/>
                     </a>
-                    <span class="profile-name">
-                        Christopher Tufaro
-                    </span>
                 </div>
             </div>
 
@@ -83,13 +80,13 @@
                 </div>
             </nav>
             <div class="row justify-content-center h-100" >
-                <div class="col-md-3 searchcolumn" style="padding-left:0px;padding-right:0px;">                    
-                    <SearchResults/>
+                <!-- Search Results  -->
+                <div class="col-md-3 searchcolumn">                    
+                    <SearchResults @trendClick="trendClicked"/>
                 </div>
-                <div class="col-md-9 pricecolumn">
-                   <div class="market">
-                        <div class="price">$227.75</div>                        
-                   </div>
+                <!-- Main Pane  -->
+                <div class="col-md-9 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
+                    <TrendPane @close="slideIn=false" :selTrend="selectedTrend"/>
                 </div>
              </div>
         </div>
@@ -98,43 +95,41 @@
 
 <script>
 import SearchResults from '@/components/SearchResults.vue'
+import TrendPane from '@/components/TrendPane.vue'
 
 export default {
   name: 'Home',
   components: {
-    SearchResults
+    SearchResults,
+    TrendPane
+  },
+  props: {
   },
   data() {
-    return{
-        greeting: 'Hi Dick'
+    return {
+        sidebarOffCanvas:false,
+        slideIn:false,
+        selectedTrend: {name:'', price:''}
     }    
   },
+  methods: {
+      isMobile: function() {
+          return window.matchMedia("only screen and (max-width: 768px)").matches;
+      },
+      trendClicked: function(trend){
+        this.selectedTrend.name = trend.name;
+        this.selectedTrend.price = trend.price;
+        if (this.isMobile()){
+            this.slideIn = true;         
+        }        
+      }
+  },
+  created(){
+    if (this.isMobile()) this.sidebarOffCanvas = true;
+  }
 }
 </script>
 
-
-<style src="@/assets/css/home.css"></style>
-
-<style scoped>
-
-.profile{
-    display: flex;
-    justify-content: space-between;
-}
-
-.profile-name{
-    font-size:16px;
-    float:right;
-}
-
-/*MOBILE*/
-@media (max-width: 768px) {
-  #sidebar-logo {
-    display:none;
-  }
-
-  .profile-name {
-    margin-top:18px;
-  }
-}
-</style>
+<style src="@/assets/css/exchange-template.css"></style>
+<style scoped src="@/assets/css/pane-slide.css"></style>
+<style scoped src="@/assets/css/exchange.css"></style>

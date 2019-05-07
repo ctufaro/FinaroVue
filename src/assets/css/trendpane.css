@@ -1,0 +1,24 @@
+.close {
+    font-size: 40px;
+    margin-left: 10px;
+    display:none;
+}
+
+/*MOBILE*/
+@media (max-width: 768px) {
+    .close {
+        display:block;
+    }
+}
+
+.trnd-txt{
+    font-size: 15px; 
+    margin-top:-10px;
+}
+
+.trnd-price{
+    padding-top: 15;
+    font-size: 30px; 
+    
+}
+

@@ -1,0 +1,17 @@
+.profile{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchcolumn{
+    padding-left:0px;
+    padding-right:0px;
+}
+
+/*MOBILE*/
+@media (max-width: 768px) {
+  #sidebar-logo {
+    display:none;
+  }
+}
+
