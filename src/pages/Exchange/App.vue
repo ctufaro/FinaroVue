@@ -86,7 +86,7 @@
                 </div>
                 <!-- Main Pane  -->
                 <div class="col-md-9 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
-                    <TrendPane @close="slideIn=false" :selTrend="selectedTrend"/>
+                    <TrendPane @close="slideIn=false" />
                 </div>
              </div>
         </div>
@@ -105,20 +105,15 @@ export default {
   },
   props: {
   },
-  data() {
-    return {
-        sidebarOffCanvas:false,
-        slideIn:false,
-        selectedTrend: {name:'', price:''}
-    }    
-  },
+  data: () => ({
+    sidebarOffCanvas:false,
+    slideIn:false,
+  }),  
   methods: {
       isMobile: function() {
           return window.matchMedia("only screen and (max-width: 768px)").matches;
       },
       trendClicked: function(trend){
-        this.selectedTrend.name = trend.name;
-        this.selectedTrend.price = trend.price;
         if (this.isMobile()){
             this.slideIn = true;         
         }        

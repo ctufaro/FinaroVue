@@ -3,17 +3,13 @@
         <button type="button" class="close" v-on:click="$emit('close');">
             <span aria-hidden="true"><i class="fas fa-times"></i></span>
         </button>
-        <div class="trnd-price">{{this.selTrend.price}}</div>
-        <div class="trnd-txt">{{this.selTrend.name}}</div>                        
+        <router-view />                    
     </div>    
 </template>
 
 <script>
 export default {
-    name: 'TrendPane',
-    props: {
-        selTrend: Object
-    }
+    name: 'TrendPane'  
 }
 </script>
 

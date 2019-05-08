@@ -61,7 +61,8 @@ export default {
             });
         },
         rowSelect: function(trend){
-            this.$emit('trendClick', trend);
+            this.$emit('trendClick');
+            this.$router.push({ name: 'data', params: { id: '123' } });
         },
         error: function(){
             this.$swal({type: 'error', title: 'Error!', text: 'Oy vey!'});            
