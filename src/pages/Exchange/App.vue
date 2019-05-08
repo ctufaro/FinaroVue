@@ -103,17 +103,18 @@ export default {
     SearchResults,
     TrendPane
   },
-  props: {
-  },
   data: () => ({
     sidebarOffCanvas:false,
     slideIn:false,
+    selectedTrend:{name:null, price: null},
   }),  
   methods: {
       isMobile: function() {
           return window.matchMedia("only screen and (max-width: 768px)").matches;
       },
       trendClicked: function(trend){
+        this.selectedTrend.name = trend.name;
+        this.selectedTrend.price = trend.price;
         if (this.isMobile()){
             this.slideIn = true;         
         }        

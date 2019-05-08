@@ -61,7 +61,7 @@ export default {
             });
         },
         rowSelect: function(trend){
-            this.$emit('trendClick');
+            this.$emit('trendClick',trend);
             this.$router.push({ name: 'data', params: { id: '123' } });
         },
         error: function(){

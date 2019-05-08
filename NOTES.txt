@@ -11,3 +11,6 @@ Bootstrap Hexadecimal Colors:
 
 Sweet Alerts Github page:
 -https://github.com/avil13/vue-sweetalert2
+
+Links:
+-props https://flaviocopes.com/vue-props/
