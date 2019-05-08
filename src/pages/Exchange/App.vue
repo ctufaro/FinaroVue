@@ -2,7 +2,7 @@
     <div class="wrapper">
         <vue-headful title="trndx Exchange" description=""/>
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" :class="{ active: isActive }">
             <div class="sidebar-header profile">
                 <div style="flex:40%;">
                     <a href='/'>
@@ -56,11 +56,11 @@
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:7px 0px 1px 0px;">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary" @click="toggleSidebar">
                         <i class="fas fa-align-justify"></i>
                         <span>Toggle Sidebar</span>
                     </button>
-                    <img src="@/assets/images/trndxlogo-blue.png" style="width:40%"/>
+                    <img src="@/assets/images/trndxlogo-blue.png" style="width:30%"/>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
@@ -104,6 +104,7 @@ export default {
     TrendPane
   },
   data: () => ({
+    isActive:false,
     sidebarOffCanvas:false,
     slideIn:false,
     selectedTrend:{name:null, price: null},
@@ -118,6 +119,9 @@ export default {
         if (this.isMobile()){
             this.slideIn = true;         
         }        
+      },
+      toggleSidebar: function(){
+          this.isActive = !this.isActive;
       }
   },
   created(){
