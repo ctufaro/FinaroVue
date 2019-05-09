@@ -9,9 +9,9 @@
         </div>
         <div style="padding-top:64px;">
             <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary">Place Order</button>
+                <button type="button" class="btn btn-primary btn-lg">Place Order</button>
                 &nbsp;&nbsp;
-                <button type="button" class="btn btn-warning">Cancel</button>
+                <button type="button" class="btn btn-warning btn-lg">Cancel</button>
             </div>
         </div>
     </div>
