@@ -3,6 +3,10 @@
         <div class="searchcolumn-header">
             <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search a trend" aria-label="Search">
         </div>
+        <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-primary">Hot</button>
+            <button type="button" class="btn btn-outline-primary">Trending</button>
+        </div>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.id">
                 <div class="sr-container">

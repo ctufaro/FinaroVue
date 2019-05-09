@@ -1,9 +1,48 @@
+/* ---------------------------------------------------
+    SEARCH COLUMN STYLE
+----------------------------------------------------- */
+
+.searchcolumn{
+    background: #F4F7F9;
+}
+
+.searchcolumn .searchcolumn-header{
+    padding-top: 9px;
+    padding-bottom: 26px;
+    text-align: center;
+    color:#9FABB6 !important;
+    font-size:17px;
+    font-weight:500;
+    border-bottom-style: none;
+    max-height:72px;
+}
+
+.searchcolumn-table{
+    margin-left: 20px;
+}
+
+.searchtext{
+    font-size:30px;
+    border:none;
+    width:95%;
+    margin-left:7px;  
+}
+
 .sr-container {
     border-bottom-width: .01em;
     border-bottom-color: rgb(214, 214, 214);
     border-bottom-style: solid;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.searchcolumn-filters {
+    padding-top:7px;
+    padding-bottom: 7px;
+}
+
+.searchcolumn-filters .btn{
+    border-radius: 0;
 }
 
 .r-row {

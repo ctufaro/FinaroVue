@@ -1,0 +1,33 @@
+.order-form{
+    padding: 5px 0px 0px 0px;
+    color:#495057;
+
+}
+
+.order-entry-header{
+    font-size:20px;
+    padding-bottom:10px;
+}
+
+.text-line {
+    background-color: transparent;
+    outline: none;
+    outline-style: none;
+    outline-offset: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid rgb(112, 178, 253) 1px;
+    font-size: 40px;
+    text-align: right;
+    line-height:63px;
+}
+
+@media (max-width: 768px) {
+    .order-form{
+        width:100%    
+    }
+    .text-line {
+        width: calc(100%);
+    }
+}

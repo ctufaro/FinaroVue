@@ -174,39 +174,6 @@ a.article:hover {
 }
 
 /* ---------------------------------------------------
-    SEARCH COLUMN STYLE
------------------------------------------------------ */
-
-.searchcolumn{
-    background: #F4F7F9;
-}
-
-.searchcolumn .searchcolumn-header{
-    padding-top: 9px;
-    padding-bottom: 26px;
-    text-align: center;
-    color:#9FABB6 !important;
-    font-size:17px;
-    font-weight:500;
-    border-bottom-width: .01em;
-    border-bottom-color: rgb(214, 214, 214);
-    border-bottom-style: solid;
-    max-height:72px;
-}
-
-.searchcolumn-table{
-    margin-left: 20px;
-}
-
-.searchtext{
-    font-size:30px;
-    border:none;
-    width:95%;
-    margin-left:4px;
-}
-
-
-/* ---------------------------------------------------
     PRICE COLUMN STYLE
 ----------------------------------------------------- */
 
