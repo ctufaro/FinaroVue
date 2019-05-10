@@ -85,8 +85,11 @@
                     <SearchResults @trendClick="trendClicked"/>
                 </div>
                 <!-- Main Pane  -->
-                <div class="col-md-9 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
+                <div class="col-md-5 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
                     <TrendPane @close="slideIn=false" />
+                </div>
+                <div class="col-md-4 misccolumn">                    
+                    
                 </div>
              </div>
         </div>

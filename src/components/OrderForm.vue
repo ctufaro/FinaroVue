@@ -1,17 +1,18 @@
 <template>
-    <div class="order-form">
-        <div class="order-entry-header">Order Entry</div>
+    <div class="order-form">        
         <div>
-            <input type="text" class="text-line" maxlength="13"/>
+            <div class="line-title">Price</div>
+            <input type="text" class="text-line" maxlength="13" placeholder="$0.00"/>
         </div>
         <div>
-            <input type="text" class="text-line" maxlength="13"/>
+            <div class="line-title">Shares</div>
+            <input type="text" class="text-line" maxlength="13" placeholder="0"/>
         </div>
         <div style="padding-top:64px;">
             <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary btn-lg">Place Order</button>
+                <button type="button" class="btn btn-primary">Place Order</button>
                 &nbsp;&nbsp;
-                <button type="button" class="btn btn-warning btn-lg">Cancel</button>
+                <button type="button" class="btn btn-warning">Cancel</button>
             </div>
         </div>
     </div>

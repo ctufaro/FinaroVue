@@ -1,12 +1,10 @@
 .order-form{
-    padding: 5px 0px 0px 0px;
+    padding: 50px 0px 0px 0px;
     color:#495057;
-
 }
 
-.order-entry-header{
-    font-size:20px;
-    padding-bottom:10px;
+.line-title{
+    margin-top:5px;
 }
 
 .text-line {

@@ -1,13 +1,19 @@
-.close {
-    font-size: 40px;
-    margin-left: 10px;
+.back-chevron {
+    font-size: 20px;
     display:none;
+}
+
+.page-name{
+    font-size:20px;
 }
 
 /*MOBILE*/
 @media (max-width: 768px) {
-    .close {
+    .back-chevron {
         display:block;
+    }
+    .page-name{
+        margin-left:calc(30%);        
     }
 }
 

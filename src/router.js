@@ -9,12 +9,12 @@ export default new Router({
   routes: [
     {
       path: '/data',
-      name: 'data',
+      name: 'Trend Data',
       component: TrendData
     },
     {
       path: '/order',
-      name: 'order',
+      name: 'Order Form',
       component: OrderForm
     }
     //,        
