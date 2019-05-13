@@ -1,5 +1,16 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
 .order-form{
-    padding: 50px 0px 0px 0px;
+    padding: 30px 0px 0px 0px;
     color:#495057;
 }
 
@@ -21,11 +32,24 @@
     line-height:63px;
 }
 
+.three-border {
+    border-top: solid rgb(112, 178, 253) 1px;
+    border-right: solid rgb(112, 178, 253) 1px;
+    border-left: solid rgb(112, 178, 253) 1px;
+}
+
+/*text line widths*/
+.tlw-price{width: calc(90%);}
+.tlw-decimal{width: calc(2%);}
+.tlw-cents{width: calc(8%);}
+
 @media (max-width: 768px) {
     .order-form{
         width:100%    
     }
-    .text-line {
-        width: calc(100%);
-    }
+    .tlw-price{width: calc(80%);}
+    .tlw-decimal{width: calc(4%);}
+    .tlw-cents{width: calc(16%);}
 }
+
+/*helpers*/
