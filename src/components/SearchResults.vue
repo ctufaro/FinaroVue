@@ -66,7 +66,7 @@ export default {
         },
         rowSelect: function(trend){
             this.$emit('trendClick',trend);
-            this.$router.push({ name: 'Trend Data', params: { id: '123' } });
+            this.$router.push({ name: 'Trend Data'});
         },
         error: function(){
             this.$swal({type: 'error', title: 'Error!', text: 'Oy vey!'});            

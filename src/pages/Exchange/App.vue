@@ -110,7 +110,7 @@ export default {
     isActive:false,
     sidebarOffCanvas:false,
     slideIn:false,
-    selectedTrend:{name:null, price: null},
+    selectedTrend:{name:null, price: null, prices:[0,0,0,0], color:null},
   }),  
   methods: {
       isMobile: function() {
@@ -119,6 +119,8 @@ export default {
       trendClicked: function(trend){
         this.selectedTrend.name = trend.name;
         this.selectedTrend.price = trend.price;
+        this.selectedTrend.prices = trend.prices;
+        this.selectedTrend.color = trend.color;
         if (this.isMobile()){
             this.slideIn = true;         
         }        
