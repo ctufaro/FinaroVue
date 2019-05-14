@@ -3,28 +3,29 @@
     display:none;
 }
 
-.page-name{
-    font-size:20px;
-}
-
 /*MOBILE*/
 @media (max-width: 768px) {
     .back-chevron {
         display:block;
     }
-    .page-name{
-        margin-left:calc(30%);        
-    }
 }
 
 .trnd-txt{
-    font-size: 15px; 
-    margin-top:-10px;
+    font-size: 18px; 
+    text-align: center;
 }
 
 .trnd-price{
     padding-top: 15;
-    font-size: 30px; 
-    
+    font-size: 35px; 
+    text-align: center;
+}
+
+.stats{
+    padding-top: 15px; 
+}
+
+.stats .stats-header{
+    font-size: 28px;
 }
 

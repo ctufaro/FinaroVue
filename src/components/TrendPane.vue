@@ -4,7 +4,7 @@
             <button type="button" class="back-chevron" v-on:click="$emit('close');">
                 <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>                
             </button> 
-            <span class="page-name">{{this.$route.name}}</span>           
+            <slot name="header"></slot>        
         </div>
         <router-view />                    
     </div>    
