@@ -1,8 +1,8 @@
 Bootstrap Hexadecimal Colors:
--Primary (blue): #0079FF
+-Primary (blue): #0079FF / #4da0ff 65% sparkline
 -Secondary (gray): #6B757B
 -Success (green): #29A642
--Danger (red): #DE3442
+-Danger (red): #DE3442 / #e66570 65% sparkline
 -Warning (yellow): #FFC300
 -Info (light blue) :#10A2BD
 -Light (off-white): #FFFBFF

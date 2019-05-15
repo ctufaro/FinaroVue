@@ -6,7 +6,7 @@
             <div class="sidebar-header profile">
                 <div style="flex:40%;">
                     <a href='/'>
-                        <img src="@/assets/images/avatar.png" style="width:65px;padding-left:5px;"/>
+                        <img src="@/assets/images/avatar-chris.gif" style="width:65px;padding-left:5px;"/>
                     </a>
                 </div>
                 <div style="flex:60%;">
@@ -86,7 +86,7 @@
                 </div>
                 <!-- Main Pane  -->
                 <div class="col-md-5 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
-                    <TrendPane @close="slideIn=false" />
+                    <TrendPane @goback="slideIn=false" />
                 </div>
                 <div class="col-md-4 misccolumn">                    
                     

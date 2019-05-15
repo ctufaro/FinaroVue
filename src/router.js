@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import TrendData from './components/TrendData.vue'
 import OrderForm from './components/OrderForm.vue'
+import SevenDay from './components/SevenDay.vue'
+import TweetCloud from './components/TweetCloud.vue'
+import Hot from './components/Hot.vue'
 
 Vue.use(Router)
 
@@ -10,7 +13,22 @@ export default new Router({
     {
       path: '/data',
       name: 'Trend Data',
-      component: TrendData
+      component: TrendData,
+      children: [
+        { 
+          name:'Seven Day',
+          path: '/sevenday',
+          component: SevenDay
+        },
+        {
+          path: '/tweetcloud',
+          component: TweetCloud
+        },
+        {
+          path: '/hot',
+          component: Hot
+        }        
+      ]
     },
     {
       path: '/order',

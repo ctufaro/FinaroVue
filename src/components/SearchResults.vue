@@ -16,7 +16,7 @@
                     <div class="r-row">
                         <div>
                             <!-- :auto-draw="true" :auto-draw-duration="1000" -->
-                            <v-sparkline :value="trend.prices" :color="trend.color" line-width="4" padding="8"></v-sparkline> 
+                            <v-sparkline :value="trend.prices" :color="trend.color" line-width="4" padding="8" :fill="true" :gradient="trend.gradient" ></v-sparkline> 
                         </div>  
                         <div style="text-align: right;">                 
                             <button type="button" v-on:click.prevent="rowSelect(trend)" :class="trend.class">{{trend.price}}</button>
@@ -44,10 +44,10 @@
 
 <script>
 
-const savedTrends=[ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$227.00',color:'#DE3442', class:'btn btn-danger btn-sm'},
-                    {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$13.00',color:'#0079FF', class:'btn btn-primary btn-sm' },
-                    {key:3, name:"#chrisisprettycool",prices:[1,2,3,4,50,600,7,100],price:'$1.50',color:'#0079FF', class:'btn btn-primary btn-sm' },
-                    {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$56.00',color:'#DE3442', class:'btn btn-danger btn-sm' },
+const savedTrends=[ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$227.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570']},
+                    {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$13.00',color:'#0079FF', class:'btn btn-primary btn-sm', gradient:['#0079FF','#4da0ff'] },
+                    {key:3, name:"#chrisisprettycool",prices:[1,2,3,4,50,600,7,100],price:'$1.50',color:'#0079FF', class:'btn btn-primary btn-sm', gradient:['#0079FF','#4da0ff'] },
+                    {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$56.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570'] },
                   ];
 
 export default {
@@ -66,7 +66,7 @@ export default {
         },
         rowSelect: function(trend){
             this.$emit('trendClick',trend);
-            this.$router.push({ name: 'Trend Data'});
+            this.$router.push({ name: 'Seven Day'});
         },
         error: function(){
             this.$swal({type: 'error', title: 'Error!', text: 'Oy vey!'});            
