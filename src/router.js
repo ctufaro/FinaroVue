@@ -8,6 +8,7 @@ import Hot from './components/Hot.vue'
 
 Vue.use(Router)
 
+//DONT CHANGE ROUTE NAMES
 export default new Router({
   routes: [
     {

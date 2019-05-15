@@ -86,7 +86,7 @@
                 </div>
                 <!-- Main Pane  -->
                 <div class="col-md-5 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
-                    <TrendPane @goback="slideIn=false" />
+                    <TrendPane @goback="goBack" />
                 </div>
                 <div class="col-md-4 misccolumn">                    
                     
@@ -127,6 +127,13 @@ export default {
       },
       toggleSidebar: function(){
           this.isActive = !this.isActive;
+      },
+      goBack:function(){
+          if(this.$route.name === 'Order Form'){
+            this.$router.go(-1)
+          } else {
+            this.slideIn=false
+          }          
       }
   },
   created(){
