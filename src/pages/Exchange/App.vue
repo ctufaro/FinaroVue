@@ -56,8 +56,8 @@
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:7px 0px 1px 0px;">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-primary" @click="toggleSidebar">
-                        <i class="fas fa-align-justify"></i>
+                    <button type="button" id="sidebarCollapse" class="hamburger" @click="toggleSidebar">
+                        <i class="fas fa-bars"></i>
                         <span>Toggle Sidebar</span>
                     </button>
                     <img src="@/assets/images/trndxlogo-blue.png" style="width:30%"/>

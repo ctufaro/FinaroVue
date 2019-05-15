@@ -8,6 +8,11 @@
     padding-right:0px;
 }
 
+.hamburger{
+  color:#0079FF;
+  font-size:25px;
+}
+
 /*MOBILE*/
 @media (max-width: 768px) {
   #sidebar-logo {
