@@ -29,3 +29,8 @@
     font-size: 28px;
 }
 
+/*HELPERS*/
+
+.btn-rnd{
+    border-radius: .2rem !important;
+}

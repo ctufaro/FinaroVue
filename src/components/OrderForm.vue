@@ -18,7 +18,7 @@
         </div>        
         <div style="padding-top:32px;">
             <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary">Place Order</button>
+                <button type="button" class="btn btn-primary btn-rnd">Place Order</button>
             </div>
         </div>
     </div>
