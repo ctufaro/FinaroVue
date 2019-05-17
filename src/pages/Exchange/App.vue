@@ -1,6 +1,13 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper">        
         <vue-headful title="trndx Exchange" description=""/>
+        <!-- Preloader -->
+        <div id="loader-wrapper" :style="[this.showLoader ? {'display':'block'} : {'display':'none'}]">             
+            <div id="loader">
+                <v-progress-circular :size="70" :width="7" color="#0079FF" indeterminate></v-progress-circular>
+            </div>
+        </div>
+
         <!-- Sidebar  -->
         <nav id="sidebar" :class="{ active: isActive }">
             <div class="sidebar-header profile">
@@ -108,6 +115,7 @@ export default {
   },
   data: () => ({
     isActive:false,
+    showLoader:false,
     sidebarOffCanvas:false,
     slideIn:false,
     selectedTrend:{name:null, price: null, prices:[0,0,0,0], color:null},
@@ -117,10 +125,10 @@ export default {
           return window.matchMedia("only screen and (max-width: 768px)").matches;
       },
       trendClicked: function(trend){
-        this.selectedTrend.name = trend.name;
-        this.selectedTrend.price = trend.price;
-        this.selectedTrend.prices = trend.prices;
-        this.selectedTrend.color = trend.color;
+        this.selectedTrend.name = trend.Name;
+        this.selectedTrend.price = trend.PriceText;
+        this.selectedTrend.prices = trend.Prices;
+        this.selectedTrend.color = trend.Color;
         if (this.isMobile()){
             this.slideIn = true;         
         }        
@@ -145,3 +153,4 @@ export default {
 <style src="@/assets/css/exchange-template.css"></style>
 <style scoped src="@/assets/css/pane-slide.css"></style>
 <style scoped src="@/assets/css/exchange.css"></style>
+
