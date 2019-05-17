@@ -24,12 +24,12 @@
                     </div>
                     <div class="r-row">
                         <div>
-                            <div class="shares">1200000</div>
+                            <div class="shares">{{trend.trendvol}}</div>
                         </div>  
                         <div style="text-align: right;">                 
                             <div>
-                                <i class="far fa-bell"></i>
-                                <i class="far fa-star"></i>
+                                <i :class="trend.notif ? 'fas fa-bell icn-fill' : 'far fa-bell'" @click="notifSelect(trend);"></i>
+                                <i :class="trend.fav ? 'fas fa-star icn-fill' : 'far fa-star'" @click="favSelect(trend);"></i>
                             </div>
                         </div>
                     </div>
@@ -44,10 +44,10 @@
 
 <script>
 
-const savedTrends=[ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$227.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570']},
-                    {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$13.00',color:'#0079FF', class:'btn btn-primary btn-sm', gradient:['#0079FF','#4da0ff'] },
-                    {key:3, name:"#chrisisprettycool",prices:[1,2,3,4,50,600,7,100],price:'$1.50',color:'#0079FF', class:'btn btn-primary btn-sm', gradient:['#0079FF','#4da0ff'] },
-                    {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$56.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570'] },
+const savedTrends=[ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$227.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570'], trendvol:1000, notif:false, fav:false},
+                    {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$13.00',color:'#0079FF', class:'btn btn-primary btn-sm', gradient:['#0079FF','#4da0ff'], trendvol:1234, notif:false, fav:false },
+                    {key:3, name:"#chrisisprettycool",prices:[1,2,3,4,50,600,7,100],price:'$1.50',color:'#0079FF', class:'btn btn-primary btn-sm', gradient:['#0079FF','#4da0ff'], trendvol:1122, notif:false , fav:false},
+                    {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$56.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570'], trendvol:2211, notif:false, fav:false },
                   ];
 
 export default {
@@ -68,6 +68,12 @@ export default {
             this.$emit('trendClick',trend);
             this.$router.push({ name: 'Seven Day'});
         },
+        notifSelect: function(trend){
+            trend.notif = !trend.notif;
+        }, 
+        favSelect: function(trend){
+            trend.fav = !trend.fav;
+        },                 
         error: function(){
             this.$swal({type: 'error', title: 'Error!', text: 'Oy vey!'});            
         },
