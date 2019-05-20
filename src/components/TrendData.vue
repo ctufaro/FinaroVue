@@ -9,7 +9,7 @@
         <div class="trnd-txt">{{this.name}}</div>
         <div class="trnd-price">{{this.price}}</div>        
         <div>
-            <router-view />            
+            <router-view name="trendviews"/>            
         </div>
         <div class="stats">
             <span class="stats-header">Stats</span>

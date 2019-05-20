@@ -5,7 +5,7 @@
                 <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>                
             </button>            
         </div>
-        <router-view />                    
+        <router-view name="thirdpane"/>                    
     </div>    
 </template>
 

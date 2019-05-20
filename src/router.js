@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import MyFeed from './components/MyFeed.vue'
+import SearchResults from './components/SearchResults.vue'
 import TrendData from './components/TrendData.vue'
 import OrderForm from './components/OrderForm.vue'
 import SevenDay from './components/SevenDay.vue'
@@ -12,29 +14,55 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'My Feed',
+      components: {
+        secondpane:MyFeed
+      }
+    },     
+    {
+      path: '/search',
+      name: 'Search',
+      components: {
+        secondpane:SearchResults
+      }
+    },    
+    {
       path: '/data',
       name: 'Trend Data',
-      component: TrendData,
+      components: {
+        secondpane:SearchResults,
+        thirdpane:TrendData
+      },
       children: [
         { 
           name:'Seven Day',
           path: '/sevenday',
-          component: SevenDay
+          components: {
+            trendviews:SevenDay
+          }
         },
         {
           path: '/tweetcloud',
-          component: TweetCloud
+          components: {
+            trendviews:TweetCloud
+          }
         },
         {
           path: '/hot',
-          component: Hot
+          components: {
+            trendviews:Hot
+          }
         }        
       ]
     },
     {
       path: '/order',
       name: 'Order Form',
-      component: OrderForm
+      components: {
+        secondpane:SearchResults,
+        thirdpane:OrderForm
+      }
     }
     //,        
     //{

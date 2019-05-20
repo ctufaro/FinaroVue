@@ -39,16 +39,16 @@
                     </ul>
                 </li>-->
                 <li>
+                    <router-link to="/" @click.native="toggleSidebar();">My Feed</router-link>
+                </li>                
+                <li>
                     <a href="#">My stocks <span class="float-right circle">22</span></a>                    
                 </li>
                 <li>
-                    <a href="#">Buy stocks</a>
+                    <router-link to="/search" @click.native="toggleSidebar();">Search Trends</router-link>
                 </li>                                                
                 <li>                    
                     <a href="#">Pending orders</a>
-                </li>
-                <li>
-                    <a href="#">Insights</a>
                 </li>
                 <li>
                     <a href="#">Settings</a>
@@ -89,7 +89,8 @@
             <div class="row justify-content-center h-100" >
                 <!-- Search Results  -->
                 <div class="col-md-3 searchcolumn">                    
-                    <SearchResults @trendClick="trendClicked"/>
+                    <!--<SearchResults @trendClick="trendClicked"/>-->
+                    <router-view name="secondpane" @trendClick="trendClicked"/>
                 </div>
                 <!-- Main Pane  -->
                 <div class="col-md-5 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
@@ -104,13 +105,11 @@
 </template>
 
 <script>
-import SearchResults from '@/components/SearchResults.vue'
 import TrendPane from '@/components/TrendPane.vue'
 
 export default {
   name: 'Home',
   components: {
-    SearchResults,
     TrendPane
   },
   data: () => ({
@@ -134,7 +133,9 @@ export default {
         }        
       },
       toggleSidebar: function(){
-          this.isActive = !this.isActive;
+          if (this.isMobile()){
+            this.isActive = !this.isActive;
+          }
       },
       goBack:function(){
           if(this.$route.name === 'Order Form'){
