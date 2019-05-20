@@ -1,7 +1,7 @@
 <template>
     <span>
         <div class="searchcolumn-header">
-            <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search a trend" aria-label="Search">
+            <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search.." aria-label="Search">
         </div>
         <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-outline-primary">Hot</button>

@@ -22,7 +22,7 @@ export default new Router({
     },     
     {
       path: '/search',
-      name: 'Search',
+      name: 'Trend Search',
       components: {
         secondpane:SearchResults
       }

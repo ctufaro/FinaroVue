@@ -67,7 +67,8 @@
                         <i class="fas fa-bars"></i>
                         <span>Toggle Sidebar</span>
                     </button>
-                    <img src="@/assets/images/trndxlogo-blue.png" style="width:30%"/>
+                    <!--<img src="@/assets/images/trndxlogo-blue.png" style="width:30%"/>-->
+                    <div class="page-title">{{this.$route.name}}</div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
@@ -88,7 +89,7 @@
             </nav>
             <div class="row justify-content-center h-100" >
                 <!-- Search Results  -->
-                <div class="col-md-3 searchcolumn">                    
+                <div class="col-md-3 searchcolumn">                 
                     <!--<SearchResults @trendClick="trendClicked"/>-->
                     <router-view name="secondpane" @trendClick="trendClicked"/>
                 </div>
@@ -141,7 +142,8 @@ export default {
           if(this.$route.name === 'Order Form'){
             this.$router.go(-1)
           } else {
-            this.slideIn=false
+            this.slideIn=false;
+            this.$router.push('search');
           }          
       }
   },
