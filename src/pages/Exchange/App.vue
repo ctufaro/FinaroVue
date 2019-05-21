@@ -39,23 +39,20 @@
                     </ul>
                 </li>-->
                 <li>
-                    <router-link to="/" @click.native="toggleSidebar();">My Feed</router-link>
+                    <router-link to="/" @click.native="toggleSidebar();">Community</router-link>
                 </li>                
                 <li>
-                    <a href="#">My stocks <span class="float-right circle">22</span></a>                    
-                </li>
+                    <a href="#">My Trends <span class="float-right circle">22</span></a>                    
+                </li>                            
                 <li>
                     <router-link to="/search" @click.native="toggleSidebar();">Search Trends</router-link>
-                </li>                                                
-                <li>                    
-                    <a href="#">Pending orders</a>
                 </li>
                 <li>
                     <a href="#">Settings</a>
-                </li>
+                </li>                  
                 <li>
-                    <a href="#">History</a>
-                </li>                                                                                                
+                    <a href="#">Wallet</a>
+                </li>                                                                                              
             </ul>
         </nav>
 
@@ -89,7 +86,7 @@
             </nav>
             <div class="row justify-content-center h-100" >
                 <!-- Search Results  -->
-                <div class="col-md-3 searchcolumn">                 
+                <div class="col-md-4 searchcolumn">                 
                     <!--<SearchResults @trendClick="trendClicked"/>-->
                     <router-view name="secondpane" @trendClick="trendClicked"/>
                 </div>
@@ -97,8 +94,7 @@
                 <div class="col-md-5 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
                     <TrendPane @goback="goBack" />
                 </div>
-                <div class="col-md-4 misccolumn">                    
-                    
+                <div class="col-md-3 misccolumn">                    
                 </div>
              </div>
         </div>

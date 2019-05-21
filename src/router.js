@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import MyFeed from './components/MyFeed.vue'
+import Community from './components/Community.vue'
 import SearchResults from './components/SearchResults.vue'
 import TrendData from './components/TrendData.vue'
 import OrderForm from './components/OrderForm.vue'
@@ -15,9 +15,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'My Feed',
+      name: 'Community',
       components: {
-        secondpane:MyFeed
+        secondpane:Community
       }
     },     
     {
