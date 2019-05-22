@@ -2,26 +2,32 @@
     <div style="padding-left:13px; padding-top:10px;">
     <div v-for="item in items" :key="item.Id">
         <div class="card" style="width:97%;">
-            <div class="card-body" style="padding:10px;">
+            <div class="card-body" style="padding:10px 10px 0px 10px;">
                 <div style="display:flex;padding-bottom:5px;">
                     <div style="font-size:20px;overflow: hidden;">
                         {{item.title}}                
                     </div>
+                    <!--
                     <div style="font-size:20px;margin-left:auto;padding-left:10px;">
-                        <button type="button" class="btn btn-outline-success" style="width: 75px;font-size: 14px; ">$125.50</button>               
-                    </div>                    
+                        <i class="far fa-thumbs-up"></i>             
+                    </div>
+                    -->
                 </div>
                 <div style="display:flex">
-                    <div><img src="@/assets/images/avatar-chris.gif" style="width:65px;padding-bottom:15px;"/></div>
-                    <div style="padding-left:10px;">
+                    <div><img src="@/assets/images/avatar-chris.gif" style="width:65px;padding-bottom:5px;"/></div>
+                    <div style="padding-left:10px;padding-bottom:8px;">
                         <div class="box1 sb6" style="line-height:20px;">{{item.text}}</div>
                     </div>
                 </div>
             </div>
             <div class="card-footer text-muted" style="background-color:#F5F5F5; border-top:0px !important;padding:0px 10px;display:flex">
-                <div style="padding-top:6px;">2 days ago</div>
-                <div style="font-size: 24px;color: #9FABB6;margin-left:auto;">
-                    <i class="far fa-thumbs-up"></i>
+                <div style="padding-top:10px;line-height:16px;">
+                    <strong>christufaro</strong><br>
+                    2 days ago
+                </div>
+                <!--<div style="font-size: 24px;color: #9FABB6;"><i class="far fa-thumbs-up"></i></div>-->
+                <div style="margin-left:auto;padding-bottom:10px;padding-top:10px;">
+                    <button type="button" class="btn btn-outline-primary" style="font-size: 14px; ">$125.50</button> 
                 </div>
             </div>
         </div>
@@ -49,7 +55,7 @@
           }
           ,
           {
-            title: '#storethatinyourass',
+            title: '#storethatinyourassandshit',
             text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."
           }
           ,
