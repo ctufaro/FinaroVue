@@ -68,18 +68,6 @@
   color: white;
   position: relative;
 }
-.sb6:before {
-  content: "";
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  border-left: 10px solid transparent;
-  border-right: 10px solid #4da0ff;
-  border-top: 10px solid #4da0ff;
-  border-bottom: 10px solid transparent;
-  left: -20px;
-  top: 8px;
-}
 
 .sb6:after {
   content: "";
@@ -90,7 +78,7 @@
   border-right: 7px solid #4da0ff;
   border-top: 7px solid #4da0ff;
   border-bottom: 7px solid transparent;
-  left: -14px;
+  left: -11px;
   top: 10px;
 }
 </style>

@@ -4,8 +4,8 @@
             <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search.." aria-label="Search">
         </div>
         <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-outline-primary">Hot</button>
-            <button type="button" class="btn btn-outline-primary">Trending</button>
+            <button type="button" class="btn btn-outline-primary">Trading</button>
+            <button type="button" class="btn btn-outline-primary">Popular</button>
         </div>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.Id">
@@ -35,8 +35,8 @@
                     </div>
                 </div>
             </span>
-            <div class="noresults" :style="[this.trends.length>0 ? {'display':'none'} : {'display':'block'}]">
-                0 results found
+            <div class="noresults" :style="[this.trends.length > 0 ? {'display':'none'} : {'display':'block'}]">
+                0 results found, click here to add &nbsp;&nbsp;<button type="button" class="btn btn-primary btn-circle btn-lg"><i class="fas fa-plus"></i></button>
             </div>
         </div>
     </span>    
@@ -69,7 +69,7 @@ export default {
         },
         rowSelect: function(trend){
             this.$emit('trendClick',trend);
-            this.$router.push({ name: 'Seven Day'});
+            this.$router.push({ name: 'Price Chart'});
         },
         notifSelect: function(trend){
             trend.Notify = !trend.Notify;

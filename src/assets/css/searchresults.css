@@ -75,10 +75,31 @@
 }
 
 .noresults {
-    font-size: 18px;
+    font-size: 16px;
     color:black;
     padding-top:5px;
+    text-align: center;
+    margin-right:15px;
 }
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    margin-bottom:5px;
+  }
+  .btn-circle.btn-lg {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+    padding-right:1px;
+  }
 
 .shares{
     font-size: 18px;

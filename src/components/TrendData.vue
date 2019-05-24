@@ -1,9 +1,9 @@
 <template>
     <div>
         <v-tabs fixed-tabs light slider-color="blue">
-            <v-tab to="/sevenday">7-Day</v-tab>
-            <v-tab to="/tweetcloud">Tweet Cloud</v-tab>
-            <v-tab to="/hot">Hot</v-tab>        
+            <v-tab to="/pricevol">Price Chart</v-tab>
+            <v-tab to="/tweetvol">Tweets</v-tab>
+            <!--<v-tab to="/hot">Hot</v-tab>-->
         </v-tabs>
         <br>
         <div class="trnd-txt">{{this.name}}</div>

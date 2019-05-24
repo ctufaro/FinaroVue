@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name:'SevenDay',
+    name:'PriceVol',
     computed: {
         prices: function () {            
             return this.$parent.$parent.$parent.selectedTrend.prices;

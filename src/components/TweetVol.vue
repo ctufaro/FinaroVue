@@ -1,6 +1,6 @@
 <template>
     <div>
-        Hot
+        Tweet Volume
     </div>
 </template>
 

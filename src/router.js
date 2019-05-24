@@ -4,9 +4,9 @@ import Community from './components/Community.vue'
 import SearchResults from './components/SearchResults.vue'
 import TrendData from './components/TrendData.vue'
 import OrderForm from './components/OrderForm.vue'
-import SevenDay from './components/SevenDay.vue'
-import TweetCloud from './components/TweetCloud.vue'
-import Hot from './components/Hot.vue'
+import PriceVol from './components/PriceVol.vue'
+import TweetVol from './components/TweetVol.vue'
+
 
 Vue.use(Router)
 
@@ -36,24 +36,18 @@ export default new Router({
       },
       children: [
         { 
-          name:'Seven Day',
-          path: '/sevenday',
+          name:'Price Chart',
+          path: '/pricevol',
           components: {
-            trendviews:SevenDay
+            trendviews:PriceVol
           }
         },
         {
-          path: '/tweetcloud',
+          path: '/tweetvol',
           components: {
-            trendviews:TweetCloud
+            trendviews:TweetVol
           }
-        },
-        {
-          path: '/hot',
-          components: {
-            trendviews:Hot
-          }
-        }        
+        }
       ]
     },
     {
