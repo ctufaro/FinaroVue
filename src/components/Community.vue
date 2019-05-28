@@ -1,84 +1,81 @@
 <template>
     <div style="padding-left:13px; padding-top:10px;">
-    <div v-for="item in items" :key="item.Id">
-        <div class="card" style="width:97%;">
-            <div class="card-header" style="padding:2px 5px;font-size: 18px; background-color:#E8E8E8;">
-                <div style="float:right">
-                    $125.50
-                </div>
-            </div>
-            <div class="card-body" style="padding:3px 10px 0px 10px;">
-                <div style="display:flex;padding-bottom:5px;">
-                    <div style="font-size:20px;overflow: hidden;">
-                        {{item.title}}                
-                    </div>
-                </div>
-                <div style="display:flex">
-                    <div><img :src="item.avatar" style="width:65px;padding-bottom:3px;"/></div>
-                    <div style="padding-left:10px;padding-bottom:3px;">
-                        <strong>{{item.user}}</strong>
-                        <div class="box1 sb6" style="line-height:20px;">{{item.text}}</div>
-                    </div>
-                </div>
-                <div style="color:#6c757d!important;">
-                    2 days ago
-                </div>                
-            </div>
-            <div class="card-footer text-muted" style="background-color:#F5F5F5; border-top:0px !important;padding:0px 10px;display:flex">                
-                <div style="float:left; font-size: 24px; color: #9FABB6;padding-top:8px;">
-                    <i class="far fa-thumbs-up"></i><span style="font-size:16px">12</span>&nbsp;
-                    <i class="far fa-star"><span style="font-size:16px">22</span></i>
-                </div>
-                <div style="margin-left:auto;padding-bottom:15px;padding-top:8px;">
-                    <button type="button" :class="`btn btn-outline-`+item.class" style="font-size: 14px; ">{{item.btntext}}</button> 
-                </div>
-            </div>
+        <div class="btn-group w-100" style="width:97% !important; padding-bottom:3px;">
+            <button type="button" class="btn btn-outline-primary" :class="{ active: selected }" @click="filtertab('Feed')">Feed</button>
+            <button type="button" class="btn btn-outline-primary" @click="filtertab('Sellers')">Sellers</button>
+            <button type="button" class="btn btn-outline-primary" @click="filtertab('Buyers')">Buyers</button>
         </div>
-        <div class="divider" style="padding-top:15px;"/>
+        <div v-for="item in items" :key="item.Id">
+            <div class="card" style="width: 97%;">
+                <div class="card-body" style="padding-bottom: 10px;">
+                    <div style="display: flex; padding-bottom: 0px;">
+                        <div>
+                            <img :src="item.avatar" style="width: 65px;">
+                        </div>
+                        <div style="width: 100%; padding-left: 5px;">
+                            <div style="font-size: 24px; font-weight: 400; color: black;">
+                                {{item.title}}
+                            </div>
+                            <div style="margin-top: -8px;font-size: 16px;">                                
+                                <div style="color: #1C1C1C !important;" v-html="item.user" />                                                                 
+                            </div>
+                            <div style="margin-top: -5px;font-size: 14px;">
+                                <div style="color: #6B757B !important;">1 day ago</div>                                
+                            </div>                            
+                        </div>
+                    </div>
+                    <div style="float:right;margin-top:-10%;"><i class="fas fa-chevron-right"></i></div>
+                    <div style="display: flex; padding-bottom: 0px; padding-top: 5px;">
+                        <div style="float: left; font-size: 24px; color: #9CAAB5; width: 100%;">
+                            <i class="far fa-thumbs-up"></i><span style="font-size: 16px;">12</span>&nbsp;
+                            <i class="far fa-star"><span style="font-size: 16px;">22</span></i>
+                        </div>
+                        <div style="float: right; font-size: 24px !important;font-weight:400;" :class="`text-`+item.class">
+                            $1.25
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted" style="background-color: #F7F7F7; border-top: 0px !important; padding: 0px 10px;" :style="[item.type == 'Feed' ? {'display':'none'} : {'display':'block'}]">
+                    <div style="margin-left: auto; padding-bottom: 8px; padding-top: 8px;">
+                        <button type="button" :class="`btn btn-outline-`+item.class" style="font-size: 14px; width: 100%;">{{item.btntext}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="divider" style="padding-top:15px;"/>
         </div>
     </div>
 </template>
-
 <script>
   export default {
-    data () {
-      return {
+    data: () => ({
+        selected:true,
+        saveditems:[],        
         items: 
         [
-          {avatar:require(`@/assets/images/avatar-chris.gif`),user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#gameofthrones',text: "awesome series, well worth the price."},
-          {avatar:require(`@/assets/images/avatar-tx.gif`),user:'@anonymous',btntext:'BUY THIS TREND',class:'primary',title: '#SummerBBQ',text: "fucking garbage, buy my bags."},
-          {avatar:require(`@/assets/images/avatar-chris.gif`),user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#Iamstarving',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},          
-          {avatar:require(`@/assets/images/avatar-tx.gif`),user:'@anonymous',btntext:'BUY THIS TREND',class:'primary',title: '#storethatinyourassandshit',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},
-          {avatar:require(`@/assets/images/avatar-chris.gif`),user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#liveatthegarden',text: `dog with fleas`}                    
+          {avatar:require(`@/assets/images/avatar-chris.gif`),type:'Buyers',user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#newyorkyankees',text: "awesome series, well worth the price."},
+          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Sellers',user:'@katlyco',btntext:'BUY THIS TREND',class:'primary',title: '#mindhunter',text: "fucking garbage, buy my bags."},
+          {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Buyers',user:'@mickey',btntext:'SELL MY TREND',class:'danger',title: '#loldollz',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},          
+          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Sellers',user:'@teddyboom',btntext:'BUY THIS TREND',class:'primary',title: '#tonkatrucks',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},
+          {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Buyers',user:'@chacha',btntext:'SELL MY TREND',class:'danger',title: '#poopoodiaper',text: `dog with fleas`},
+          {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Feed',user:`@chacha <span class="badge badge-danger">sold</span>`,btntext:'SELL MY TREND',class:'danger',title: '#gameofthrones',text: ''},
+          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Feed',user:'@katlyco <span class="badge badge-primary">purchased</span>',btntext:'BUY THIS TREND',class:'primary',title: '#thebachelor',text: ''}
         ]
+    }),    
+    methods:{
+      filtertab(t){        
+        this.items = this.saveditems.filter(w => w.type == t);
+        this.selected = false;        
       }
+    },
+    created: function(){
+      this.saveditems = this.items;      
+    },
+    mounted: function(){      
+      this.items = this.saveditems.filter(w => w.type == 'Feed');      
     }
   }
 </script>
 
 <style>
-.box1 {  
-  border: 2px solid #4da0ff;
-  border-radius: .25rem;
-  padding: 5px;
-  background-color: #4da0ff;
-  text-align: left;
-  font-weight: 400;
-  font-size: 14px;
-  color: white;
-  position: relative;
-}
 
-.sb6:after {
-  content: "";
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  border-left: 7px solid transparent;
-  border-right: 7px solid #4da0ff;
-  border-top: 7px solid #4da0ff;
-  border-bottom: 7px solid transparent;
-  left: -11px;
-  top: 10px;
-}
 </style>
