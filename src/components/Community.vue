@@ -6,7 +6,7 @@
             <button type="button" class="btn btn-outline-primary" @click="filtertab('Buyers')">Buyers</button>
         </div>
         <div v-for="item in items" :key="item.Id">
-            <div class="card" style="width: 97%;">
+            <div class="card animate bounceIn" style="width: 97%;">
                 <div class="card-body" style="padding-bottom: 10px;">
                     <div style="display: flex; padding-bottom: 0px;">
                         <div>
@@ -58,7 +58,9 @@
           {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Sellers',user:'@teddyboom',btntext:'BUY THIS TREND',class:'primary',title: '#tonkatrucks',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},
           {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Buyers',user:'@chacha',btntext:'SELL MY TREND',class:'danger',title: '#poopoodiaper',text: `dog with fleas`},
           {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Feed',user:`@chacha <span class="badge badge-danger">sold</span>`,btntext:'SELL MY TREND',class:'danger',title: '#gameofthrones',text: ''},
-          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Feed',user:'@katlyco <span class="badge badge-primary">purchased</span>',btntext:'BUY THIS TREND',class:'primary',title: '#thebachelor',text: ''}
+          {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Feed',user:'@katlyco <span class="badge badge-primary">purchased</span>',btntext:'BUY THIS TREND',class:'primary',title: '#thebachelor',text: ''},
+          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Feed',user:'@katlyco <span class="badge badge-primary">purchased</span>',btntext:'BUY THIS TREND',class:'primary',title: '#cincodemayo',text: ''},
+          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Feed',user:'@katlyco <span class="badge badge-primary">purchased</span>',btntext:'BUY THIS TREND',class:'primary',title: '#fatherofthebride',text: ''}
         ]
     }),    
     methods:{
