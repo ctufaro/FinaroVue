@@ -1,12 +1,15 @@
 <template>
     <div>
-        Tweet Volume
+        <TweetVolChart/>
     </div>
 </template>
 
 <script>
-export default {
+import TweetVolChart from '@/components/TweetVolChart.vue'
 
+export default {
+    name:'TweetVol',
+    components: {TweetVolChart}
 }
 </script>
 
