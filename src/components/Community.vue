@@ -13,7 +13,8 @@
                             <img :src="item.avatar" style="width: 65px;">
                         </div>
                         <div style="width: 100%; padding-left: 5px;">
-                            <div style="font-size: 24px; font-weight: 400; color: black;">
+                            <span :class="`badge badge-`+item.class" style="font-size:14px;" :style="[item.type == 'Feed' ? {'display':'inline'} : {'display':'none'}]">{{item.text}}</span>
+                            <div style="font-size: 24px; font-weight: 400; color: black; margin-top: -5px;">
                                 {{item.title}}
                             </div>
                             <div style="margin-top: -8px;font-size: 16px;">                                
@@ -57,10 +58,10 @@
           {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Buyers',user:'@mickey',btntext:'SELL MY TREND',class:'danger',title: '#loldollz',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},          
           {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Sellers',user:'@teddyboom',btntext:'BUY THIS TREND',class:'primary',title: '#tonkatrucks',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},
           {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Buyers',user:'@chacha',btntext:'SELL MY TREND',class:'danger',title: '#poopoodiaper',text: `dog with fleas`},
-          {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Feed',user:`@chacha <span class="badge badge-danger">sold</span>`,btntext:'SELL MY TREND',class:'danger',title: '#gameofthrones',text: ''},
-          {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Feed',user:'@katlyco <span class="badge badge-primary">purchased</span>',btntext:'BUY THIS TREND',class:'primary',title: '#thebachelor',text: ''},
-          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Feed',user:'@katlyco <span class="badge badge-primary">purchased</span>',btntext:'BUY THIS TREND',class:'primary',title: '#cincodemayo',text: ''},
-          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Feed',user:'@katlyco <span class="badge badge-primary">purchased</span>',btntext:'BUY THIS TREND',class:'primary',title: '#fatherofthebride',text: ''}
+          {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Feed',user:`@chacha`,btntext:'SELL MY TREND',class:'danger',title: '#gameofthrones',text: 'sold'},
+          {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Feed',user:'@mickey',btntext:'BUY THIS TREND',class:'primary',title: '#thebachelor',text: 'purchased'},
+          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Feed',user:'@teddyboom',btntext:'BUY THIS TREND',class:'primary',title: '#cincodemayo',text: 'purchased'},
+          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Feed',user:'@katlyco',btntext:'BUY THIS TREND',class:'primary',title: '#fatherofthebride',text: 'purchased'}
         ]
     }),    
     methods:{
