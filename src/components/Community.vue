@@ -1,9 +1,9 @@
 <template>
     <div style="padding-left:13px; padding-top:10px;">
         <div class="btn-group w-100" style="width:97% !important; padding-bottom:3px;">
-            <button type="button" class="btn btn-outline-primary" :class="{ active: selected }" @click="filtertab('Feed')">Feed</button>
-            <button type="button" class="btn btn-outline-primary" @click="filtertab('Sellers')">Sellers</button>
-            <button type="button" class="btn btn-outline-primary" @click="filtertab('Buyers')">Buyers</button>
+            <button type="button" class="btn btn-outline-secondary" :class="{ active: selected }" @click="filtertab('Feed')">Feed</button>
+            <button type="button" class="btn btn-outline-secondary" @click="filtertab('Sellers')">Sellers</button>
+            <button type="button" class="btn btn-outline-secondary" @click="filtertab('Buyers')">Buyers</button>
         </div>
         <div v-for="item in items" :key="item.Id">
             <div class="card animate bounceIn" style="width: 97%;">
@@ -54,14 +54,14 @@
         items: 
         [
           {avatar:require(`@/assets/images/avatar-chris.gif`),type:'Buyers',user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#newyorkyankees',text: "awesome series, well worth the price."},
-          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Sellers',user:'@katlyco',btntext:'BUY THIS TREND',class:'primary',title: '#mindhunter',text: "fucking garbage, buy my bags."},
+          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Sellers',user:'@katlyco',btntext:'BUY THIS TREND',class:'success',title: '#mindhunter',text: "fucking garbage, buy my bags."},
           {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Buyers',user:'@mickey',btntext:'SELL MY TREND',class:'danger',title: '#loldollz',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},          
-          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Sellers',user:'@teddyboom',btntext:'BUY THIS TREND',class:'primary',title: '#tonkatrucks',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},
+          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Sellers',user:'@teddyboom',btntext:'BUY THIS TREND',class:'success',title: '#tonkatrucks',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},
           {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Buyers',user:'@chacha',btntext:'SELL MY TREND',class:'danger',title: '#poopoodiaper',text: `dog with fleas`},
           {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Feed',user:`@chacha`,btntext:'SELL MY TREND',class:'danger',title: '#gameofthrones',text: 'sold'},
-          {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Feed',user:'@mickey',btntext:'BUY THIS TREND',class:'primary',title: '#thebachelor',text: 'purchased'},
-          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Feed',user:'@teddyboom',btntext:'BUY THIS TREND',class:'primary',title: '#cincodemayo',text: 'purchased'},
-          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Feed',user:'@katlyco',btntext:'BUY THIS TREND',class:'primary',title: '#fatherofthebride',text: 'purchased'}
+          {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Feed',user:'@mickey',btntext:'BUY THIS TREND',class:'success',title: '#thebachelor',text: 'purchased'},
+          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Feed',user:'@teddyboom',btntext:'BUY THIS TREND',class:'success',title: '#cincodemayo',text: 'purchased'},
+          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Feed',user:'@katlyco',btntext:'BUY THIS TREND',class:'success',title: '#fatherofthebride',text: 'purchased'}
         ]
     }),    
     methods:{

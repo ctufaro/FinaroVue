@@ -9,15 +9,15 @@ export default {
       datasets: [
         {
           label: 'Data One',
-          backgroundColor: '#4da0ff',
+          backgroundColor: '#29D3A5',
           data: [{x:40,y:39,r:10}]
         },{
           label: 'Data Two',
-          backgroundColor: '#e66570',
+          backgroundColor: '#FF4D29',
           data: [{x:10,y:2,r:12}]
         }
       ]
-    }, {responsive: true, maintainAspectRatio: false})
+    }, {responsive: true, maintainAspectRatio: true})
 
   }
 }

@@ -26,16 +26,16 @@ input[type=number] {
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid rgb(112, 178, 253) 1px;
+    border-bottom: solid #29D3A5 1px;
     font-size: 40px;
     text-align: right;
     line-height:63px;
 }
 
 .three-border {
-    border-top: solid rgb(112, 178, 253) 1px;
-    border-right: solid rgb(112, 178, 253) 1px;
-    border-left: solid rgb(112, 178, 253) 1px;
+    border-top: solid #29D3A5 1px;
+    border-right: solid #29D3A5 1px;
+    border-left: solid #29D3A5 1px;
 }
 
 /*text line widths*/

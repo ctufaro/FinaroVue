@@ -1,0 +1,14 @@
+.stats{
+    width:75%;
+    display:none;
+}
+
+.stats hr{
+    border-top: 1px solid #6c757d;
+    margin-top:5px;
+}
+
+.stat-row-data{
+    color:black;
+    float:right;
+}

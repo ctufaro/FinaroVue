@@ -4,7 +4,7 @@
         <!-- Preloader -->
         <div id="loader-wrapper" :style="[this.showLoader ? {'display':'block'} : {'display':'none'}]">             
             <div id="loader">
-                <v-progress-circular :size="70" :width="7" color="#0079FF" indeterminate></v-progress-circular>
+                <v-progress-circular :size="70" :width="7" color="#29D3A5" indeterminate></v-progress-circular>
             </div>
         </div>
 
@@ -40,19 +40,20 @@
                 </li>-->
                 <li>
                     <router-link to="/" @click.native="toggleSidebar();">Community</router-link>
-                </li>                
+                </li>                          
+                <li>
+                    <router-link to="/search" @click.native="toggleSidebar();">Buy &amp; Sell Trends</router-link>
+                </li>
                 <li>
                     <a href="#">My Trends <span class="float-right circle">22</span></a>                    
-                </li>                            
-                <li>
-                    <router-link to="/search" @click.native="toggleSidebar();">Search Trends</router-link>
                 </li>
+                <li>
+                    <a href="#">Wallet</a>
+                </li>                 
                 <li>
                     <a href="#">Settings</a>
                 </li>                  
-                <li>
-                    <a href="#">Wallet</a>
-                </li>                                                                                              
+                                                                                             
             </ul>
         </nav>
 
@@ -60,12 +61,12 @@
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:7px 0px 1px 0px;">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="hamburger" @click="toggleSidebar">
+                    <button type="button" id="sidebarCollapse" class="hamburger text-secondary" @click="toggleSidebar">
                         <i class="fas fa-bars"></i>
                         <span>Toggle Sidebar</span>
                     </button>
                     <!--<img src="@/assets/images/trndxlogo-blue.png" style="width:30%"/>-->
-                    <div class="page-title">{{this.$route.name}}</div>
+                    <div class="page-title text-secondary">{{this.$route.name}}</div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
@@ -149,6 +150,7 @@ export default {
 }
 </script>
 
+<style src="@/assets/css/bootbuttons.css"></style>
 <style src="@/assets/css/exchange-template.css"></style>
 <style scoped src="@/assets/css/pane-slide.css"></style>
 <style scoped src="@/assets/css/exchange.css"></style>

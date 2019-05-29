@@ -4,19 +4,19 @@
             <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search.." aria-label="Search">
         </div>
         <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-outline-primary">Trading</button>
-            <button type="button" class="btn btn-outline-primary">Popular</button>
+            <button type="button" class="btn btn-outline-secondary">Trading</button>
+            <button type="button" class="btn btn-outline-secondary">Popular</button>
         </div>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.Id">
                 <div class="sr-container">
                     <div>
-                        <div class="tag">{{trend.Name}}</div>                    
+                        <div class="tag text-secondary">{{trend.Name}}</div>                    
                     </div>
                     <div class="r-row">
                         <div>
                             <!-- :auto-draw="true" :auto-draw-duration="1000" -->
-                            <v-sparkline :value="trend.Prices" :color="trend.Color" line-width="4" padding="8" :fill="true" :gradient="trend.Gradient" :smooth="true" ></v-sparkline> 
+                            <v-sparkline :value="trend.Prices" :color="trend.Color =='success' ? '#29D3A5' : '#FF4D29'" line-width="4" padding="2" :fill="false"  :smooth="false" ></v-sparkline> <!--:gradient="trend.Gradient"-->
                         </div>  
                         <div style="text-align: right;">                 
                             <button type="button" v-on:click.prevent="rowSelect(trend)" :class="trend.CSS">{{trend.PriceText}}</button>
@@ -36,7 +36,7 @@
                 </div>
             </span>
             <div class="noresults" :style="[this.trends.length > 0 ? {'display':'none'} : {'display':'block'}]">
-                0 results found, click here to add &nbsp;&nbsp;<button type="button" class="btn btn-primary btn-circle btn-lg"><i class="fas fa-plus"></i></button>
+                0 results found, click here to add &nbsp;&nbsp;<button type="button" class="btn btn-outline-success btn-circle btn-lg"><i class="fas fa-plus"></i></button>
             </div>
         </div>
     </span>    

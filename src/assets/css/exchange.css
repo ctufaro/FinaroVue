@@ -9,12 +9,10 @@
 }
 
 .hamburger{
-  color:#0079FF;
   font-size:25px;
 }
 
 .page-title{
-  color:#0079FF;
   font-size:20px;  
 }
 
@@ -50,4 +48,6 @@
     display:none;
   }
 }
+
+
 
