@@ -104,14 +104,16 @@ export default {
         }
     },
     created: function(){
-        this.$parent.showLoader = true;
+        let loader = this.$loading.show({loader: 'spinner', isFullPage:true, color:'#63C394',backgroundColor:'#000000',opacity:.5,zIndex: 999,});
         this.axios.get(`${this.$hostname}/api/trends`).then(response => {
             this.trends = response.data;
             this.savedTrends = this.trends;
+        }).then(()=>{
+            loader.hide();
         });
     },
     updated: function(){        
-        this.$parent.showLoader = false;
+        
     }
 }
 </script>

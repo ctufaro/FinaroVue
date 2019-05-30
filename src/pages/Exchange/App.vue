@@ -1,12 +1,6 @@
 <template>
     <div class="wrapper">        
         <vue-headful title="trndx Exchange" description=""/>
-        <!-- Preloader -->
-        <div id="loader-wrapper" :style="[this.showLoader ? {'display':'block'} : {'display':'none'}]">             
-            <div id="loader">
-                <v-progress-circular :size="70" :width="7" color="#63C394" indeterminate></v-progress-circular>
-            </div>
-        </div>
 
         <!-- Sidebar  -->
         <nav id="sidebar" :class="{ active: isActive }">
@@ -112,7 +106,6 @@ export default {
   },
   data: () => ({
     isActive:false,
-    showLoader:false,
     sidebarOffCanvas:false,
     slideIn:false,
     selectedTrend:{name:null, price: null, prices:[0,0,0,0], color:null},

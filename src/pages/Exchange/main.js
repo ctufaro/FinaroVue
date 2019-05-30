@@ -8,12 +8,15 @@ import router from '../../router.js';
 import VueMask from 'v-mask'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Loading from 'vue-loading-overlay';    
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 Vue.config.productionTip = false
 Vue.use(VueSweetalert2, {confirmButtonColor: '#0079FF'});
 Vue.use(VueRouter);
 Vue.use(VueMask);
 Vue.use(VueAxios, axios)
+Vue.use(Loading);
 Vue.component('vue-headful', vueHeadful);
 
 //Vue.prototype.$hostname = 'http://localhost:7071'
