@@ -7,7 +7,7 @@
         <v-btn outline color="white"  v-on:click.prevent="domesomething()">Sign Up</v-btn>
       </div>
       <div class="main-content animate bounceIn">
-        <img src="@/assets/images/trndxlogo-white.png" />
+        <img src="@/assets/images/trndxmainlogo-white.png" />
       </div>
     </span>
   </v-app>
