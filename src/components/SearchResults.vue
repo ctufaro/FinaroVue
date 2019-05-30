@@ -16,7 +16,7 @@
                     <div class="r-row">
                         <div>
                             <!-- :auto-draw="true" :auto-draw-duration="1000" -->
-                            <v-sparkline :value="trend.Prices" :color="trend.Color =='success' ? '#29D3A5' : '#FF4D29'" line-width="4" padding="2" :fill="false"  :smooth="false" ></v-sparkline> <!--:gradient="trend.Gradient"-->
+                            <v-sparkline :value="trend.Prices" :color="trend.Color =='success' ? '#63C394' : '#EF4139'" line-width="4" padding="1" :fill="false"  :smooth="true" ></v-sparkline> <!--:gradient="trend.Gradient"-->
                         </div>  
                         <div style="text-align: right;">                 
                             <button type="button" v-on:click.prevent="rowSelect(trend)" :class="trend.CSS">{{trend.PriceText}}</button>

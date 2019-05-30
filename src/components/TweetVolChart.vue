@@ -9,11 +9,11 @@ export default {
       datasets: [
         {
           label: 'Data One',
-          backgroundColor: '#29D3A5',
+          backgroundColor: '#63C394',
           data: [{x:40,y:39,r:10}]
         },{
           label: 'Data Two',
-          backgroundColor: '#FF4D29',
+          backgroundColor: '#EF4139',
           data: [{x:10,y:2,r:12}]
         }
       ]

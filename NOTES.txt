@@ -10,8 +10,9 @@ Bootstrap Hexadecimal Colors:
 -Link (almost white): #FFFBFF
 
 Robinhood
--Green : #29D3A5
--Red : #FF4D29
+-Green : #29D3A5 -> #63C394
+-Red : #FF4D29 -> #EF4139
+-Blue : #0065B5
 
 
 Sweet Alerts Github page:

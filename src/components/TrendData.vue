@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-tabs fixed-tabs light slider-color="#FF4D29">
+        <v-tabs fixed-tabs light slider-color="#EF4139">
             <v-tab to="/pricevol">Price Chart</v-tab>
             <v-tab to="/tweetvol">Tweets</v-tab>
             <!--<v-tab to="/hot">Hot</v-tab>-->

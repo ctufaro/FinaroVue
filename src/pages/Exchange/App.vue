@@ -4,7 +4,7 @@
         <!-- Preloader -->
         <div id="loader-wrapper" :style="[this.showLoader ? {'display':'block'} : {'display':'none'}]">             
             <div id="loader">
-                <v-progress-circular :size="70" :width="7" color="#29D3A5" indeterminate></v-progress-circular>
+                <v-progress-circular :size="70" :width="7" color="#63C394" indeterminate></v-progress-circular>
             </div>
         </div>
 
