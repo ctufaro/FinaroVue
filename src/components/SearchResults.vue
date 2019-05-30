@@ -104,7 +104,8 @@ export default {
         }
     },
     created: function(){
-        let loader = this.$loading.show({loader: 'spinner', isFullPage:true, color:'#63C394',backgroundColor:'#000000',opacity:.5,zIndex: 999,});
+        let loader = this.$loading.show({loader: 'spinner',height:128,width:128,isFullPage:true, color:'#63C394',backgroundColor:'#000000',opacity:.8});
+        
         this.axios.get(`${this.$hostname}/api/trends`).then(response => {
             this.trends = response.data;
             this.savedTrends = this.trends;

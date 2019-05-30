@@ -14,7 +14,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/community',
       name: 'Community',
       components: {
         secondpane:Community

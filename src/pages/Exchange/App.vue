@@ -33,7 +33,7 @@
                     </ul>
                 </li>-->
                 <li>
-                    <router-link to="/" @click.native="toggleSidebar();">Community</router-link>
+                    <router-link to="/community" @click.native="toggleSidebar();">Community</router-link>
                 </li>                          
                 <li>
                     <router-link to="/search" @click.native="toggleSidebar();">Buy &amp; Sell Trends</router-link>
