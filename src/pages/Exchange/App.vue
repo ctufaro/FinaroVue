@@ -36,7 +36,7 @@
                     <router-link to="/community" @click.native="toggleSidebar();">Community</router-link>
                 </li>                          
                 <li>
-                    <router-link to="/search" @click.native="toggleSidebar();">Buy &amp; Sell Trends</router-link>
+                    <router-link to="/search" @click.native="toggleSidebar();">Buy / Sell Trends</router-link>
                 </li>
                 <li>
                     <a href="#">My Trends <span class="float-right circle">22</span></a>                    
@@ -45,7 +45,7 @@
                     <a href="#">Wallet</a>
                 </li>                 
                 <li>
-                    <a href="#">Settings</a>
+                    <router-link to="/settings" @click.native="toggleSidebar();">Settings</router-link>
                 </li>                  
                                                                                              
             </ul>

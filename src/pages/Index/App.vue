@@ -3,7 +3,7 @@
     <span>
       <vue-headful title="trndx - own the trend" description=""/>
       <div class="menu">
-        <v-btn outline color="white" v-on:click.prevent="goTo('/exchange.html#/search')">Visit Exchange</v-btn>
+        <v-btn outline color="white" v-on:click="goTo('/exchange.html#/search', $event)">Visit Exchange</v-btn>
         <v-btn outline color="white"  v-on:click.prevent="domesomething()">Sign Up</v-btn>
       </div>
       <div class="main-content animate bounceIn">
@@ -23,8 +23,9 @@ export default {
         text: 'Excellent Work!'
       });      
     },
-    goTo:function(url){
-      window.location.href = url;
+    goTo:function(url, event){
+        event.preventDefault();
+        document.location.href = url;
     }
   }
 }

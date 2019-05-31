@@ -11,7 +11,7 @@
             <span v-for="trend in trends" :key="trend.Id">
                 <div class="sr-container">
                     <div>
-                        <div class="tag text-secondary">{{trend.Name}}</div>                    
+                        <div class="tag">{{trend.Name}}</div>                    
                     </div>
                     <div class="r-row">
                         <div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </span>
-            <div class="noresults" :style="[this.trends.length > 0 ? {'display':'none'} : {'display':'block'}]">
+            <div class="noresults" v-if="this.trends.length > 0">
                 0 results found, click here to add &nbsp;&nbsp;<button type="button" class="btn btn-outline-success btn-circle btn-lg"><i class="fas fa-plus"></i></button>
             </div>
         </div>
@@ -104,8 +104,7 @@ export default {
         }
     },
     created: function(){
-        let loader = this.$loading.show({loader: 'spinner',height:128,width:128,isFullPage:true, color:'#63C394',backgroundColor:'#000000',opacity:.8});
-        
+        let loader = this.$loading.show(this.$loadopts);        
         this.axios.get(`${this.$hostname}/api/trends`).then(response => {
             this.trends = response.data;
             this.savedTrends = this.trends;

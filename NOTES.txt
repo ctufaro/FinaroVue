@@ -21,3 +21,4 @@ Sweet Alerts Github page:
 Links:
 -props https://flaviocopes.com/vue-props/
 -speech bubble https://codingislove.com/css-speech-bubbles/
+-icons https://realfavicongenerator.net/

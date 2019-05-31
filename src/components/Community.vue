@@ -47,6 +47,7 @@
     </div>
 </template>
 <script>
+  let loader = null;
   export default {
     data: () => ({
         selected:true,
@@ -71,10 +72,14 @@
       }
     },
     created: function(){
-      this.saveditems = this.items;      
+      this.saveditems = this.items;           
     },
     mounted: function(){      
-      this.items = this.saveditems.filter(w => w.type == 'Feed');      
+      this.items = this.saveditems.filter(w => w.type == 'Feed');
+      loader = this.$loading.show(this.$loadopts);      
+    },
+    updated:function(){
+        loader.hide();
     }
   }
 </script>

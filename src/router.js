@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Community from './components/Community.vue'
 import SearchResults from './components/SearchResults.vue'
+import Settings from './components/Settings.vue'
 import TrendData from './components/TrendData.vue'
 import OrderForm from './components/OrderForm.vue'
 import PriceVol from './components/PriceVol.vue'
@@ -26,7 +27,14 @@ export default new Router({
       components: {
         secondpane:SearchResults
       }
-    },    
+    }, 
+    {
+      path: '/settings',
+      name: 'Settings',
+      components: {
+        secondpane:Settings
+      }
+    },       
     {
       path: '/data',
       name: 'Trend Data',

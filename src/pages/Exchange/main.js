@@ -21,6 +21,7 @@ Vue.component('vue-headful', vueHeadful);
 
 //Vue.prototype.$hostname = 'http://localhost:7071'
 Vue.prototype.$hostname = 'https://finarofunc.azurewebsites.net'
+Vue.prototype.$loadopts = {loader: 'spinner',height:128,width:128,isFullPage:true, color:'#63C394',backgroundColor:'#000000',opacity:.8};
 
 new Vue({
   render: h => h(App),router
