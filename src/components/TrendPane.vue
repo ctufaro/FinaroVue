@@ -5,13 +5,32 @@
                 <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>                
             </button>            
         </div>
+        <transition name="router-anim" :enter-active-class="this.transitionIn" :leave-active-class="transitionOut">
         <router-view name="thirdpane"/>                    
+        </transition>
     </div>    
 </template>
 
 <script>
 export default {
-    name: 'TrendPane'  
+    name: 'TrendPane',
+    data () {
+        return {
+            transitionIn: '',
+            transitionOut: ''
+        }
+    },    
+    watch: {
+        '$route' (to) {         
+            if(to.path == '/order'){
+                this.transitionIn = "animated fadeInRight";
+                this.transitionOut = "";
+            } else {
+                this.transitionIn = "animated fadeInRight";
+                this.transitionOut = "";
+            }
+        }
+    }      
 }
 </script>
 
