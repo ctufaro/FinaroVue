@@ -5,7 +5,9 @@
         </div>
         <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-outline-secondary">Trading</button>
-            <button type="button" class="btn btn-outline-secondary">Popular</button>
+            <button type="button" class="btn btn-outline-secondary">Trending</button>
+            <button type="button" class="btn btn-outline-secondary">Sports</button>
+            <button type="button" class="btn btn-outline-secondary">Entertainment</button>
         </div>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.Id">
@@ -35,7 +37,7 @@
                     </div>
                 </div>
             </span>
-            <div class="noresults" v-if="this.trends.length > 0">
+            <div class="noresults" v-if="this.trends.length == 0">
                 0 results found, click here to add &nbsp;&nbsp;<button type="button" class="btn btn-outline-success btn-circle btn-lg"><i class="fas fa-plus"></i></button>
             </div>
         </div>
