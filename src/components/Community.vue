@@ -25,7 +25,7 @@
                             </div>                            
                         </div>
                     </div>
-                    <div style="float:right;margin-top:-10%;"><i class="fas fa-chevron-right"></i></div>
+                    <div style="float:right;margin-top:-10%;"><i class="fas fa-chevron-down"></i></div>
                     <div style="display: flex; padding-bottom: 0px; padding-top: 5px;">
                         <div style="float: left; font-size: 24px; color: #9CAAB5; width: 100%;">
                             <i class="far fa-thumbs-up"></i><span style="font-size: 16px;">12</span>&nbsp;
