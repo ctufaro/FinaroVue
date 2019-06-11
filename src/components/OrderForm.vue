@@ -1,5 +1,5 @@
 <template>
-    <div class="order-form">    
+    <div class="order-form">
         <div>
             <div class="line-title">Price</div>
             <div class="text-line">
