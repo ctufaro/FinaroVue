@@ -17,12 +17,14 @@ Vue.use(VueRouter);
 Vue.use(VueMask);
 Vue.use(VueAxios, axios)
 Vue.use(Loading);
+Vue.use(require('vue-moment'));
 Vue.component('vue-headful', vueHeadful);
 
 //Vue.prototype.$hostname = 'http://localhost:7071'
+let fmt = 'M/DD h:mmA'
 Vue.prototype.$hostname = 'https://finarofunc.azurewebsites.net'
 Vue.prototype.$loadopts = {loader: 'spinner',height:128,width:128,isFullPage:true, color:'#63C394',backgroundColor:'#FFFFFF',opacity:.6};
-
+Vue.prototype.$datefmt = {millisecond: fmt,second: fmt,minute: fmt,hour: fmt,day: fmt,week: fmt,month: fmt,quarter: fmt,year: fmt};
 new Vue({
   render: h => h(App),router
 }).$mount('#app')

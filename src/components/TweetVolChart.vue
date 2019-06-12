@@ -1,7 +1,8 @@
 <script>
 import {Bubble} from 'vue-chartjs'
+import moment from 'moment'
 
-gitlet percentColors = [
+let percentColors = [
     { pct: 0.0, color: { r: 239, g: 73, b: 66 } },
     { pct: 0.5, color: { r: 255, g: 203, b: 74 } },
     { pct: 1.0, color: { r: 74, g: 195, b: 74 } } ];
@@ -31,36 +32,68 @@ export default {
     }
   },
   mounted () {
+    //console.log(moment(new Date('2019-06-12 12:46:16.187')).format('M/DD h:mmA'));
     this.renderChart({
-      //labels: ['t1', 't2', 't3', 't4', 't5', 't6', 't7'],
-      //x=time, y=sentiment, r=tweet volume, backgroundColor: should reflect sentiment
-      datasets: [
-        {
-          backgroundColor: this.getColor(.98),
-          data: [{x:40,y:.98,r:22}]
-        },{
-          backgroundColor: this.getColor(.87),
-          data: [{x:10,y:.87,r:22}]
-        },{
-          backgroundColor: this.getColor(.0),
-          data: [{x:5,y:.0,r:22}]
-        },{
-          backgroundColor: this.getColor(.21),
-          data: [{x:33,y:.21,r:22}]
-        },{
-          backgroundColor: this.getColor(.37),
-          data: [{x:27,y:.37,r:22}]
-        },{
-          backgroundColor: this.getColor(.8),
-          data: [{x:9,y:.8,r:22}]
-        },{
-
-          backgroundColor: this.getColor(.44),
-          data: [{x:15,y:.5,r:22}]
-        }
-      ]
-    }, {responsive: true, maintainAspectRatio: true, legend: {display: false}})
-
+        //labels: ['t1', 't2', 't3', 't4', 't5', 't6', 't7'],
+        //x=time, y=tweet volume, r=tweet volume, backgroundColor: sentiment
+        datasets: [
+          {
+            backgroundColor: this.getColor(.50),
+            data: [{
+              x: moment(new Date('2019-06-12 12:40:16.187')),
+              y: 2563838,
+              r: 32
+            }]
+          },
+          {
+            backgroundColor: this.getColor(.62),
+            data: [{
+              x: moment(new Date('2019-06-12 13:00:37.050')),
+              y: 2618977,
+              r: 34
+            }]
+          },
+          {
+            backgroundColor: this.getColor(.89),
+            data: [{
+              x: moment(new Date('2019-06-12 13:20:01.907')),
+              y: 2626350,
+              r: 34
+            }]
+          }
+        ]
+      }, {
+      responsive: true,
+      maintainAspectRatio: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          type: 'time',
+          time: {
+            displayFormats: this.$datefmt
+          },
+          scaleLabel: {
+            display: true,
+            fontSize: 14,
+            fontStyle:'bold',
+            labelString: "Time",
+          },
+          ticks: {
+            suggestedMax: moment(new Date('2019-06-13 15:46:16.187'))
+          }                    
+        }],
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            fontSize: 14,
+            fontStyle:'bold',
+            labelString: "Tweet Volume",
+          }          
+        }]        
+      }
+    })
   }
 }
 </script>
