@@ -3,10 +3,10 @@
         <div style="display:flex;">            
             <button type="button" class="back-chevron" v-on:click="$emit('goback');">
                 <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>                
-            </button>            
+            </button>
         </div>
         <transition name="router-anim" :enter-active-class="this.transitionIn" :leave-active-class="transitionOut">
-        <router-view name="thirdpane"/>                    
+            <router-view name="thirdpane"/>                    
         </transition>
     </div>    
 </template>
@@ -14,6 +14,7 @@
 <script>
 export default {
     name: 'TrendPane',
+    props: ['selectedTrend'],   
     data () {
         return {
             transitionIn: '',
@@ -29,7 +30,7 @@ export default {
                 this.transitionIn = "animated fadeInRight";
                 this.transitionOut = "";
             }
-        }
+        }        
     }      
 }
 </script>

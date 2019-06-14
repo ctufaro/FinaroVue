@@ -87,7 +87,7 @@
                 </div>
                 <!-- Main Pane  -->
                 <div class="col-md-5 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
-                    <TrendPane @goback="goBack" />
+                    <TrendPane @goback="goBack" :selected-trend="this.selectedTrend"/>
                 </div>
                 <div class="col-md-3 misccolumn">                    
                 </div>

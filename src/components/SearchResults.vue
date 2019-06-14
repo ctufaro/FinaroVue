@@ -16,9 +16,9 @@
                         <div class="tag">{{trend.Name}}</div>                    
                     </div>
                     <div class="r-row">
-                        <div>
+                        <div class="axis">
                             <!-- :auto-draw="true" :auto-draw-duration="1000" -->
-                            <v-sparkline :value="trend.Prices" :color="trend.Color =='success' ? '#63C394' : '#EF4139'" line-width="4" padding="1" :fill="false"  :smooth="true" ></v-sparkline> <!--:gradient="trend.Gradient"-->
+                            <v-sparkline :value="trend.Prices" :color="trend.Color =='success' ? '#63C394' : '#EF4139'" line-width="4" :padding="0" :fill="false" :smooth="25" :autoLineWidth="true" ></v-sparkline> <!--:gradient="trend.Gradient"-->
                         </div>  
                         <div style="text-align: right;">                 
                             <button type="button" v-on:click.prevent="rowSelect(trend)" :class="trend.CSS">{{trend.PriceText}}</button>

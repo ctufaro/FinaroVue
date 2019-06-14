@@ -69,6 +69,13 @@
     margin-right:10px;
 }
 
+.r-row .axis{
+    border-bottom-width: .3em;
+    border-bottom-color: rgb(214, 214, 214);
+    border-bottom-style: dotted;
+    margin-bottom:0px !important;
+}
+
 .tag {
     font-size: 18px;
 }
