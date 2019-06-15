@@ -71,7 +71,7 @@ export default {
         },
         rowSelect: function(trend){
             this.$emit('trendClick',trend);
-            this.$router.push({ name: 'Price Chart'});
+            this.$router.push({ name: 'Price Chart', params: {selectedTrend: trend }});
         },
         notifSelect: function(trend){
             trend.Notify = !trend.Notify;

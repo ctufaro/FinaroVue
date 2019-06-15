@@ -70,8 +70,8 @@
 }
 
 .r-row .axis{
-    border-bottom-width: .3em;
-    border-bottom-color: rgb(214, 214, 214);
+    border-bottom-width: .17em;
+    border-bottom-color: #9FABB6;
     border-bottom-style: dotted;
     margin-bottom:0px !important;
 }

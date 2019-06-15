@@ -22,7 +22,7 @@ export default {
         }
     },    
     watch: {
-        '$route' (to) {         
+        '$route' (to,from) {         
             if(to.path == '/order'){
                 this.transitionIn = "animated fadeInRight";
                 this.transitionOut = "";
@@ -30,8 +30,17 @@ export default {
                 this.transitionIn = "animated fadeInRight";
                 this.transitionOut = "";
             }
-        }        
-    }      
+            //DO an API CALL HERE
+            if(from.name == 'Trend Search'){
+                let loader = this.$loading.show(this.$loadopts);
+                this.axios.get(`${this.$hostname}/api/trends/${this.selectedTrend.name}`).then(response => {
+                    console.log(response.data);
+                }).then(()=>{
+                    loader.hide();
+                });
+            }
+        }               
+    }    
 }
 </script>
 
