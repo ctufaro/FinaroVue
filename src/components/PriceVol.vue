@@ -9,48 +9,48 @@
 import PriceVolChart from '@/components/PriceVolChart.vue'
 
 export default {
-    name:'PriceVol',
+    name: 'PriceVol',
     data: () => ({
         chartData: null,
         chartOptions: null
-    }),       
-    components: {PriceVolChart},
-    computed: {
-        prices: function () {            
-            return this.$parent.$parent.$parent.selectedTrend.prices;
-        },        
-        color: function () {            
-            return this.$parent.$parent.$parent.selectedTrend.color;
-        } 
+    }),
+    components: {
+        PriceVolChart
     },
-    methods:{
+    computed: {
+        prices: function() {
+            return this.$parent.$parent.$parent.selectedTrend.prices;
+        },
+        color: function() {
+            return this.$parent.$parent.$parent.selectedTrend.color;
+        }
+    },
+    methods: {
         renderLineChart: function() {
             this.chartData = {
                 labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                datasets: 
-                [
-                    {
+                datasets: [{
                         label: 'Price',
-                        borderColor: this.color =='success' ? '#63C394' : '#EF4139',
-                        fill:false,
+                        borderColor: this.color == 'success' ? '#63C394' : '#EF4139',
+                        fill: false,
                         data: this.prices
                     },
                     {
                         label: 'Volume',
                         borderColor: '#0065B5',
-                        fill:false,
+                        fill: false,
                         data: [60, 55, 32, 10, 2, 12, 53]
                     }
-                ]            
-            }          
+                ]
+            }
         }
     },
-    watch:{
+    watch: {
         prices: function() {
             this.renderLineChart();
         }
     },
-    created () {
+    created() {
         this.renderLineChart();
     }
 }

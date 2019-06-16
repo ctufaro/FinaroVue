@@ -109,6 +109,7 @@ export default {
     sidebarOffCanvas:false,
     slideIn:false,
     selectedTrend:{name:null, price: null, prices:[0,0,0,0], color:null},
+    trendVolSent:{tweetVolume:[], loadDate:[], avgSentiment:[]}
   }),  
   methods: {
       isMobile: function() {
@@ -119,9 +120,22 @@ export default {
         this.selectedTrend.price = trend.PriceText;
         this.selectedTrend.prices = trend.Prices;
         this.selectedTrend.color = trend.Color;
-        if (this.isMobile()){
-            this.slideIn = true;         
-        }        
+        this.getTrendData();             
+      },
+      async getTrendData(){
+        let loader = this.$loading.show(this.$loadopts);
+        let sName = this.selectedTrend.name.replace("#", "%23");
+        this.axios.get(`${this.$hostname}/api/trends/${sName}`).then(response => {
+            this.trendVolSent.tweetVolume = response.data.TweetVolume;
+            this.trendVolSent.loadDate = response.data.LoadDate;
+            this.trendVolSent.avgSentiment = response.data.AvgSentiment;  
+            //console.log(this.trendVolSent.loadDate);         
+        }).then(()=>{
+            loader.hide();
+            if (this.isMobile()){
+                this.slideIn = true;         
+            }             
+        });
       },
       toggleSidebar: function(){
           if (this.isMobile()){
