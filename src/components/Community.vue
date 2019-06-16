@@ -25,7 +25,7 @@
                             </div>                            
                         </div>
                     </div>
-                    <div style="float:right;margin-top:-10%;margin-right:-8px;" @click.prevent="goToTrend()">
+                    <div v-if="tabName!='Feed'" style="float:right;margin-top:-10%;margin-right:-8px;" @click.prevent="goToTrend()">
                         <button type="button" @click.prevent="goToTrend()">
                             <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>                
                         </button>
@@ -55,7 +55,8 @@
   export default {
     data: () => ({
         selected:true,
-        saveditems:[],        
+        saveditems:[],
+        tabName: 'Feed',        
         items: 
         [
           {avatar:require(`@/assets/images/avatar-chris.gif`),type:'Buyers',user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#newyorkyankees',text: "awesome series, well worth the price."},
@@ -72,7 +73,8 @@
     methods:{
       filtertab(t){        
         this.items = this.saveditems.filter(w => w.type == t);
-        this.selected = false;        
+        this.selected = false;
+        this.tabName = t;        
       },
       goToTrend(){
         if(this.isMobile()) this.$parent.slideIn = true;
