@@ -25,7 +25,11 @@
                             </div>                            
                         </div>
                     </div>
-                    <div style="float:right;margin-top:-10%;"><i class="fas fa-chevron-down"></i></div>
+                    <div style="float:right;margin-top:-10%;margin-right:-8px;" @click.prevent="goToTrend()">
+                        <button type="button" @click.prevent="goToTrend()">
+                            <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>                
+                        </button>
+                    </div>
                     <div style="display: flex; padding-bottom: 0px; padding-top: 5px;">
                         <div style="float: left; font-size: 24px; color: #9CAAB5; width: 100%;">
                             <i class="far fa-thumbs-up"></i><span style="font-size: 16px;">12</span>&nbsp;
@@ -69,7 +73,14 @@
       filtertab(t){        
         this.items = this.saveditems.filter(w => w.type == t);
         this.selected = false;        
-      }
+      },
+      goToTrend(){
+        if(this.isMobile()) this.$parent.slideIn = true;
+        this.$router.push('communitytrend');
+      },
+      isMobile: function() {
+          return window.matchMedia("only screen and (max-width: 768px)").matches;
+      },
     },
     created: function(){
       this.saveditems = this.items;           

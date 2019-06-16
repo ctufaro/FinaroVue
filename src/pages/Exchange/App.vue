@@ -145,7 +145,12 @@ export default {
       goBack:function(){
           if(this.$route.name === 'Order Form'){
             this.$router.go(-1)
-          } else {
+          } 
+          else if(this.$route.name === 'Community Trend'){
+            this.slideIn=false;
+            this.$router.go(-1)
+          }
+          else {
             this.slideIn=false;
             this.$router.push('search');
           }          
