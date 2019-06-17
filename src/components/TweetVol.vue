@@ -7,8 +7,8 @@
 <script>
 import TweetVolChart from '@/components/TweetVolChart.vue'
 let percentColors = [
-    { pct: 0.0, color: { r: 239, g: 73, b: 66 } },
-    { pct: 0.5, color: { r: 255, g: 203, b: 74 } },
+    { pct: -1.0, color: { r: 239, g: 73, b: 66 } },
+    { pct: 0.0, color: { r: 255, g: 203, b: 74 } },
     { pct: 1.0, color: { r: 74, g: 195, b: 74 } } ];
 
 export default {
