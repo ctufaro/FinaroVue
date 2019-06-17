@@ -1,11 +1,14 @@
 <template>
     <div>
-        <div style="display:flex;">            
+        <div class="header">            
             <button type="button" class="back-chevron" v-on:click="$emit('goback');">
                 <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>                
             </button>
+            <div style="margin-left:auto;">
+                {{this.$route.query.name}}
+            </div>
         </div>
-        <transition name="router-anim" :enter-active-class="this.transitionIn" :leave-active-class="transitionOut">
+        <transition name="router-anim" :enter-active-class="this.transitionIn">
             <router-view name="thirdpane"/>                    
         </transition>
     </div>    
@@ -18,17 +21,14 @@ export default {
     data () {
         return {
             transitionIn: '',
-            transitionOut: ''
         }
     },    
     watch: {
         '$route' (to) {         
             if(to.path == '/order' || to.path == '/communitytrend'){
                 this.transitionIn = "animated fadeInRight";
-                this.transitionOut = "";
             } else {
                 this.transitionIn = "animated fadeInRight";
-                this.transitionOut = "";
             }            
         }               
     }    

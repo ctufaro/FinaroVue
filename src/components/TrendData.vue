@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div>        
         <v-tabs fixed-tabs light slider-color="#EF4139">
             <v-tab to="/pricevol">Price Chart</v-tab>
             <v-tab to="/tweetvol">Tweets</v-tab>

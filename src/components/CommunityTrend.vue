@@ -1,5 +1,7 @@
 <template>
-    <div>{{this.$route.name}}</div>
+    <div>
+        
+    </div>
 </template>
 
 <script>
@@ -8,6 +10,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style src="../../src/assets/css/communitytrend.css"></style>

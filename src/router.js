@@ -4,6 +4,7 @@ import Community from './components/Community.vue'
 import CommunityTrend from './components/CommunityTrend.vue'
 import SearchResults from './components/SearchResults.vue'
 import Settings from './components/Settings.vue'
+import MyTrends from './components/MyTrends.vue'
 import TrendData from './components/TrendData.vue'
 import OrderForm from './components/OrderForm.vue'
 import PriceVol from './components/PriceVol.vue'
@@ -34,7 +35,14 @@ export default new Router({
       components: {
         secondpane:Settings
       }
-    },       
+    },
+    {
+      path: '/mytrends',
+      name: 'My Trends',
+      components: {
+        secondpane:MyTrends
+      }
+    },           
     {
       path: '/data',
       name: 'Trend Data',
@@ -72,7 +80,8 @@ export default new Router({
       components: {
         secondpane:Community,
         thirdpane:CommunityTrend
-      }
+      },
+      props: true
     }
     //,        
     //{

@@ -25,8 +25,8 @@
                             </div>                            
                         </div>
                     </div>
-                    <div v-if="tabName!='Feed'" style="float:right;margin-top:-10%;margin-right:-8px;" @click.prevent="goToTrend()">
-                        <button type="button" @click.prevent="goToTrend()">
+                    <div v-if="tabName!='Feed'" style="float:right;margin-top:-10%;margin-right:-8px;" @click.prevent="goToTrend(item.title)">
+                        <button type="button" @click.prevent="goToTrend(item.title)">
                             <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>                
                         </button>
                     </div>
@@ -76,9 +76,10 @@
         this.selected = false;
         this.tabName = t;        
       },
-      goToTrend(){
+      goToTrend(t){
         if(this.isMobile()) this.$parent.slideIn = true;
         this.$router.push('communitytrend');
+        this.$router.push({name:"Community Trend", query: { name: t }});
       },
       isMobile: function() {
           return window.matchMedia("only screen and (max-width: 768px)").matches;

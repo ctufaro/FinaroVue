@@ -39,7 +39,7 @@
                     <router-link to="/search" @click.native="toggleSidebar();">Buy / Sell Trends</router-link>
                 </li>
                 <li>
-                    <a href="#">My Trends <span class="float-right circle">22</span></a>                    
+                    <router-link to="/mytrends" @click.native="toggleSidebar();">My Trends<span class="float-right circle">22</span></router-link>
                 </li>
                 <li>
                     <a href="#">Wallet</a>

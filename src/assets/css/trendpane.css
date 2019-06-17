@@ -1,3 +1,10 @@
+.header{
+    display:flex;
+    font-size: 24px;
+    font-weight: 400;
+    color: black;     
+}
+
 .back-chevron {
     font-size: 20px;
     display:none;
