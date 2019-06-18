@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Community from './components/Community.vue'
-import CommunityTrend from './components/CommunityTrend.vue'
+import MyFeed from './components/MyFeed.vue'
+import MyFeedTrend from './components/MyFeedTrend.vue'
 import SearchResults from './components/SearchResults.vue'
 import Settings from './components/Settings.vue'
 import MyTrends from './components/MyTrends.vue'
@@ -16,10 +16,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/community',
-      name: 'Community',
+      path: '/myfeed',
+      name: 'My Feed',
       components: {
-        secondpane:Community
+        secondpane:MyFeed
       }
     },     
     {
@@ -75,11 +75,11 @@ export default new Router({
       }
     },
     {
-      path: '/communitytrend',
-      name: 'Community Trend',
+      path: '/myfeedtrend',
+      name: 'My Feed Trend',
       components: {
-        secondpane:Community,
-        thirdpane:CommunityTrend
+        secondpane:MyFeed,
+        thirdpane:MyFeedTrend
       },
       props: true
     }

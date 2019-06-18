@@ -25,7 +25,7 @@ export default {
     },    
     watch: {
         '$route' (to) {         
-            if(to.path == '/order' || to.path == '/communitytrend'){
+            if(to.path == '/order' || to.path == '/myfeedtrend'){
                 this.transitionIn = "animated fadeInRight";
             } else {
                 this.transitionIn = "animated fadeInRight";

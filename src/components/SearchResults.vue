@@ -4,10 +4,8 @@
             <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search.." aria-label="Search">
         </div>
         <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-outline-secondary">Trading</button>
             <button type="button" class="btn btn-outline-secondary">Trending</button>
-            <button type="button" class="btn btn-outline-secondary">Sports</button>
-            <button type="button" class="btn btn-outline-secondary">Entertainment</button>
+            <button type="button" class="btn btn-outline-secondary">Community</button>
         </div>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.Id">
@@ -37,10 +35,11 @@
                     </div>
                 </div>
             </span>
-            <div class="noresults" v-if="this.trends.length == 0">
-                0 results found, click here to add &nbsp;&nbsp;<button type="button" class="btn btn-outline-success btn-circle btn-lg"><i class="fas fa-plus"></i></button>
+            <div class="noresults" v-if="this.trends.length == 0 && this.searchTxt.length > 0">
+                0 results found - Add this trend
             </div>
         </div>
+        <FloatingAction/>
     </span>    
 </template>
 
@@ -53,9 +52,13 @@ const xxx = [ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460
                     {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$56.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570'], trendvol:2211, notif:false, fav:false },
                   ];
 */                  
+import FloatingAction from '@/components/FloatingAction.vue'
 
 export default {
     name: 'SearchResults',
+    components: {
+        FloatingAction
+    },
     data: () => ({
       searchTxt:'',
       trends:[],

@@ -77,9 +77,8 @@
         this.tabName = t;        
       },
       goToTrend(t){
-        if(this.isMobile()) this.$parent.slideIn = true;
-        this.$router.push('communitytrend');
-        this.$router.push({name:"Community Trend", query: { name: t }});
+        if(this.isMobile()) this.$parent.slideIn = true;        
+        this.$router.push({name:"My Feed Trend", query: { name: t }});
       },
       isMobile: function() {
           return window.matchMedia("only screen and (max-width: 768px)").matches;

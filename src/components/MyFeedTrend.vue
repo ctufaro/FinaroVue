@@ -6,8 +6,8 @@
 
 <script>
 export default {
-    name: 'CommunityTrend'
+    name: 'MyFeedTrend'
 }
 </script>
 
-<style src="../../src/assets/css/communitytrend.css"></style>
+<style src="../../src/assets/css/myfeedtrend.css"></style>

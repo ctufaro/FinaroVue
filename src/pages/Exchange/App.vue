@@ -31,19 +31,21 @@
                             <a href="#">Home 3</a>
                         </li>
                     </ul>
-                </li>-->
-                <li>
-                    <router-link to="/community" @click.native="toggleSidebar();">Community</router-link>
-                </li>                          
+                </li>-->                         
                 <li>
                     <router-link to="/search" @click.native="toggleSidebar();">Buy / Sell Trends</router-link>
                 </li>
                 <li>
+                    <router-link to="/myfeed" @click.native="toggleSidebar();">My Feed</router-link>
+                </li>                 
+                <li>
                     <router-link to="/mytrends" @click.native="toggleSidebar();">My Trends<span class="float-right circle">22</span></router-link>
                 </li>
+                <!--
                 <li>
                     <a href="#">Wallet</a>
-                </li>                 
+                </li>
+                -->
                 <li>
                     <router-link to="/settings" @click.native="toggleSidebar();">Settings</router-link>
                 </li>                  
@@ -146,7 +148,7 @@ export default {
           if(this.$route.name === 'Order Form'){
             this.$router.go(-1)
           } 
-          else if(this.$route.name === 'Community Trend'){
+          else if(this.$route.name === 'My Feed Trend'){
             this.slideIn=false;
             this.$router.go(-1)
           }
