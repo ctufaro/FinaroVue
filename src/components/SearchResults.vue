@@ -53,9 +53,11 @@ const xxx = [ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460
                   ];
 */                  
 import FloatingAction from '@/components/FloatingAction.vue'
+import uiMixin from '@/mixins/uimixin.js'
 
 export default {
     name: 'SearchResults',
+    mixins: [uiMixin],
     components: {
         FloatingAction
     },
@@ -109,12 +111,12 @@ export default {
         }
     },
     created: function(){
-        let loader = this.$loading.show(this.$loadopts);        
+        let loader = this.showLoader();       
         this.axios.get(`${this.$hostname}/api/trends`).then(response => {
             this.trends = response.data;
             this.savedTrends = this.trends;
         }).then(()=>{
-            loader.hide();
+            this.hideLoader(loader);
         });
     },
     updated: function(){        

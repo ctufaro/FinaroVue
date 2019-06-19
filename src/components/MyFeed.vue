@@ -51,8 +51,12 @@
     </div>
 </template>
 <script>
+  import uiMixin from '@/mixins/uimixin.js'
+  
   let loader = null;
+
   export default {
+    mixins: [uiMixin],
     data: () => ({
         selected:true,
         saveditems:[],
@@ -79,20 +83,17 @@
       goToTrend(t){
         if(this.isMobile()) this.$parent.slideIn = true;        
         this.$router.push({name:"My Feed Trend", query: { name: t }});
-      },
-      isMobile: function() {
-          return window.matchMedia("only screen and (max-width: 768px)").matches;
-      },
+      }
     },
     created: function(){
       this.saveditems = this.items;           
     },
     mounted: function(){      
       this.items = this.saveditems.filter(w => w.type == 'Feed');
-      loader = this.$loading.show(this.$loadopts);      
+      loader = this.showLoader();    
     },
     updated:function(){
-        loader.hide();
+        this.hideLoader(loader);
     }
   }
 </script>

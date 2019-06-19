@@ -1,6 +1,6 @@
 <template>
   <div class="text-xs-center">
-    <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition"><!--width="500"-->
+    <v-dialog v-model="dialog" :fullscreen="this.isMobile()" hide-overlay transition="dialog-bottom-transition" width="500">
       <template v-slot:activator="{ on }">
         <v-btn color="#63C394" :fixed="true" dark fab bottom right v-on="on">
           <v-icon>add</v-icon>
@@ -31,8 +31,11 @@
 </template>
 
 <script>
+import uiMixin from '@/mixins/uimixin.js'
+
 export default {
     name:"FloatingAction",
+    mixins:[uiMixin],
     data () {
         return {
             dialog: false

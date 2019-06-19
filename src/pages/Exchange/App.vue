@@ -100,9 +100,11 @@
 
 <script>
 import TrendPane from '@/components/TrendPane.vue'
+import uiMixin from '@/mixins/uimixin.js'
 
 export default {
   name: 'Home',
+  mixins: [uiMixin],
   components: {
     TrendPane
   },
@@ -114,9 +116,6 @@ export default {
     trendVolSent:{tweetVolume:[], loadDate:[], avgSentiment:[]}
   }),  
   methods: {
-      isMobile: function() {
-          return window.matchMedia("only screen and (max-width: 768px)").matches;
-      },
       trendClicked: function(trend){
         this.selectedTrend.name = trend.Name;
         this.selectedTrend.price = trend.PriceText;
@@ -125,7 +124,7 @@ export default {
         this.getTrendData();             
       },
       async getTrendData(){
-        let loader = this.$loading.show(this.$loadopts);
+        let loader = this.showLoader();
         let sName = this.selectedTrend.name.replace("#", "%23");
         this.axios.get(`${this.$hostname}/api/trends/${sName}`).then(response => {
             this.trendVolSent.tweetVolume = response.data.TweetVolume;
@@ -133,7 +132,7 @@ export default {
             this.trendVolSent.avgSentiment = response.data.AvgSentiment;  
             //console.log(this.trendVolSent.loadDate);         
         }).then(()=>{
-            loader.hide();
+            this.hideLoader(loader);
             if (this.isMobile()){
                 this.slideIn = true;         
             }             
