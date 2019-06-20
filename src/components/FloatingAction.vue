@@ -13,8 +13,8 @@
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
-              <v-flex xs12 sm6 md4>
-                <v-text-field label="Trend Name*" required></v-text-field>
+              <v-flex>
+                <v-text-field label="Trend Name*" v-model="trendName"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -23,7 +23,7 @@
         <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="blue darken-1" flat @click="dialog = false">Close</v-btn>
-            <v-btn color="blue darken-1" flat @click="dialog = false">Save</v-btn>
+            <v-btn color="blue darken-1" flat @click="saveTrend">Save</v-btn>            
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -36,10 +36,21 @@ import uiMixin from '@/mixins/uimixin.js'
 export default {
     name:"FloatingAction",
     mixins:[uiMixin],
-    data () {
-        return {
-            dialog: false
-        }
+    data: () => ({
+      dialog:false,
+      trendName:''      
+    }),
+    methods:{
+      saveTrend(){
+        this.axios.post(`${this.$hostname}/api/trends`,
+        {
+            userId: 1,
+            trendName: this.trendName                      
+        }).then(()=>{                
+            this.$swal({type: 'success',title: 'Success!',text: 'Trend Uploaded!'});
+            this.dialog = false;            
+        });
+      }
     },
     created(){
         const el = document.createElement('div');

@@ -126,7 +126,7 @@ export default {
       async getTrendData(){
         let loader = this.showLoader();
         let sName = this.selectedTrend.name.replace("#", "%23");
-        this.axios.get(`${this.$hostname}/api/trends/${sName}`).then(response => {
+        this.axios.get(`${this.$hostname}/api/tweets/volume/${sName}`).then(response => {
             this.trendVolSent.tweetVolume = response.data.TweetVolume;
             this.trendVolSent.loadDate = response.data.LoadDate;
             this.trendVolSent.avgSentiment = response.data.AvgSentiment;  

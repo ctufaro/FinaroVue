@@ -4,8 +4,8 @@
             <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search.." aria-label="Search">
         </div>
         <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-outline-secondary">Trending</button>
-            <button type="button" class="btn btn-outline-secondary">Community</button>
+            <button type="button" class="btn btn-outline-secondary" @click="filter('trending')">Trending</button>
+            <button type="button" class="btn btn-outline-secondary" @click="filter('community')">Community</button>
         </div>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.Id">
@@ -103,6 +103,18 @@ export default {
                 str = str.substring(1);
             }
             return str.trim().toLowerCase()
+        },
+        filter(selection){
+            let url = `${this.$hostname}/api/trends`
+            let loader = this.showLoader();
+            url =(selection === 'community') ? `${url}/1` : `${url}/0`
+            this.searchTxt = '';                
+            this.axios.get(url).then(response => {
+                this.trends = response.data;
+                this.savedTrends = this.trends;
+            }).then(()=>{
+                this.hideLoader(loader);
+            });
         }
     },
     watch:{
@@ -112,7 +124,7 @@ export default {
     },
     created: function(){
         let loader = this.showLoader();       
-        this.axios.get(`${this.$hostname}/api/trends`).then(response => {
+        this.axios.get(`${this.$hostname}/api/trends/0`).then(response => {
             this.trends = response.data;
             this.savedTrends = this.trends;
         }).then(()=>{
