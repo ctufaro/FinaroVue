@@ -62,7 +62,7 @@
                         <span>Toggle Sidebar</span>
                     </button>
                     <!--<img src="@/assets/images/trndxlogo-blue.png" style="width:30%"/>-->
-                    <div class="page-title text-secondary">{{this.$route.name}}</div>
+                    <div class="page-title text-secondary" v-if="!isActive">{{this.$route.name}}</div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
