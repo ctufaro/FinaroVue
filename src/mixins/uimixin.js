@@ -1,6 +1,6 @@
 export default {
     data: () => ({
-        loadingopts:{ loader: 'bars', height:128, width:128, isFullPage:true, 
+        loadingopts:{ loader: 'spinner', height:128, width:128, isFullPage:true, 
                       color:'#63C394', backgroundColor:'#FFFFFF', opacity:.6 }
     }),
     methods: {
