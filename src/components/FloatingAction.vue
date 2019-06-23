@@ -7,24 +7,21 @@
         </v-btn>
       </template>
       <v-card>
-        <v-card-title class="headline grey lighten-2" primary-title>
-          Add A Trend
+        <v-card-title class="rt-title">
+          <span class="headline">Add Trend</span>
         </v-card-title>
-        <v-card-text>
-          <v-container grid-list-md>
-            <v-layout wrap>
-              <v-flex>
-                <v-text-field label="Trend Name*" v-model="trendName"></v-text-field>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="dialog = false">Close</v-btn>
-            <v-btn color="blue darken-1" flat @click="saveTrend">Save</v-btn>            
-        </v-card-actions>
+        <div class="order-form" style="padding:16px;">
+            <div>
+                <div class="line-title">Trend Name</div>
+                <input class="text-line w-100" v-model="trendName" />
+            </div>        
+            <div style="padding-top:32px;">
+                <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-success btn-rnd" style="margin-right:30px;width:10%;" @click="dialog=false">Cancel</button>
+                    <button type="button" class="btn btn-outline-success btn-rnd" @click="saveTrend">Add Trend</button>
+                </div>
+            </div>
+        </div>
       </v-card>
     </v-dialog>
   </div>
@@ -47,8 +44,9 @@ export default {
             userId: 1,
             trendName: this.trendName                      
         }).then(()=>{                
-            this.$swal({type: 'success',title: 'Success!',text: 'Trend Uploaded!'});
-            this.dialog = false;            
+            this.$swal({type: 'success',title: 'Success!',text: 'Trend Created!'});
+            this.trendName = '';
+            //this.dialog = false;            
         });
       }
     },
@@ -60,13 +58,4 @@ export default {
 }
 </script>
 
-<style>
-.grey.lighten-2 {
-    background-color: #63C394 !important;
-    border-color: #63C394 !important;
-}
-
-.headline{
-    color:white !important;
-}
-</style>
+<style src="@/assets/css/orderform.css"></style>
