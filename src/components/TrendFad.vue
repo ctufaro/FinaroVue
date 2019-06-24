@@ -29,7 +29,7 @@ export default {
             this.chartOptions = {
                 elements: {
                     center: {
-                        text: '78%',
+                        text: `${Math.floor(Math.random() * (100 - 0 + 1)) + 0}%`,
                         color: '#0065B5', // Default is #000000                        
                         sidePadding: 20 // Defualt is 20 (as a percentage)
                     }
