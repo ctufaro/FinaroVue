@@ -22,27 +22,36 @@
 </template>
 
 <script>
+import uiMixin from '@/mixins/uimixin.js'
+
 export default {
     name: 'Settings',
+    mixins: [uiMixin],
     data: () => ({
       price:'',
     }),
     methods:{
         loadTrends(){
-            this.axios.get(`${this.$hostname}/api/trends/load/new`)
+            let loader = this.showLoader();
+            this.axios.get(`${this.$hostname}/api/utils/trends/load`)
             .then(() => {
+                this.hideLoader(loader);
                 this.$swal({type: 'success',title: 'Success!',text: 'Trends Loaded'});
             })
             .catch(error => {
+                this.hideLoader(loader);
                 this.$swal({type: 'error',title: 'Error!',text: error});
             }); 
         },
         deleteTrends(){
-            this.axios.get(`${this.$hostname}/api/trends/clear`)
+            let loader = this.showLoader();
+            this.axios.get(`${this.$hostname}/api/utils/trends/clear`)
             .then(() => {
+                this.hideLoader(loader);
                 this.$swal({type: 'success',title: 'Success!',text: 'Trends Deleted'});
             })
             .catch(error => {
+                this.hideLoader(loader);
                 this.$swal({type: 'error',title: 'Error!',text: error});
             });             
         },

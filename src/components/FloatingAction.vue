@@ -39,7 +39,7 @@ export default {
     }),
     methods:{
       saveTrend(){
-        this.axios.post(`${this.$hostname}/api/trends`,
+        this.axios.post(`${this.$hostname}/api/trends/user`,
         {
             userId: 1,
             trendName: this.trendName                      

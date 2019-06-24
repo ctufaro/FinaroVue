@@ -105,7 +105,7 @@ export default {
             return str.trim().toLowerCase()
         },
         filter(selection){
-            let url = `${this.$hostname}/api/trends`
+            let url = `${this.$hostname}/api/trends/filter`
             let loader = this.showLoader();
             url =(selection === 'community') ? `${url}/1` : `${url}/0`
             this.searchTxt = '';                
@@ -124,7 +124,7 @@ export default {
     },
     created: function(){
         let loader = this.showLoader();       
-        this.axios.get(`${this.$hostname}/api/trends/0`).then(response => {
+        this.axios.get(`${this.$hostname}/api/trends/filter/0`).then(response => {
             this.trends = response.data;
             this.savedTrends = this.trends;
         }).then(()=>{
