@@ -9,6 +9,7 @@ import TrendData from './components/TrendData.vue'
 import OrderForm from './components/OrderForm.vue'
 import PriceVol from './components/PriceVol.vue'
 import TweetVol from './components/TweetVol.vue'
+import TrendFad from './components/TrendFad.vue'
 
 Vue.use(Router)
 
@@ -62,8 +63,14 @@ export default new Router({
           path: '/tweetvol',
           components: {
             trendviews:TweetVol
-          }
-        }
+         }
+        },
+        {
+          path: '/trendfad',
+          components: {
+            trendviews:TrendFad
+         }
+        }        
       ]
     },
     {
