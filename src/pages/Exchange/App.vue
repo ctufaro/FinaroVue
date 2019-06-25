@@ -55,7 +55,7 @@
 
         <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" style="padding:7px 0px 1px 0px;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:7px 0px 1px 0px;">
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="hamburger text-secondary" @click="toggleSidebar">
                         <i class="fas fa-bars"></i>
