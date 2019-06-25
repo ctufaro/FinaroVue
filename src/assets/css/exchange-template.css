@@ -213,6 +213,7 @@ a.article:hover {
     }
     #content {
         padding-right: 15px;
+        white-space: nowrap !important;
     }    
     .navbar {
         display:block;

@@ -2,7 +2,7 @@
   <div class="text-xs-center">
     <v-dialog v-model="dialog" :fullscreen="this.isMobile()" hide-overlay transition="dialog-bottom-transition" width="500">
       <template v-slot:activator="{ on }">
-        <v-btn color="#63C394" :fixed="true" dark fab bottom right v-on="on">
+        <v-btn color="#63C394" :fixed="true" dark fab bottom right v-on="on" style="margin-bottom:53px;">
           <v-icon>add</v-icon>
         </v-btn>
       </template>
@@ -17,7 +17,7 @@
             </div>        
             <div style="padding-top:32px;">
                 <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-outline-success btn-rnd" style="margin-right:30px;width:10%;" @click="dialog=false">Cancel</button>
+                    <button type="button" class="btn btn-outline-success btn-rnd" style="margin-right:30px;width:10%;" @click="dialog=false">Close</button>
                     <button type="button" class="btn btn-outline-success btn-rnd" @click="saveTrend">Add Trend</button>
                 </div>
             </div>
