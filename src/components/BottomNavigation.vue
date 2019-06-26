@@ -1,5 +1,5 @@
 <template>
-    <v-bottom-nav :value="true" fixed color="#e5e5e5">
+    <v-bottom-nav :value="true" fixed color="#e5e5e5" >
         <v-btn color="#63C394" flat value="recent" to="/search">
             <span>Trends</span>
             <i class="fas fa-chart-line bottom-icons"></i>

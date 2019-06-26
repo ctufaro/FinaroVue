@@ -38,8 +38,7 @@
             <div class="noresults" v-if="this.trends.length == 0 && this.searchTxt.length > 0">
                 0 results found - Add this trend
             </div>
-        </div>
-        <FloatingAction/>
+        </div>        
     </span>    
 </template>
 
@@ -52,14 +51,14 @@ const xxx = [ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460
                     {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$56.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570'], trendvol:2211, notif:false, fav:false },
                   ];
 */                  
-import FloatingAction from '@/components/FloatingAction.vue'
+
 import uiMixin from '@/mixins/uimixin.js'
 
 export default {
     name: 'TrendList',
     mixins: [uiMixin],
     components: {
-        FloatingAction
+        
     },
     data: () => ({
       searchTxt:'',
