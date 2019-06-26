@@ -1,12 +1,12 @@
 <template>
     <span>
-        <div class="searchcolumn-header">
+        <div class="searchcolumn-header" style="display:none;">
             <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search.." aria-label="Search">
         </div>
-        <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-outline-secondary" @click="filter('trending')">Trending</button>
-            <button type="button" class="btn btn-outline-secondary" @click="filter('community')">Community</button>
-        </div>
+        <v-tabs fixed-tabs height="40" light slider-color="#EF4139" color="transparent" style="padding:0px 15px 5px 15px !important;">
+            <v-tab @click="filter('trending')">Trending</v-tab>
+            <v-tab @click="filter('community')">Community</v-tab>
+        </v-tabs>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.Id">
                 <div class="sr-container">
@@ -56,7 +56,7 @@ import FloatingAction from '@/components/FloatingAction.vue'
 import uiMixin from '@/mixins/uimixin.js'
 
 export default {
-    name: 'SearchResults',
+    name: 'TrendList',
     mixins: [uiMixin],
     components: {
         FloatingAction
@@ -76,7 +76,7 @@ export default {
         },
         rowSelect: function(trend){
             this.$emit('trendClick',trend);
-            this.$router.push({ name: 'Price Chart', params: {selectedTrend: trend }});
+            this.$router.push({ path: '/pricevol', params: {selectedTrend: trend }});
         },
         notifSelect: function(trend){
             trend.Notify = !trend.Notify;
@@ -137,4 +137,4 @@ export default {
 }
 </script>
 
-<style src="../../src/assets/css/searchresults.css"></style>
+<style src="../../src/assets/css/trendlist.css"></style>

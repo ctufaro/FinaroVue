@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import MyFeed from './components/MyFeed.vue'
 import MyFeedTrend from './components/MyFeedTrend.vue'
-import SearchResults from './components/SearchResults.vue'
+import TrendList from './components/TrendList.vue'
 import Settings from './components/Settings.vue'
 import MyTrends from './components/MyTrends.vue'
 import TrendData from './components/TrendData.vue'
@@ -25,9 +25,9 @@ export default new Router({
     },     
     {
       path: '/search',
-      name: 'Trend Search',
+      name: 'Trends',
       components: {
-        secondpane:SearchResults
+        secondpane:TrendList
       }
     }, 
     {
@@ -48,12 +48,11 @@ export default new Router({
       path: '/data',
       name: 'Trend Data',
       components: {
-        secondpane:SearchResults,
+        secondpane:TrendList,
         thirdpane:TrendData
       },
       children: [
         { 
-          name:'Price Chart',
           path: '/pricevol',
           components: {
             trendviews:PriceVol
@@ -77,7 +76,7 @@ export default new Router({
       path: '/order',
       name: 'Order Form',
       components: {
-        secondpane:SearchResults,
+        secondpane:TrendList,
         thirdpane:OrderForm
       }
     },

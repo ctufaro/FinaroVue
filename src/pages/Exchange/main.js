@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import '../../plugins/vuetify'
 import VueSweetalert2 from 'vue-sweetalert2';
+import VueSlideoutPanel from 'vue2-slideout-panel';
 import vueHeadful from 'vue-headful';
 import App from './App.vue'
 import VueRouter from 'vue-router';
@@ -17,6 +18,7 @@ Vue.use(VueRouter);
 Vue.use(VueMask);
 Vue.use(VueAxios, axios)
 Vue.use(Loading);
+Vue.use(VueSlideoutPanel);
 Vue.use(require('vue-moment'));
 Vue.component('vue-headful', vueHeadful);
 

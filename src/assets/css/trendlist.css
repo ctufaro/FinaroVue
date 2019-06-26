@@ -1,0 +1,123 @@
+/* ---------------------------------------------------
+    SEARCH COLUMN STYLE
+----------------------------------------------------- */
+
+.searchcolumn{
+    background: #F4F7F9;
+}
+
+.searchcolumn .searchcolumn-header{
+    padding-top: 9px;
+    padding-bottom: 26px;
+    text-align: center;
+    color:#9FABB6 !important;
+    font-size:17px;
+    font-weight:500;
+    border-bottom-style: none;
+    max-height:72px;
+}
+
+.searchcolumn-table{
+    margin-left: 20px;
+}
+
+.searchtext{
+    font-size:30px;
+    /*border:none;*/
+    width:95%;
+    margin-left:8px;  
+}
+
+.sr-container {
+    border-bottom-width: .01em;
+    border-bottom-color: rgb(214, 214, 214);
+    border-bottom-style: solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.searchcolumn-filters {
+    padding-top:7px;
+    padding-bottom: 7px;
+}
+
+.searchcolumn-filters .btn{
+    border-radius: 0;
+}
+
+.r-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.r-row div {
+    height:100%;
+    flex:50%;
+}
+
+.r-row i{
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    font-size:24px;
+    color: #9FABB6;
+}
+
+.r-row button{
+    width:95px;
+    font-size:20px;
+    margin-right:10px;
+}
+
+.r-row .axis{
+    border-bottom-width: .17em;
+    border-bottom-color: #9FABB6;
+    border-bottom-style: dotted;
+    margin-bottom:0px !important;
+}
+
+.tag {
+    font-size: 18px;
+}
+
+.noresults {
+    font-size: 16px;
+    color:black;
+    padding-top:5px;
+    text-align: center;
+    margin-right:15px;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    margin-bottom:5px;
+  }
+  .btn-circle.btn-lg {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+    padding-right:1px;
+  }
+
+.shares{
+    font-size: 18px;
+    color: #9FABB6;
+    margin-top:10px;
+}
+
+.icn-fill{
+    color:#FFC300 !important;
+}
+
+
+
+
+

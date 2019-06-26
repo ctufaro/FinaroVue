@@ -1,0 +1,82 @@
+<template>
+    <div>
+        <nav id="sidebar" :class="{ active: isActive }">
+            <div class="sidebar-header profile">
+                <div style="flex:40%;">
+                    <a href='/'>
+                        <img src="@/assets/images/avatar-chris.gif" style="width:65px;padding-left:5px;"/>
+                    </a>
+                </div>
+                <div style="flex:60%;">
+                    <a href='/' id="sidebar-logo">
+                        <img src="@/assets/images/trndxlogo-white.png" style="width:145px;padding-left:25px;"/>
+                    </a>
+                </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                <!--<li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">My stocks</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>-->                         
+                <li>
+                    <router-link to="/search" @click.native="toggleSidebar();">Buy / Sell Trends</router-link>
+                </li>
+                <li>
+                    <router-link to="/myfeed" @click.native="toggleSidebar();">My Feed</router-link>
+                </li>                 
+                <li>
+                    <router-link to="/mytrends" @click.native="toggleSidebar();">My Trends<span class="float-right circle">22</span></router-link>
+                </li>
+                <!--
+                <li>
+                    <a href="#">Wallet</a>
+                </li>
+                -->
+                <li>
+                    <router-link to="/settings" @click.native="toggleSidebar();">Settings</router-link>
+                </li>                  
+                                                                                             
+            </ul>
+        </nav>
+    </div>
+</template>
+
+<script>
+export default {
+    name:'SlideOutPanel',
+    props:{
+        isActive:Boolean
+    },
+    data() {
+        return {};
+    },    
+    methods: {
+        closePanel() {
+            this.$emit("closePanel");
+        },
+        toggleSidebar(){
+            this.$emit("closePanel");
+        }
+    }
+}
+</script>
+
+<style>
+/*
+.slideout-panel .slideout-wrapper .slideout {
+    transition: all 0.5s ease !important;;
+    transition-delay: 50ms !important;
+}
+*/
+</style>

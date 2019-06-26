@@ -1,16 +1,20 @@
 <template>
     <v-bottom-nav :value="true" fixed color="#e5e5e5">
-        <v-btn color="#63C394" flat value="recent">
-            <span>Favorites</span>
-            <i class="fas fa-star bottom-icons"></i>
+        <v-btn color="#63C394" flat value="recent" to="/search">
+            <span>Trends</span>
+            <i class="fas fa-chart-line bottom-icons"></i>
         </v-btn>
-        <v-btn  color="#63C394" flat value="favorites">
-            <span>Notifications</span>
+        <v-btn  color="#63C394" flat value="favorites" to="/myfeed">
+            <span>My Feed</span>
+            <i class="fas fa-home bottom-icons"></i>
+        </v-btn>
+        <v-btn color="#63C394" flat value="nearby" >
+            <span>Notifs</span>
             <i class="fas fa-bell bottom-icons"></i>
-        </v-btn>
-        <v-btn color="#63C394" flat value="nearby">
-            <span>Messages</span>
-            <i class="fas fa-envelope bottom-icons"></i>
+        </v-btn>        
+        <v-btn color="#63C394" flat value="nearby" to="/settings">
+            <span>Settings</span>
+            <i class="fas fa-cog bottom-icons"></i>
         </v-btn>
     </v-bottom-nav>
 </template>

@@ -83,8 +83,8 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 276px;
+    max-width: 276px;
     background: #F4F7F9;
     color: #9FABB6;
     transition: all 0.3s;

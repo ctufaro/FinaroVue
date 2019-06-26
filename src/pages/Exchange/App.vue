@@ -2,89 +2,29 @@
     <div class="wrapper">        
         <vue-headful title="trndx Exchange" description=""/>
 
-        <!-- Sidebar  -->
-        <nav id="sidebar" :class="{ active: isActive }">
-            <div class="sidebar-header profile">
-                <div style="flex:40%;">
-                    <a href='/'>
-                        <img src="@/assets/images/avatar-chris.gif" style="width:65px;padding-left:5px;"/>
-                    </a>
-                </div>
-                <div style="flex:60%;">
-                    <a href='/' id="sidebar-logo">
-                        <img src="@/assets/images/trndxlogo-white.png" style="width:145px;padding-left:25px;"/>
-                    </a>
-                </div>
-            </div>
-
-            <ul class="list-unstyled components">
-                <!--<li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">My stocks</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li>-->                         
-                <li>
-                    <router-link to="/search" @click.native="toggleSidebar();">Buy / Sell Trends</router-link>
-                </li>
-                <li>
-                    <router-link to="/myfeed" @click.native="toggleSidebar();">My Feed</router-link>
-                </li>                 
-                <li>
-                    <router-link to="/mytrends" @click.native="toggleSidebar();">My Trends<span class="float-right circle">22</span></router-link>
-                </li>
-                <!--
-                <li>
-                    <a href="#">Wallet</a>
-                </li>
-                -->
-                <li>
-                    <router-link to="/settings" @click.native="toggleSidebar();">Settings</router-link>
-                </li>                  
-                                                                                             
-            </ul>
-        </nav>
-
+        <!-- Slideout Panels  -->
+        <SlideOutPanel v-if="!this.isMobile()"/>
+        <slideout-panel v-if="this.isMobile()"></slideout-panel>
+        
         <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:7px 0px 1px 0px;">
-                <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="hamburger text-secondary" @click="toggleSidebar">
-                        <i class="fas fa-bars"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <!--<img src="@/assets/images/trndxlogo-blue.png" style="width:30%"/>-->
-                    <div class="page-title text-secondary" v-if="!isActive">{{this.$route.name}}</div>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <v-toolbar fixed color="white" :flat=true :dense=true v-if="this.isMobile()">
+              <v-avatar size="35" @click="toggleSidebar">
+                  <img src="@/assets/images/avatar-chris.gif" alt="Chris">
+              </v-avatar>
+              <v-toolbar-title class="page-title text-secondary ml-2">{{this.$route.name}}</v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                  <v-icon>search</v-icon>
+              </v-btn>
+          <!--<v-btn icon>
+                <v-icon>more_vert</v-icon>
+              </v-btn>-->
+            </v-toolbar>
+            <div class="bottom-pad" />
             <div class="row justify-content-center h-100" >
                 <!-- Search Results  -->
                 <div class="col-md-4 searchcolumn">                 
-                    <!--<SearchResults @trendClick="trendClicked"/>-->
                     <router-view name="secondpane" @trendClick="trendClicked"/>
                 </div>
                 <!-- Main Pane  -->
@@ -93,7 +33,7 @@
                 </div>
                 <div class="col-md-3 misccolumn">                    
                 </div>
-                <BottomNavigation/>
+                <BottomNavigation v-if="this.isMobile()"/>
              </div>
         </div>
     </div>
@@ -102,6 +42,7 @@
 <script>
 import TrendPane from '@/components/TrendPane.vue'
 import BottomNavigation from '@/components/BottomNavigation.vue'
+import SlideOutPanel from '@/components/SlideOutPanel.vue'
 import uiMixin from '@/mixins/uimixin.js'
 
 export default {
@@ -109,7 +50,8 @@ export default {
   mixins: [uiMixin],
   components: {
     TrendPane,
-    BottomNavigation
+    BottomNavigation,
+    SlideOutPanel
   },
   data: () => ({
     isActive:false,
@@ -133,17 +75,20 @@ export default {
             this.trendVolSent.tweetVolume = response.data.TweetVolume;
             this.trendVolSent.loadDate = response.data.LoadDate;
             this.trendVolSent.avgSentiment = response.data.AvgSentiment;  
-            //console.log(this.trendVolSent.loadDate);         
         }).then(()=>{
             this.hideLoader(loader);
             if (this.isMobile()){
-                this.slideIn = true;         
+                this.slideIn = true;
             }             
         });
       },
       toggleSidebar: function(){
           if (this.isMobile()){
             this.isActive = !this.isActive;
+            this.$showPanel({component: SlideOutPanel, width: 275, openOn: 'left',                
+              keepAlive: true, //enable Vue's keep-alive functionality
+              props: {isActive:true}
+            })            
           }
       },
       goBack:function(){
@@ -166,8 +111,15 @@ export default {
 }
 </script>
 
+<style src="@/assets/css/exchange.css"></style>
 <style src="@/assets/css/bootbuttons.css"></style>
 <style src="@/assets/css/exchange-template.css"></style>
-<style scoped src="@/assets/css/pane-slide.css"></style>
-<style scoped src="@/assets/css/exchange.css"></style>
+<style src="@/assets/css/pane-slide.css"></style>
 
+<style>
+@media (max-width: 768px) {
+.bottom-pad {
+    padding-bottom:48px !important;
+  }
+}
+</style>

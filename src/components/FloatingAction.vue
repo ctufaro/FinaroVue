@@ -2,13 +2,13 @@
   <div class="text-xs-center">
     <v-dialog v-model="dialog" :fullscreen="this.isMobile()" hide-overlay transition="dialog-bottom-transition" width="500">
       <template v-slot:activator="{ on }">
-        <v-btn color="#63C394" :fixed="true" dark fab bottom right v-on="on" style="margin-bottom:53px;">
+        <v-btn color="#63C394" :fixed="true" dark fab bottom right v-on="on" class="bottom-float">
           <v-icon>add</v-icon>
         </v-btn>
       </template>
       <v-card>
         <v-card-title class="rt-title">
-          <span class="headline">Add Trend</span>
+          <span class="page-title text-secondary">Add Trend</span>
         </v-card-title>
         <div class="order-form" style="padding:16px;">
             <div>
@@ -59,3 +59,12 @@ export default {
 </script>
 
 <style src="@/assets/css/orderform.css"></style>
+
+<style>
+/*MOBILE*/
+@media (max-width: 768px) {
+.bottom-float {
+    margin-bottom:53px;
+  }
+}
+</style>
