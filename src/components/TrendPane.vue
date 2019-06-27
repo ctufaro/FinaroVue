@@ -20,18 +20,9 @@ export default {
     props: ['selectedTrend'],   
     data () {
         return {
-            transitionIn: '',
+            transitionIn: 'animated fadeInRight',
         }
-    },    
-    watch: {
-        '$route' (to) {         
-            if(to.path == '/order' || to.path == '/myfeedtrend'){
-                this.transitionIn = "animated fadeInRight";
-            } else {
-                this.transitionIn = "animated fadeInRight";
-            }            
-        }               
-    }    
+    }
 }
 </script>
 

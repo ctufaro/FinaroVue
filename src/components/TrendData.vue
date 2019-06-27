@@ -24,19 +24,28 @@
                 <div class="stat-row-data">215.77</div>
             </div><hr>                                   
         </div>
-        <div>
+        <div>            
             <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-                <button type="button" @click.prevent="$router.push('order')" class="btn btn-outline-success btn-lg btn-rnd">BUY</button>
+                <button type="button" @click.prevent="openDialog=true" class="btn btn-outline-success btn-lg btn-rnd">BUY</button>
                 <div style="width:80px;"></div>
-                <button type="button" @click.prevent="$router.push('order')" class="btn btn-outline-danger btn-lg btn-rnd">SELL</button>
+                <button type="button" @click.prevent="openDialog=true" class="btn btn-outline-danger btn-lg btn-rnd">SELL</button>
             </div>
-        </div>        
+        </div> 
+        <OrderForm :visible="openDialog" @close="openDialog=false"/>       
     </div>
 </template>
 
 <script>
+import OrderForm from '@/components/OrderForm.vue'
+
 export default {
     name:'TrendData',
+    data: () => ({        
+        openDialog:false
+    }),
+    components: {
+        OrderForm
+    },    
     computed: {
         name: function () {            
             return this.$parent.$parent.selectedTrend.name;
@@ -50,7 +59,7 @@ export default {
         color: function () {            
             return this.$parent.$parent.selectedTrend.color;
         } 
-    }    
+    }
 }
 </script>
 

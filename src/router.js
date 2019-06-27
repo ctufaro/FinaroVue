@@ -6,7 +6,6 @@ import TrendList from './components/TrendList.vue'
 import Settings from './components/Settings.vue'
 import MyTrends from './components/MyTrends.vue'
 import TrendData from './components/TrendData.vue'
-import OrderForm from './components/OrderForm.vue'
 import PriceVol from './components/PriceVol.vue'
 import TweetVol from './components/TweetVol.vue'
 import TrendFad from './components/TrendFad.vue'
@@ -71,14 +70,6 @@ export default new Router({
          }
         }        
       ]
-    },
-    {
-      path: '/order',
-      name: 'Order Form',
-      components: {
-        secondpane:TrendList,
-        thirdpane:OrderForm
-      }
     },
     {
       path: '/myfeedtrend',

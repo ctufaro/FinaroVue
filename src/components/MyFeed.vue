@@ -1,5 +1,5 @@
 <template>
-    <div style="padding-left:13px; padding-top:10px;">
+    <div style="padding-left:13px;">
         <v-tabs fixed-tabs height="40" light slider-color="#EF4139" color="transparent" style="padding:5px 15px 5px 15px !important;">
             <v-tab :class="{ active: selected }" @click="filtertab('Feed')">Feed</v-tab>
             <v-tab @click="filtertab('Sellers')">Sellers</v-tab>
