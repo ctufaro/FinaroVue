@@ -1,10 +1,10 @@
 <template>
     <div style="padding-left:13px; padding-top:10px;">
-        <div class="btn-group w-100" style="width:97% !important; padding-bottom:3px;">
-            <button type="button" class="btn btn-outline-secondary" :class="{ active: selected }" @click="filtertab('Feed')">Feed</button>
-            <button type="button" class="btn btn-outline-secondary" @click="filtertab('Sellers')">Sellers</button>
-            <button type="button" class="btn btn-outline-secondary" @click="filtertab('Buyers')">Buyers</button>
-        </div>
+        <v-tabs fixed-tabs height="40" light slider-color="#EF4139" color="transparent" style="padding:5px 15px 5px 15px !important;">
+            <v-tab :class="{ active: selected }" @click="filtertab('Feed')">Feed</v-tab>
+            <v-tab @click="filtertab('Sellers')">Sellers</v-tab>
+            <v-tab @click="filtertab('Buyers')">Buyers</v-tab>
+        </v-tabs>        
         <div v-for="item in items" :key="item.Id">
             <div class="card animate bounceIn" style="width: 97%;">
                 <div class="card-body" style="padding-bottom: 10px;">

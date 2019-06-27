@@ -49,6 +49,9 @@
                                                                                              
             </ul>
         </nav>
+        <v-btn :fixed="true" icon bottom left to="/settings" @click.native="toggleSidebar();">
+            <v-icon color="#9FABB6">fas fa-cog</v-icon>
+        </v-btn>        
     </div>
 </template>
 

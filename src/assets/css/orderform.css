@@ -52,8 +52,5 @@ input[type=number] {
     .tlw-cents{width: calc(16%);}
 }
 
-.rt-title{
-    text-align:right !important;
-}
 
 /*helpers*/

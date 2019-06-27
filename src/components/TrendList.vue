@@ -3,7 +3,7 @@
         <div class="searchcolumn-header" style="display:none;">
             <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search.." aria-label="Search">
         </div>
-        <v-tabs fixed-tabs height="40" light slider-color="#EF4139" color="transparent" style="padding:0px 15px 5px 15px !important;">
+        <v-tabs fixed-tabs height="40" light slider-color="#EF4139" color="transparent" style="padding:5px 15px 5px 15px !important;">
             <v-tab @click="filter('trending')">Trending</v-tab>
             <v-tab @click="filter('community')">Community</v-tab>
         </v-tabs>
@@ -43,15 +43,6 @@
 </template>
 
 <script>
-
-/*
-const xxx = [ {key:1, name:"#rosieteddyharrison",prices:[200,675,410,390,310,460,250,240],price:'$227.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570'], trendvol:1000, notif:false, fav:false},
-                    {key:2, name:"#thisisfuckingcorny",prices:[390,123,250,390,460,675,250,390],price:'$13.00',color:'#0079FF', class:'btn btn-primary btn-sm', gradient:['#0079FF','#4da0ff'], trendvol:1234, notif:false, fav:false },
-                    {key:3, name:"#chrisisprettycool",prices:[1,2,3,4,50,600,7,100],price:'$1.50',color:'#0079FF', class:'btn btn-primary btn-sm', gradient:['#0079FF','#4da0ff'], trendvol:1122, notif:false , fav:false},
-                    {key:4, name:"#releasethehounds",prices:[390,123,250,390,460,675,250,390],price:'$56.00',color:'#DE3442', class:'btn btn-danger btn-sm', gradient:['#DE3442','#e66570'], trendvol:2211, notif:false, fav:false },
-                  ];
-*/                  
-
 import uiMixin from '@/mixins/uimixin.js'
 
 export default {

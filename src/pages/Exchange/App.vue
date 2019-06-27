@@ -8,22 +8,7 @@
         
         <!-- Page Content  -->
         <div id="content">
-            <v-toolbar fixed color="white"  :dense=true v-if="this.isMobile()">
-              <v-avatar size="35" @click="toggleSidebar">
-                  <img src="@/assets/images/avatar-chris.gif" alt="Chris">
-              </v-avatar>
-              <v-toolbar-title class="page-title text-secondary ml-2">{{this.$route.name}}</v-toolbar-title>
-              <v-spacer></v-spacer>
-              <v-btn icon class="text-secondary">
-                  <v-icon>fas fa-search</v-icon>
-              </v-btn>
-              <v-btn icon class="text-secondary">
-                  <v-icon>fas fa-plus-circle</v-icon>
-              </v-btn>              
-          <!--<v-btn icon>
-                <v-icon>more_vert</v-icon>
-              </v-btn>-->
-            </v-toolbar>
+            <TopMenu @toggleSidebar="toggleSidebar"/>
             <div class="bottom-pad" />
             <div class="row justify-content-center h-100" >
                 <!-- Search Results  -->
@@ -36,8 +21,7 @@
                 </div>
                 <div class="col-md-3 misccolumn">                    
                 </div>
-                <FloatingAction v-if="false"/>
-                <BottomNavigation v-if="this.isMobile()"/>
+                <BottomMenu v-if="this.isMobile()"/>
              </div>
         </div>
     </div>
@@ -45,8 +29,8 @@
 
 <script>
 import TrendPane from '@/components/TrendPane.vue'
-import BottomNavigation from '@/components/BottomNavigation.vue'
-import FloatingAction from '@/components/FloatingAction.vue'
+import TopMenu from '@/components/TopMenu.vue'
+import BottomMenu from '@/components/BottomMenu.vue'
 import SlideOutPanel from '@/components/SlideOutPanel.vue'
 import uiMixin from '@/mixins/uimixin.js'
 
@@ -55,9 +39,9 @@ export default {
   mixins: [uiMixin],
   components: {
     TrendPane,
-    BottomNavigation,
-    SlideOutPanel,
-    FloatingAction
+    TopMenu,
+    BottomMenu,
+    SlideOutPanel
   },
   data: () => ({
     isActive:false,
