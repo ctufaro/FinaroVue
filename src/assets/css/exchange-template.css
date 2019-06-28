@@ -191,10 +191,14 @@ a.article:hover {
 
 #content {
     width: 100%;
-    padding-left: 15px;
-    padding-right: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
     min-height: 100vh;
     transition: all 0.3s;
+}
+
+.row{
+    margin-left: 0px !important;
 }
 
 /* ---------------------------------------------------
@@ -212,9 +216,13 @@ a.article:hover {
         display: none;
     }
     #content {
-        padding-right: 15px;
+        padding-left: 15px;
+        padding-right: 16px;
         white-space: nowrap !important;
-    }    
+    }
+    .row{
+        margin-left: -15px !important;
+    } 
     .navbar {
         display:block;
         margin-bottom: 5px;
