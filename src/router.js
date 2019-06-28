@@ -4,6 +4,7 @@ import MyFeed from './components/MyFeed.vue'
 import MyFeedTrend from './components/MyFeedTrend.vue'
 import TrendList from './components/TrendList.vue'
 import Settings from './components/Settings.vue'
+import Notifications from './components/Notifications.vue'
 import MyTrends from './components/MyTrends.vue'
 import TrendData from './components/TrendData.vue'
 import PriceVol from './components/PriceVol.vue'
@@ -42,7 +43,14 @@ export default new Router({
       components: {
         secondpane:MyTrends
       }
-    },           
+    },
+    {
+      path: '/notifications',
+      name: 'Notifications',
+      components: {
+        secondpane:Notifications
+      }
+    },               
     {
       path: '/data',
       name: 'Trend Data',

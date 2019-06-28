@@ -30,23 +30,22 @@
                     </ul>
                 </li>-->                         
                 <li>
-                    <router-link to="/search" @click.native="toggleSidebar();">Buy / Sell Trends</router-link>
+                    <router-link to="/search" @click.native="toggleSidebar();">Trends</router-link>
                 </li>
                 <li>
                     <router-link to="/myfeed" @click.native="toggleSidebar();">My Feed</router-link>
-                </li>                 
+                </li>                               
                 <li>
                     <router-link to="/mytrends" @click.native="toggleSidebar();">My Trends<span class="float-right circle">22</span></router-link>
                 </li>
+                <li>
+                    <router-link to="/notifications" @click.native="toggleSidebar();">Notifications</router-link>
+                </li>                  
                 <!--
                 <li>
                     <a href="#">Wallet</a>
                 </li>
-                -->
-                <li>
-                    <router-link to="/settings" @click.native="toggleSidebar();">Settings</router-link>
-                </li>                  
-                                                                                             
+                -->                                                                                            
             </ul>
         </nav>
         <v-btn :fixed="true" icon bottom left to="/settings" @click.native="toggleSidebar();">

@@ -1,5 +1,5 @@
 <template>    
-    <v-toolbar fixed color="white" flat :dense=false v-if="this.isMobile()" >
+    <v-toolbar :fixed="this.isMobile()" color="white" flat :dense=false >
         <v-avatar size="35" @click="$emit('toggleSidebar')">
             <img src="@/assets/images/avatar-chris.gif" alt="Chris">
         </v-avatar>
