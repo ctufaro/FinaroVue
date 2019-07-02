@@ -1,7 +1,7 @@
 <template>    
     <v-toolbar :fixed="this.isMobile()" color="white" flat :dense=false >
         <v-avatar size="35" @click="$emit('toggleSidebar')">
-            <img src="@/assets/images/avatar-chris.gif" alt="Chris">
+            <img src="@/assets/images/avatar-chris.jpg" alt="Chris">
         </v-avatar>
         <v-toolbar-title class="page-title text-secondary ml-2">{{this.$route.name}}</v-toolbar-title>
         <v-spacer></v-spacer>

@@ -10,7 +10,9 @@
                 <div class="card-body" style="padding-bottom: 10px;">
                     <div style="display: flex; padding-bottom: 0px;">
                         <div>
-                            <img :src="item.avatar" style="width: 65px;">
+                            <v-avatar :size="65">
+                                <img :src="item.avatar">
+                            </v-avatar>                            
                         </div>
                         <div style="width: 100%; padding-left: 5px;">
                             <span :class="`badge badge-`+item.class" style="font-size:14px;" :style="[item.type == 'Feed' ? {'display':'inline'} : {'display':'none'}]">{{item.text}}</span>
@@ -63,7 +65,7 @@
         tabName: 'Feed',        
         items: 
         [
-          {avatar:require(`@/assets/images/avatar-chris.gif`),type:'Buyers',user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#newyorkyankees',text: "awesome series, well worth the price."},
+          {avatar:require(`@/assets/images/avatar-chris.jpg`),type:'Buyers',user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#newyorkyankees',text: "awesome series, well worth the price."},
           {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Sellers',user:'@katlyco',btntext:'BUY THIS TREND',class:'success',title: '#mindhunter',text: "fucking garbage, buy my bags."},
           {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Buyers',user:'@mickey',btntext:'SELL MY TREND',class:'danger',title: '#loldollz',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},          
           {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Sellers',user:'@teddyboom',btntext:'BUY THIS TREND',class:'success',title: '#tonkatrucks',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},

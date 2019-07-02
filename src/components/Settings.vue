@@ -3,19 +3,19 @@
         <div class="setting">
             <p>Load Trends</p>
             <div>
-                <button type="button" class="btn btn-outline-success btn-rnd" @click.prevent="loadTrends">Execute Command</button>
+                <button type="button" class="btn btn-outline-success btn-rnd" @click.prevent="loadTrends">Run It!</button>
             </div>
         </div>        
         <div class="setting">
             <p>Delete All Trends</p>
             <div>
-                <button type="button" class="btn btn-outline-success btn-rnd" @click.prevent="deleteTrends">Execute Command</button>
+                <button type="button" class="btn btn-outline-success btn-rnd" @click.prevent="deleteTrends">Run It!</button>
             </div>
         </div>
         <div class="setting">
             <p>Clear Cache</p>
             <div>
-                <button type="button" class="btn btn-outline-success btn-rnd" @click.prevent="pageRefresh">Execute Command</button>
+                <button type="button" class="btn btn-outline-success btn-rnd" @click.prevent="pageRefresh">Run It!</button>
             </div>
         </div>                        
     </div>

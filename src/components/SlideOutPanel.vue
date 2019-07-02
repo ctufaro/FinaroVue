@@ -4,7 +4,7 @@
             <div class="sidebar-header profile">
                 <div style="flex:40%;">
                     <a href='/'>
-                        <img src="@/assets/images/avatar-chris.gif" style="width:65px;padding-left:5px;"/>
+                        <img src="@/assets/images/avatar-chris-main.jpg" style="width:65px;padding-left:5px;"/>
                     </a>
                 </div>
                 <div style="flex:60%;">
