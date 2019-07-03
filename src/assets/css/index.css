@@ -1,41 +1,33 @@
-body {
-	background-color: #63C394;
+.bg {
+    background: url('../images/unsplash.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
-span {
-	background-color: #63C394;
+.menu-btn{
+    font-family: 'Roboto',sans-serif;
+    font-weight: bolder;
+    font-size: 14px;
 }
 
-.application--wrap{
-  background-color: #63C394;
-}
+
 
 img {
-	width: 20em;
+    width: 20em;
 }
 
 /*MOBILE*/
 
 @media (max-width: 768px) {
-	img {
-		width: 15em;
-	}
+    img {
+        width: 15em;
+    }
+    .v-toolbar__content, .v-toolbar__extension {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
 }
 
-.menu {
-	position: fixed;
-	right: 0;
-	padding-right: 10px;
-	padding-top: 10px;
-}
 
-.main-content {
-	display: grid;
-	height: 95vh;
-	margin: 0;
-	place-items: center center;
-}
-
-.ftr {
-	background-color: rgb(34, 175, 137) !important;
-}
