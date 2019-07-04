@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="panel">
         <nav id="sidebar" :class="{ active: isActive }">
             <div class="sidebar-header profile">
                 <div style="flex:40%;">
@@ -79,11 +79,11 @@ export default {
 }
 </script>
 
-<style>
-/*
-.slideout-panel .slideout-wrapper .slideout {
-    transition: all 0.5s ease !important;;
-    transition-delay: 50ms !important;
+<style scoped>
+.panel{
+    background-color: #f4f7f9 !important;
+    border-right-width: .01em;
+    border-right-color: rgb(214, 214, 214);
+    border-right-style: solid;
 }
-*/
 </style>
