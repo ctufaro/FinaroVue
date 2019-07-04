@@ -19,7 +19,6 @@ Vue.use(VueMask);
 Vue.use(VueAxios, axios)
 Vue.use(Loading);
 Vue.use(VueSlideoutPanel);
-Vue.use(require('vue-moment'));
 Vue.component('vue-headful', vueHeadful);
 
 //Vue.prototype.$hostname = 'http://localhost:7071'
