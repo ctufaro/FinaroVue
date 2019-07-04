@@ -3,14 +3,12 @@
         <nav id="sidebar" :class="{ active: isActive }">
             <div class="sidebar-header profile">
                 <div style="flex:40%;">
-                    <a href='/'>
-                        <img src="@/assets/images/avatar-chris-main.jpg" style="width:65px;padding-left:5px;"/>
-                    </a>
+                    <img src="@/assets/images/avatar-chris-main.jpg" style="width:65px;padding-left:5px;"/>
                 </div>
                 <div style="flex:60%;">
-                    <a href='/' id="sidebar-logo">
+                    <span id="sidebar-logo">
                         <img src="@/assets/images/trndxlogo-white.png" style="width:145px;padding-left:25px;"/>
-                    </a>
+                    </span>
                 </div>
             </div>
 
@@ -51,7 +49,7 @@
         <v-btn :fixed="true" icon bottom left to="/settings" @click.native="toggleSidebar();">
             <v-icon color="#9FABB6">fas fa-cog</v-icon>
         </v-btn>
-        <v-btn :fixed="true" icon bottom left to="/settings" @click.native="exit();" style="margin-left:50px">
+        <v-btn :fixed="true" icon bottom left @click="goTo('/index.html', $event)" style="margin-left:50px">
             <v-icon color="#9FABB6">fas fa-sign-out-alt</v-icon>
         </v-btn>              
     </div>
@@ -73,16 +71,9 @@ export default {
         toggleSidebar(){
             this.$emit("closePanel");
         },
-        exit() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) { /* Firefox */
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) { /* IE/Edge */
-                document.msExitFullscreen();
-            }           
+        goTo:function(url, event){
+            event.preventDefault();
+            document.location.href = url;
         }        
     }
 }
