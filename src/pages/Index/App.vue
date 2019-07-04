@@ -1,11 +1,11 @@
 <template>
-    <span>
+    <span class="animate fadeIn">
         <vue-headful title="trndx - own the trend" description="" />
         <v-toolbar dense fixed flat color="transparent">
             <v-spacer></v-spacer>
             <div>
-                <v-btn class="grey darken-3 white--text menu-btn" v-on:click="goTo('/exchange.html#/search', $event)">Visit Exchange</v-btn>
-                <v-btn class="grey darken-3 white--text menu-btn" v-on:click.prevent="domesomething()">Sign Up</v-btn>
+                <v-btn class="menu-btn" outline flat v-on:click="goTo('/exchange.html#/search', $event)">Visit Exchange</v-btn>
+                <v-btn class="menu-btn" outline flat v-on:click.prevent="domesomething()">Sign Up</v-btn>
             </div>
         </v-toolbar>
         <div>
@@ -20,10 +20,10 @@
                     </v-layout>
                 </v-container>
             </v-app>
-            <v-footer dark height="auto" fixed>
-                <v-card class="flex" flat tile>
-                    <v-card-actions class="grey darken-3 justify-center">
-                        &copy;2019 — <strong>trndx</strong>
+            <v-footer height="auto" fixed >
+                <v-card class="flex" flat tile color="#6B757B">
+                    <v-card-actions class="justify-center">
+                        <span style="color:white">Copyright © 2019 <strong>trndx</strong></span>
                     </v-card-actions>
                 </v-card>
             </v-footer>

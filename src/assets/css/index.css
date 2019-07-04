@@ -1,18 +1,17 @@
-.bg {
-    background: url('../images/unsplash.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+.application--wrap {
+    background-color: #6B757B;
 }
 
 .menu-btn{
     font-family: 'Roboto',sans-serif;
     font-weight: bolder;
     font-size: 14px;
+    color:white !important;
 }
 
-
+.v-toolbar__content, .v-toolbar__extension {    
+    padding-right: calc(15%) !important;
+}
 
 img {
     width: 20em;
@@ -24,9 +23,22 @@ img {
     img {
         width: 15em;
     }
+    .application--wrap {
+        background-color: transparent;
+    }
+    .bg {
+        background: url('../images/unsplash.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
     .v-toolbar__content, .v-toolbar__extension {
         padding-left: 0px !important;
         padding-right: 0px !important;
+    }
+    .menu-btn{
+        color:#63C394 !important;
     }
 }
 

@@ -50,7 +50,10 @@
         </nav>
         <v-btn :fixed="true" icon bottom left to="/settings" @click.native="toggleSidebar();">
             <v-icon color="#9FABB6">fas fa-cog</v-icon>
-        </v-btn>        
+        </v-btn>
+        <v-btn :fixed="true" icon bottom left to="/settings" @click.native="exit();" style="margin-left:50px">
+            <v-icon color="#9FABB6">fas fa-sign-out-alt</v-icon>
+        </v-btn>              
     </div>
 </template>
 
@@ -69,7 +72,9 @@ export default {
         },
         toggleSidebar(){
             this.$emit("closePanel");
-        }
+        },
+        exit() {           
+        }        
     }
 }
 </script>
