@@ -10,7 +10,8 @@
 }
 
 .v-toolbar__content, .v-toolbar__extension {    
-    padding-right: calc(15%) !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;  
 }
 
 img {
@@ -19,7 +20,7 @@ img {
 
 /*MOBILE*/
 
-@media (max-width: 768px) {
+@media (max-width: 575px) {
     img {
         width: 15em;
     }
@@ -27,15 +28,11 @@ img {
         background-color: transparent;
     }
     .bg {
-        background: url('../images/unsplash.jpg') no-repeat center center fixed;
+        background: url('../images/unsplash1.jpg') no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
         -o-background-size: cover;
-    }
-    .v-toolbar__content, .v-toolbar__extension {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
     }
     .menu-btn{
         color:#63C394 !important;

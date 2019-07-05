@@ -9,14 +9,17 @@
             <v-icon>fas fa-search</v-icon>
         </v-btn>
         <AddTrendButton v-if="this.$route.name=='Trends'"/>
-            <div v-if="showSearch">
-                <v-toolbar fixed color="white" flat :dense=false>
-                    <v-btn icon @click.prevent="showSearch=!showSearch">
-                        <v-icon>fas fa-chevron-left</v-icon>
-                    </v-btn>
-                     <v-text-field solo label="Search..." append-outer-icon="search" :flat=true></v-text-field>
-                </v-toolbar>
-            </div>
+        <v-btn icon class="text-secondary" v-if="this.$route.name=='Trends'">
+            <v-icon>fas fa-user-friends</v-icon>
+        </v-btn>        
+        <div v-if="showSearch">
+            <v-toolbar fixed color="white" flat :dense=false>
+                <v-btn icon @click.prevent="showSearch=!showSearch">
+                    <v-icon>fas fa-chevron-left</v-icon>
+                </v-btn>
+                    <v-text-field solo label="Search..." append-outer-icon="search" :flat=true></v-text-field>
+            </v-toolbar>
+        </div>    
     </v-toolbar>
 </template>
 

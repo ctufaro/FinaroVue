@@ -2,11 +2,20 @@
     <span>
         <v-container fluid style="padding-left:15px !important;">
             <v-layout column>
-                <v-flex class="mt-2">
+                <div class="mt-2" style="display:flex;">
                     <v-avatar size="96" class="mr-4">
                         <img src="@/assets/images/avatar-chris-main.jpg" alt="Avatar">
                     </v-avatar>
-                </v-flex>
+                    <div>
+                        <div class="port-txt text-secondary">PORTFOLIO</div>
+                        <div class="port-val">$1,234.56</div>
+                        <div>
+                            <v-icon color="#D6AF36">fas fa-trophy</v-icon>
+                            <v-icon color="#D7D7D7">fas fa-trophy</v-icon>
+                            <v-icon color="#A77044">fas fa-trophy</v-icon>
+                        </div>
+                    </div>                                        
+                </div>
                 <span class="font-weight-bold text-secondary mt-2" style="font-size:20px;">Christopher Tufaro</span>
             </v-layout>
         </v-container>
@@ -26,9 +35,22 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .v-expansion-panel{
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+.port-txt{
+    font-size:15;
+}
+
+.port-val{
+    margin-top:-10px !important;
+    font-size:36px;
+}
+
+.v-icon{
+    padding-left:7px;
 }
 </style>
