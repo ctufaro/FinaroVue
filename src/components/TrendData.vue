@@ -8,7 +8,12 @@
         </v-tabs>
         <br>
         <div class="trnd-txt">{{this.name}}</div>
-        <div class="trnd-price">{{this.price}}</div>        
+        <div class="trnd-price">{{this.price}}            
+            <div class="trnd-change" :style="[this.change != 0 ? {'color':this.color} : {'color':'black'}]">({{this.change}}%)
+                <span v-if="this.change < 0"><i class="fas fa-arrow-down"></i></span>
+                <span v-if="this.change > 0"><i class="fas fa-arrow-up"></i></span>
+            </div>            
+        </div>        
         <div>
             <router-view name="trendviews"/>            
         </div>
@@ -58,6 +63,9 @@ export default {
         },        
         color: function () {            
             return this.$parent.$parent.selectedTrend.color;
+        },
+        change: function () {            
+            return this.$parent.$parent.selectedTrend.changeIn;
         } 
     }
 }
