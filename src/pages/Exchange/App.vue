@@ -47,20 +47,34 @@ export default {
     isActive:false,
     sidebarOffCanvas:false,
     slideIn:false,
-    selectedTrend:{name:null, price: null, prices:[0,0,0,0], color:null},
+    selectedTrend:{name:null, price: null, color:null, changeIn:null, priceHistory:[], dateHistory:[]},
     trendVolSent:{tweetVolume:[], loadDate:[], avgSentiment:[]}
   }),  
   methods: {
       trendClicked: function(trend){
-        this.selectedTrend.name = trend.Name;
-        this.selectedTrend.price = trend.PriceText;
-        this.selectedTrend.prices = trend.Prices;
-        this.selectedTrend.color = trend.Color;
-        this.getTrendData();             
+        this.getPriceVolData(trend);
+        this.getTrendData(trend);             
       },
-      async getTrendData(){
+      async getPriceVolData(trend){
+        let loader = this.showLoader();        
+        let sName = trend.Name.replace("#", "%23");
+        this.axios.get(`${this.$hostname}/api/pricevol/${sName}`).then(response => {
+            this.selectedTrend.priceHistory = response.data.Prices;
+            this.selectedTrend.dateHistory = response.data.Times;
+            this.selectedTrend.name = trend.Name;
+            this.selectedTrend.price = trend.PriceText;
+            this.selectedTrend.color = trend.Gains == true? "#63C394" : "#EF4139";
+            this.selectedTrend.changeIn = trend.ChangeIn;
+        }).then(()=>{
+            this.hideLoader(loader);
+            if (this.isMobile()){
+                this.slideIn = true;
+            }             
+        });
+      },
+      async getTrendData(trend){
         let loader = this.showLoader();
-        let sName = this.selectedTrend.name.replace("#", "%23");
+        let sName = trend.Name.replace("#", "%23");
         this.axios.get(`${this.$hostname}/api/tweets/${sName}`).then(response => {
             this.trendVolSent.tweetVolume = response.data.TweetVolume;
             this.trendVolSent.loadDate = response.data.LoadDate;

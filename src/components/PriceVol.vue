@@ -18,8 +18,14 @@ export default {
         PriceVolChart
     },
     computed: {
+        dates: function() {
+            return this.$parent.$parent.$parent.selectedTrend.dateHistory;
+        },
         prices: function() {
-            return this.$parent.$parent.$parent.selectedTrend.prices;
+            return this.$parent.$parent.$parent.selectedTrend.priceHistory;
+        },
+        price: function() {
+            return this.$parent.$parent.$parent.selectedTrend.price;
         },
         color: function() {
             return this.$parent.$parent.$parent.selectedTrend.color;
@@ -28,25 +34,26 @@ export default {
     methods: {
         renderLineChart: function() {
             this.chartData = {
-                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                datasets: [{
+                labels: this.dates,
+                datasets: 
+                [{
                         label: 'Price',
-                        borderColor: this.color == 'success' ? '#63C394' : '#EF4139',
+                        borderColor: this.color,
                         fill: false,
                         data: this.prices
                     },
-                    {
+                    /*{
                         label: 'Volume',
                         borderColor: '#0065B5',
                         fill: false,
                         data: [60, 55, 32, 10, 2, 12, 53]
-                    }
+                    }*/
                 ]
             }
         }
     },
     watch: {
-        prices: function() {
+        price: function() {
             this.renderLineChart();
         }
     },
