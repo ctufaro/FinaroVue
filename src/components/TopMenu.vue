@@ -17,7 +17,7 @@
                 <v-btn icon @click.prevent="showSearch=!showSearch">
                     <v-icon>fas fa-chevron-left</v-icon>
                 </v-btn>
-                    <v-text-field solo label="Search..." append-outer-icon="search" :flat=true></v-text-field>
+                    <v-text-field solo label="Search..." v-model="searchTxt" :flat=true :clearable=true></v-text-field>
             </v-toolbar>
         </div>    
     </v-toolbar>
@@ -25,12 +25,14 @@
 
 <script>
 import uiMixin from '@/mixins/uimixin.js'
+import {eventBus} from '@/eventbus.js'
 import AddTrendButton from '@/components/AddTrendButton.vue'
 
 export default {
     name: 'TopMenu',
     data: () => ({
-        showSearch:false
+        showSearch:false,
+        searchTxt:''
     }),    
     mixins: [uiMixin],
     components: { 
@@ -39,6 +41,9 @@ export default {
     watch: {
         '$route' () {
             this.showSearch=false;
+        },
+        searchTxt(val){
+            eventBus.$emit('searchTextChanged',val)
         }
     }    
 }

@@ -5,7 +5,7 @@
             <v-spacer></v-spacer>
             <div>
                 <v-btn class="menu-btn" outline flat v-on:click="goTo('/exchange.html#/search', $event)">Visit Exchange</v-btn>
-                <v-btn class="menu-btn" outline flat v-on:click.prevent="domesomething()">Sign Up</v-btn>
+                <v-btn class="menu-btn" outline flat v-on:click.prevent="domesomething()">Sign Up/In</v-btn>
             </div>
         </v-toolbar>
         <div>

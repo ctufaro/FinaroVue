@@ -1,11 +1,8 @@
 <template>
     <span>
-        <div class="searchcolumn-header" style="display:none;">
-            <input class="form-control searchtext" v-model="searchTxt" type="text" placeholder="Search.." aria-label="Search">
-        </div>
         <v-tabs fixed-tabs height="40" light slider-color="#EF4139" color="transparent" style="padding:5px 15px 5px 15px !important;">
-            <v-tab @click="filter('trending')">Trending</v-tab>
-            <v-tab @click="filter('community')">Community</v-tab>
+            <v-tab @click="sift('trending')">Trending</v-tab>
+            <v-tab @click="sift('community')">Community</v-tab>
         </v-tabs>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.Id">
@@ -35,8 +32,8 @@
                     </div>
                 </div>
             </span>
-            <div class="noresults" v-if="this.trends.length == 0 && this.searchTxt.length > 0">
-                0 results found - Add this trend
+            <div class="noresults" v-if="this.trends.length == 0 && this.searchText!==null && this.searchText.length > 0">
+                0 results found
             </div>
         </div>        
     </span>    
@@ -44,15 +41,15 @@
 
 <script>
 import uiMixin from '@/mixins/uimixin.js'
+import {eventBus} from '@/eventbus.js'
 
 export default {
     name: 'TrendList',
     mixins: [uiMixin],
     components: {
-        
     },
     data: () => ({
-      searchTxt:'',
+      searchText:'',
       trends:[],
       savedTrends:[]
     }),
@@ -94,22 +91,16 @@ export default {
             }
             return str.trim().toLowerCase()
         },
-        filter(selection){
+        sift(selection){
             let url = `${this.$hostname}/api/trends/filter`
             let loader = this.showLoader();
             url =(selection === 'community') ? `${url}/1` : `${url}/0`
-            this.searchTxt = '';                
             this.axios.get(url).then(response => {
                 this.trends = response.data;
                 this.savedTrends = this.trends;
             }).then(()=>{
                 this.hideLoader(loader);
             });
-        }
-    },
-    watch:{
-        searchTxt: function(val) {
-            this.trends = this.savedTrends.filter(w => this.strClean(w.Name).startsWith(val.trim().toLowerCase()));
         }
     },
     created: function(){
@@ -121,8 +112,19 @@ export default {
             this.hideLoader(loader);
         });
     },
-    updated: function(){        
-        
+    mounted: function(){        
+        eventBus.$on('searchTextChanged',(val)=>{
+            if(val!==null){
+                this.searchText = val;
+                this.trends = this.savedTrends.filter(w => this.strClean(w.Name).startsWith(val.trim().toLowerCase()));
+            } else {
+                this.trends = this.savedTrends;
+            }
+            
+        })       
+    },
+    beforeDestroy(){
+        eventBus.$off('content-type-saving');
     }
 }
 </script>
