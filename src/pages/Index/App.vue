@@ -5,7 +5,7 @@
             <v-spacer></v-spacer>
             <div>
                 <v-btn class="menu-btn" outline flat v-on:click="goTo('/exchange.html#/search', $event)">Visit Exchange</v-btn>
-                <v-btn class="menu-btn" outline flat v-on:click.prevent="domesomething()">Sign Up/In</v-btn>
+                <v-btn class="menu-btn" outline flat @click.stop="dialog = true">Sign Up/In</v-btn>
             </div>
         </v-toolbar>
         <div>
@@ -28,11 +28,23 @@
                 </v-card>
             </v-footer>
         </div>
+        <v-dialog v-model="dialog" max-width="550" lazy>
+            <SignUpIn @close="dialog=false"/>
+        </v-dialog>
     </span>
 </template>
 
 <script>
+
+import SignUpIn from '@/components/SignUpIn.vue'
+
 export default {
+    data: () => ({
+        dialog: false       
+    }),
+    components:{
+        SignUpIn
+    },
     methods:{
         domesomething:function(){
         this.$swal({
