@@ -54,6 +54,7 @@ export default {
         });      
     },
     goTo:function(url, event){
+        localStorage.name = 'Chris Tufaro';
         event.preventDefault();
         document.location.href = url;
     }

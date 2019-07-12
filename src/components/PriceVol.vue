@@ -19,16 +19,16 @@ export default {
     },
     computed: {
         dates: function() {
-            return this.$parent.$parent.$parent.selectedTrend.dateHistory;
+            return this.$store.getters.vxTrend.dateHistory;
         },
         prices: function() {
-            return this.$parent.$parent.$parent.selectedTrend.priceHistory;
+            return this.$store.getters.vxTrend.priceHistory;
         },
         price: function() {
-            return this.$parent.$parent.$parent.selectedTrend.price;
+            return this.$store.getters.vxTrend.price;
         },
         color: function() {
-            return this.$parent.$parent.$parent.selectedTrend.color;
+            return this.$store.getters.vxTrend.color;
         }
     },
     methods: {
@@ -53,7 +53,7 @@ export default {
         }
     },
     watch: {
-        price: function() {
+        dates: function() {
             this.renderLineChart();
         }
     },

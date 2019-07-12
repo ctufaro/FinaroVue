@@ -7,6 +7,7 @@
             <!--<v-tab to="/hot">Hot</v-tab>-->
         </v-tabs>
         <br>
+
         <div class="trnd-txt">{{this.name}}</div>
         <div class="trnd-price">{{this.price}}            
             <div class="trnd-change" :style="[this.change != 0 ? {'color':this.color} : {'color':'black'}]">({{this.change}}%)
@@ -53,19 +54,16 @@ export default {
     },    
     computed: {
         name: function () {            
-            return this.$parent.$parent.selectedTrend.name;
+            return this.$store.getters.vxTrend.name;
         },
         price: function () {            
-            return this.$parent.$parent.selectedTrend.price;
-        },
-        prices: function () {            
-            return this.$parent.$parent.selectedTrend.prices;
-        },        
+            return this.$store.getters.vxTrend.price;
+        },     
         color: function () {            
-            return this.$parent.$parent.selectedTrend.color;
+            return this.$store.getters.vxTrend.color;
         },
         change: function () {            
-            return this.$parent.$parent.selectedTrend.changeIn;
+            return this.$store.getters.vxTrend.changeIn;
         } 
     }
 }

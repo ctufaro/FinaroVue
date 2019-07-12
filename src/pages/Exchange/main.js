@@ -11,6 +11,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Loading from 'vue-loading-overlay';    
 import 'vue-loading-overlay/dist/vue-loading.css';
+import { store } from '../../store/store'
 
 Vue.config.productionTip = false
 Vue.use(VueSweetalert2, {confirmButtonColor: '#0079FF'});
@@ -25,6 +26,7 @@ Vue.component('vue-headful', vueHeadful);
 Vue.prototype.$hostname = 'https://finarofunc.azurewebsites.net'
 
 new Vue({
+  store,
   render: h => h(App),router
 }).$mount('#app')
 

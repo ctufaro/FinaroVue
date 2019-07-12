@@ -21,20 +21,20 @@ export default {
         TweetVolChart
     },
     computed: {
-        loadDates: function() {
-            return this.$parent.$parent.$parent.trendVolSent.loadDate;
+        dates: function() {
+            return this.$store.getters.vxTrendVol.loadDate;
         },
         tweetVolumes: function() {
-            return this.$parent.$parent.$parent.trendVolSent.tweetVolume;
+            return this.$store.getters.vxTrendVol.tweetVolume;
         },
         avgSentiments: function() {
-            return this.$parent.$parent.$parent.trendVolSent.avgSentiment.map(n => this.getColor(n));
+            return this.$store.getters.vxTrendVol.avgSentiment.map(n => this.getColor(n));
         }        
     },
     methods: {
         renderLineChart: function() {
             this.chartData = {
-                labels: this.loadDates,
+                labels: this.dates,
                 datasets: [{
                     label: 'Data',
                     backgroundColor: this.avgSentiments,
@@ -111,7 +111,7 @@ export default {
         }       
     },
     watch: {
-        loadDates: function() {
+        dates: function() {
             this.renderLineChart();
         }
     },

@@ -16,7 +16,7 @@
                         </div>
                     </div>                                        
                 </div>
-                <span class="font-weight-bold text-secondary mt-2" style="font-size:20px;">Christopher Tufaro</span>
+                <span class="font-weight-bold text-secondary mt-2" style="font-size:20px;">{{name}}</span>
             </v-layout>
         </v-container>
         <v-expansion-panel>
@@ -31,8 +31,21 @@
 
 <script>
 export default {
-    name:"MyTrends"
-}
+    name: "MyTrends",
+    data: () => ({
+        name: ''
+    }),
+    mounted() {
+        if (localStorage.name) {
+            this.name = localStorage.name;
+        }
+    },
+    watch: {
+        name(newName) {
+            localStorage.name = newName;
+        }
+    }
+} 
 </script>
 
 <style scoped>

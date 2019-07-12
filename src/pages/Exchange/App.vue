@@ -17,7 +17,7 @@
                 </div>
                 <!-- Main Pane  -->
                 <div class="col-md-5 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
-                    <TrendPane @goback="goBack" :selected-trend="this.selectedTrend"/>
+                    <TrendPane @goback="goBack"/>
                 </div>
                 <div class="col-md-3 misccolumn">                    
                 </div>
@@ -46,12 +46,11 @@ export default {
   data: () => ({
     isActive:false,
     sidebarOffCanvas:false,
-    slideIn:false,
-    selectedTrend:{name:null, price: null, color:null, changeIn:null, priceHistory:[], dateHistory:[]},
-    trendVolSent:{tweetVolume:[], loadDate:[], avgSentiment:[]}
+    slideIn:false    
   }),  
   methods: {
       trendClicked: function(trend){
+        this.$store.commit('changeTrend', trend);
         this.getPriceVolData(trend);
         this.getTrendData(trend);             
       },
@@ -59,12 +58,7 @@ export default {
         let loader = this.showLoader();        
         let sName = trend.Name.replace("#", "%23");
         this.axios.get(`${this.$hostname}/api/pricevol/${sName}`).then(response => {
-            this.selectedTrend.priceHistory = response.data.Prices;
-            this.selectedTrend.dateHistory = response.data.Times;
-            this.selectedTrend.name = trend.Name;
-            this.selectedTrend.price = trend.PriceText;
-            this.selectedTrend.color = trend.Gains == true? "#63C394" : "#EF4139";
-            this.selectedTrend.changeIn = trend.ChangeIn;
+            this.$store.commit('changeTrendHistory', {'Prices':response.data.Prices,  'Times':response.data.Times});
         }).then(()=>{
             this.hideLoader(loader);
             if (this.isMobile()){
@@ -76,9 +70,7 @@ export default {
         let loader = this.showLoader();
         let sName = trend.Name.replace("#", "%23");
         this.axios.get(`${this.$hostname}/api/tweets/${sName}`).then(response => {
-            this.trendVolSent.tweetVolume = response.data.TweetVolume;
-            this.trendVolSent.loadDate = response.data.LoadDate;
-            this.trendVolSent.avgSentiment = response.data.AvgSentiment;  
+            this.$store.commit('changeTrendVol', {'TweetVolume':response.data.TweetVolume, 'LoadDate':response.data.LoadDate, 'AvgSentiment':response.data.AvgSentiment});
         }).then(()=>{
             this.hideLoader(loader);
             if (this.isMobile()){
