@@ -42,14 +42,14 @@
                     <v-card-title class="headline justify-center">Log in to trndx</v-card-title>
                     <v-card-text>
                         <v-form ref="form" lazy-validation>
-                            <v-text-field label="Username" required>
+                            <v-text-field label="Username" v-model="username" required>
                             </v-text-field>
                             <v-text-field label="Password" required>
                             </v-text-field>
                         </v-form>
                     </v-card-text>
                     <v-card-actions class="justify-center">
-                        <v-btn class="menu-btn ml-2 mr-2" outline flat block>Log In</v-btn>                       
+                        <v-btn class="menu-btn ml-2 mr-2" outline flat block @click.prevent="login">Log In</v-btn>                       
                     </v-card-actions>                    
                 </v-card>
             </span>
@@ -67,11 +67,16 @@ export default {
         tabs: [
             { index: 0, name: 'Sign-Up' },
             { index: 1, name: 'Log In' }
-        ]
+        ],
+        username:''
     }),
     methods:{
         selectTab(indx){
             this.active_tab = indx
+        },
+        login(){
+            localStorage.name = this.username;
+            this.$emit('close');
         }
     }
 }

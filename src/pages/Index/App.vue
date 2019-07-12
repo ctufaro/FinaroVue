@@ -29,7 +29,7 @@
             </v-footer>
         </div>
         <v-dialog v-model="dialog" max-width="550" lazy>
-            <SignUpIn @close="dialog=false"/>
+            <SignUpIn @close="login()"/>
         </v-dialog>
     </span>
 </template>
@@ -47,18 +47,22 @@ export default {
     },
     methods:{
         domesomething:function(){
-        this.$swal({
-            type: 'success',
-            title: 'Success!',
-            text: 'Excellent Work!'
-        });      
-    },
-    goTo:function(url, event){
-        localStorage.name = 'Chris Tufaro';
-        event.preventDefault();
-        document.location.href = url;
+            this.$swal({
+                type: 'success',
+                title: 'Success!',
+                text: 'Excellent Work!'
+            });      
+        },
+        goTo:function(url, event){
+            this.dialog = false;
+            event.preventDefault();
+            document.location.href = url;
+        },
+        login(){
+            this.dialog = false;
+            document.location.href = '/exchange.html#/search';
+        }
     }
-  }
 }
 </script>
 
