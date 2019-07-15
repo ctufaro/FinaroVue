@@ -28,8 +28,8 @@
                             </v-stepper-content>
                             <v-stepper-content step="2">
                                 <v-card flat height="175px">
-                                    <v-alert :value="true" color="#63C394" type="warning">
-                                        I love Rose Penelope with all my heart and soul.
+                                    <v-alert :value="true" color="#63C394" class="mb-3">
+                                        Receive SMS alerts to buy/sell trends (optional).
                                     </v-alert>
                                     <v-text-field label="Mobile Number" v-model="mobile" mask="(###) ### - ####" placeholder="(###) ### - ####"></v-text-field>
                                 </v-card>
@@ -137,5 +137,10 @@ export default {
 
 .mint .menu-btn{
     color: #63C394 !important;
+}
+
+.mint .v-alert{
+    padding-top:5px !important;
+    padding-bottom:5px !important;
 }
 </style>
