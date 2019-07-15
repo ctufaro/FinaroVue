@@ -18,11 +18,11 @@
                         </v-stepper-header>
                         <v-stepper-items>
                             <v-stepper-content step="1">
-                                <v-card flat height="200px">
-                                    <v-form ref="form" lazy-validation>
-                                        <v-text-field label="E-mail" v-model="email" required></v-text-field>
-                                        <v-text-field label="Username" v-model="username" required></v-text-field>
-                                        <v-text-field label="Password" type="password" v-model="password" required></v-text-field>
+                                <v-card flat height="210px">
+                                    <v-form ref="form" v-model="valid" lazy-validation>
+                                        <v-text-field label="E-mail" :rules="[rules.required]" v-model="email" required></v-text-field>
+                                        <v-text-field label="Username" :rules="[rules.required]" v-model="username" required></v-text-field>
+                                        <v-text-field label="Password" :rules="[rules.required]" type="password" v-model="password" required></v-text-field>
                                     </v-form>
                                 </v-card>
                             </v-stepper-content>
@@ -36,8 +36,10 @@
                             </v-stepper-content>
                             <v-stepper-content step="3">
                                 <v-card flat height="195px">
-                                    <v-textarea label="Terms of Use" flat value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></v-textarea>                                    
-                                    <v-checkbox label="I agree to these terms" class="chklbl"></v-checkbox>
+                                    <v-form ref="form" v-model="valid">
+                                        <v-textarea label="Terms of Use" flat value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></v-textarea>                                    
+                                        <v-checkbox label="I agree to these terms" :rules="[rules.required]" class="chklbl" v-model="terms"></v-checkbox>
+                                    </v-form>
                                 </v-card>
                             </v-stepper-content>                            
                         </v-stepper-items>
@@ -82,7 +84,12 @@ export default {
         username:'',
         email:'',
         password:'',
-        mobile:''        
+        mobile:'',
+        terms:false,
+        rules: {
+          required: value => !!value || 'Required.'
+        },
+        valid:false        
     }),
     methods:{
         selectTab(indx){
@@ -94,10 +101,18 @@ export default {
             //console.log(`${this.username} ${this.password}`);            
         },
         signUp(){
-            this.e1 = (parseInt(this.e1) + 1);
-            if(this.e1 > 3){
-                this.e1 = 1;
-            }
+            if(this.e1 == 1 && this.valid == true) {         // STEP 1
+                console.log(`Email:${this.email} Username:${this.username} Password:${this.password}`);
+                this.e1 = (parseInt(this.e1) + 1);
+            } else if (this.e1 == 2 && this.valid == true) { // STEP 2
+                console.log(`Mobile: ${this.mobile}`);
+                this.e1 = (parseInt(this.e1) + 1);
+            } else if (this.e1 == 3 && this.terms == true) { // STEP 3
+                console.log(`Terms: ${this.terms}`);
+                this.e1 = (parseInt(this.e1) + 1);
+            } else if (this.e1 > 4) {                       // PROCESS
+                this.e1 = 1;            
+            } 
         },
         back(){
             this.e1 = (parseInt(this.e1) - 1);                
