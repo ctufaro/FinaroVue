@@ -16,7 +16,7 @@
                         </div>
                     </div>                                        
                 </div>
-                <span class="font-weight-bold text-secondary mt-2" style="font-size:20px;">{{name}}</span>
+                <span class="font-weight-bold text-secondary mt-2" style="font-size:20px;">{{username}}</span>
             </v-layout>
         </v-container>
         <v-expansion-panel>
@@ -33,16 +33,16 @@
 export default {
     name: "MyTrends",
     data: () => ({
-        name: ''
+        username: ''
     }),
     mounted() {
-        if (localStorage.name) {
-            this.name = localStorage.name;
+        if (localStorage.username) {
+            this.username = localStorage.username;
         }
     },
     watch: {
         name(newName) {
-            localStorage.name = newName;
+            localStorage.username = newName;
         }
     }
 } 

@@ -19,10 +19,10 @@
                         <v-stepper-items>
                             <v-stepper-content step="1">
                                 <v-card flat height="210px">
-                                    <v-form ref="form" v-model="valid" lazy-validation>
-                                        <v-text-field label="E-mail" :rules="[rules.required]" v-model="email" required></v-text-field>
-                                        <v-text-field label="Username" :rules="[rules.required]" v-model="username" required></v-text-field>
-                                        <v-text-field label="Password" :rules="[rules.required]" type="password" v-model="password" required></v-text-field>
+                                    <v-form ref="form1" v-model="validSignUp" lazy-validation>
+                                        <v-text-field label="E-mail" :rules="[rules.required]" v-model="newSignUp.email" required></v-text-field>
+                                        <v-text-field label="Username" :rules="[rules.required]" v-model="newSignUp.username" required></v-text-field>
+                                        <v-text-field label="Password" :rules="[rules.required]" type="password" v-model="newSignUp.password" required></v-text-field>
                                     </v-form>
                                 </v-card>
                             </v-stepper-content>
@@ -31,14 +31,14 @@
                                     <v-alert :value="true" color="#63C394" class="mb-3">
                                         Receive SMS alerts to buy/sell trends (optional).
                                     </v-alert>
-                                    <v-text-field label="Mobile Number" v-model="mobile" mask="(###) ### - ####" placeholder="(###) ### - ####"></v-text-field>
+                                    <v-text-field label="Mobile Number" v-model="newSignUp.mobile" mask="(###) ### - ####" placeholder="(###) ### - ####"></v-text-field>
                                 </v-card>
                             </v-stepper-content>
                             <v-stepper-content step="3">
-                                <v-card flat height="195px">
-                                    <v-form ref="form" v-model="valid">
-                                        <v-textarea label="Terms of Use" flat value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></v-textarea>                                    
-                                        <v-checkbox label="I agree to these terms" :rules="[rules.required]" class="chklbl" v-model="terms"></v-checkbox>
+                                <v-card flat height="200px" class="trms">
+                                    <v-form ref="form2" v-model="validSignUp">
+                                        <v-textarea label="Terms of Use" class="ma-0 pa-0" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></v-textarea>
+                                        <v-checkbox label="I agree to these terms" :rules="[rules.required]" class="chklbl ml-3" v-model="terms"></v-checkbox>
                                     </v-form>
                                 </v-card>
                             </v-stepper-content>                            
@@ -54,10 +54,10 @@
                 <v-card>
                     <v-card-title class="headline justify-center">Log in to trndx</v-card-title>
                     <v-card-text>
-                        <v-form ref="form" lazy-validation>
-                            <v-text-field label="E-mail" v-model="email" required>
+                        <v-form ref="form3" v-model="validLogin" lazy-validation>
+                            <v-text-field label="Username" v-model="newLogin.username" required :rules="[rules.required]">
                             </v-text-field>
-                            <v-text-field label="Password" type="password" v-model="password" required>
+                            <v-text-field label="Password" type="password" v-model="newLogin.password" required :rules="[rules.required]">
                             </v-text-field>
                         </v-form>
                     </v-card-text>
@@ -81,41 +81,73 @@ export default {
             { index: 0, name: 'Sign Up' },
             { index: 1, name: 'Log In' }
         ],
-        username:'',
-        email:'',
-        password:'',
-        mobile:'',
+        newSignUp:{
+            username:'',
+            email:'',
+            password:'',
+            mobile:''
+        },
+        newLogin:{
+            username:'',
+            password:''
+        },
         terms:false,
         rules: {
           required: value => !!value || 'Required.'
         },
-        valid:false        
+        validSignUp:false,
+        validLogin:false
     }),
     methods:{
         selectTab(indx){
             this.active_tab = indx
         },
         login(){
-            //localStorage.name = this.username;
-            //this.$emit('close');
-            //console.log(`${this.username} ${this.password}`);            
+            this.$refs.form3.validate();
+            if(this.validLogin){                
+                this.axios.post(`${this.$hostname}/api/login/user`,
+                {
+                    username: this.newLogin.username,
+                    password: this.newLogin.password,
+                }).then(()=>{
+                    localStorage.username = this.newLogin.username;                
+                    this.$emit('close');
+                });
+            }
         },
         signUp(){
-            if(this.e1 == 1 && this.valid == true) {         // STEP 1
-                console.log(`Email:${this.email} Username:${this.username} Password:${this.password}`);
+            if(this.e1 == 1)
+                this.$refs.form1.validate()
+            if(this.e1 == 3)                
+                this.$refs.form2.validate()
+
+            // STEP 1
+            if(this.e1 == 1 && this.validSignUp == true) {
                 this.e1 = (parseInt(this.e1) + 1);
-            } else if (this.e1 == 2 && this.valid == true) { // STEP 2
-                console.log(`Mobile: ${this.mobile}`);
+            // STEP 2
+            } else if (this.e1 == 2 && this.validSignUp == true) {
                 this.e1 = (parseInt(this.e1) + 1);
-            } else if (this.e1 == 3 && this.terms == true) { // STEP 3
-                console.log(`Terms: ${this.terms}`);
-                this.e1 = (parseInt(this.e1) + 1);
-            } else if (this.e1 > 4) {                       // PROCESS
-                this.e1 = 1;            
-            } 
+            // STEP 3
+            } else if (this.e1 == 3 && this.terms == true) { 
+                //this.e1 = (parseInt(this.e1) + 1);
+                this.axios.post(`${this.$hostname}/api/signup/user`,
+                {
+                    email: this.newSignUp.email,
+                    username: this.newSignUp.username,
+                    password: this.newSignUp.password,
+                    mobile: this.newSignUp.mobile,
+                    publickey: '',
+                    privatekey: ''
+
+                }).then(()=>{   
+                    localStorage.username = this.newSignUp.username;               
+                    this.$emit('close');
+                });                
+            }
         },
         back(){
-            this.e1 = (parseInt(this.e1) - 1);                
+            if(this.validSignUp)
+                this.e1 = (parseInt(this.e1) - 1);                
         }
     }
 }
@@ -157,5 +189,9 @@ export default {
 .mint .v-alert{
     padding-top:5px !important;
     padding-bottom:5px !important;
+}
+
+.mint .trms .v-messages {
+    min-height: 0px !important;
 }
 </style>
