@@ -27,6 +27,7 @@ export default {
                 }]
             },
             this.chartOptions = {
+                maintainAspectRatio : false,
                 elements: {
                     center: {
                         text: `${Math.floor(Math.random() * (100 - 0 + 1)) + 0}%`,
