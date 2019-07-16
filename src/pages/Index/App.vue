@@ -28,8 +28,8 @@
                 </v-card>
             </v-footer>
         </div>
-        <v-dialog v-model="dialog" max-width="550" lazy>
-            <SignUpIn @close="login()"/>
+        <v-dialog v-model="dialog" max-width="550">
+            <SignUpIn @close="redirect()" v-bind:touch-close="dialog"/>
         </v-dialog>
     </span>
 </template>
@@ -39,14 +39,15 @@
 import SignUpIn from '@/components/SignUpIn.vue'
 
 export default {
+    name:'Index',
     data: () => ({
-        dialog: false       
+        dialog: false
     }),
     components:{
         SignUpIn
     },
     methods:{
-        domesomething:function(){
+        doSomething:function(){
             this.$swal({
                 type: 'success',
                 title: 'Success!',
@@ -58,7 +59,7 @@ export default {
             event.preventDefault();
             document.location.href = url;
         },
-        login(){
+        redirect(){
             this.dialog = false;
             document.location.href = '/exchange.html#/search';
         }
