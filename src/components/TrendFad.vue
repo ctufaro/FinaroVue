@@ -5,10 +5,12 @@
 </template>
 
 <script>
+import uiMixin from '@/mixins/uimixin.js'
 import TrendFadChart from '@/components/TrendFadChart.vue'
 
 export default {
     name: 'TrendFad',
+    mixins:[uiMixin],
     data: () => ({
         chartData: null,
         chartOptions: null
@@ -27,7 +29,7 @@ export default {
                 }]
             },
             this.chartOptions = {
-                maintainAspectRatio : false,
+                maintainAspectRatio : this.isMobile(),
                 elements: {
                     center: {
                         text: `${Math.floor(Math.random() * (100 - 0 + 1)) + 0}%`,

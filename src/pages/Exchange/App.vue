@@ -19,8 +19,7 @@
                 <div class="col-md-5 pricecolumn" v-bind:class="{ 'sidebar-offcanvas': sidebarOffCanvas, 'slide-in': slideIn}">
                     <TrendPane @goback="goBack"/>
                 </div>
-                <div class="col-md-3 misccolumn">                    
-                </div>
+                <div class="col-md-3" v-if="!this.isMobile()"></div>
                 <BottomMenu v-if="this.isMobile()"/>
              </div>
         </div>
