@@ -7,7 +7,7 @@
             </v-tabs>
             <span v-if="active_tab==tabs[0].index">
                 <v-card flat>
-                    <v-card-title class="headline">{{active_tab_header}}</v-card-title>
+                    <v-card-title class="justify-center display-1 text-secondary">Hello there!</v-card-title>
                     <v-stepper v-model="e1">
                         <v-stepper-header>
                             <v-stepper-step :complete="e1 > 1" step="1"></v-stepper-step>
@@ -34,8 +34,9 @@
                                     <v-alert :value="true" color="#63C394" class="mb-3">
                                         Receive SMS alerts to buy/sell trends (optional).
                                     </v-alert>
-                                    <v-text-field label="Mobile Number" v-model="newSignUp.mobile"
-                                        mask="(###) ### - ####" placeholder="(###) ### - ####"></v-text-field>
+                                    <v-text-field type="tel" label="Mobile Number" v-model="newSignUp.mobile"
+                                        mask="(###) ### - ####" placeholder="(###) ### - ####">
+                                    </v-text-field>
                                 </v-card>
                             </v-stepper-content>
                             <v-stepper-content step="3">
@@ -76,7 +77,7 @@
             </span>
             <span v-if="active_tab==tabs[1].index">
                 <v-card>
-                    <v-card-title class="headline justify-center">Log in to trndx</v-card-title>
+                    <v-card-title class="justify-center display-1 text-secondary">Welcome back!</v-card-title>
                     <v-card-text>
                         <v-form ref="form3" v-model="validLogin">
                             <v-text-field label="Username" v-model="newLogin.username" required
@@ -101,8 +102,7 @@ export default {
     name:'SignUpIn',
     data: () => ({
         e1: 0,
-        active_tab: 0,
-        active_tab_header: 'Sign Up',
+        active_tab: 1,
         tabs: [
             { index: 0, name: 'Sign Up' },
             { index: 1, name: 'Log In' }
@@ -140,7 +140,7 @@ export default {
                     localStorage.username = this.newLogin.username;                
                     this.$emit('close');
                 }).catch(error => {
-                    this.$swal({type: 'error',title: 'Incorrect Login',text: error});
+                    this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});
                 }); 
             }
         },
@@ -171,7 +171,7 @@ export default {
                     localStorage.username = this.newSignUp.username;               
                     this.$emit('close');
                 }).catch(error => {
-                    this.$swal({type: 'error',title: 'Error!',text: error});
+                    this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});
                 });                
             }
         },
@@ -197,10 +197,13 @@ export default {
     },
     watch: {
         touchClose(val) {
-            if(val)
+            if(val){
                 this.reset();
+                this.selectTab(0);
+            }
         }
-    }
+    },
+    
 }
 </script>
 
@@ -250,4 +253,22 @@ export default {
     font-size:60px;
     color:#63C394;
 }
+
+/*MOBILE*/
+@media (max-width: 768px) {
+    .mint .v-card{
+        background-color: rgba(255, 255, 255, 0.5)!important;
+    }
+    .mint .v-stepper{
+        background-color: rgba(255, 255, 255, 0.0)!important;
+    }
+    .mint .v-card .v-card--flat .theme--light.v-sheet{
+        background-color: rgba(255, 255, 255, 0.0)!important;
+    }    
+    .mint input{
+        font-size:20px;
+    }
+    
+}
+
 </style>
