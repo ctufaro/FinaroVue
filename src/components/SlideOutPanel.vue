@@ -3,7 +3,7 @@
         <nav id="sidebar" :class="{ active: isActive }">
             <div class="sidebar-header profile">
                 <div style="flex:40%;">
-                    <img src="@/assets/images/avatar-chris-main.jpg" style="width:65px;padding-left:5px;"/>
+                    <img :src="avatar" style="width:65px;padding-left:5px;"/>
                 </div>
                 <div style="flex:60%;">
                     <span id="sidebar-logo">
@@ -49,7 +49,7 @@
         <v-btn :fixed="true" icon bottom left to="/settings" @click.native="toggleSidebar();">
             <v-icon color="#9FABB6">fas fa-cog</v-icon>
         </v-btn>
-        <v-btn :fixed="true" icon bottom left @click="goTo('/index.html', $event)" style="margin-left:50px">
+        <v-btn :fixed="true" icon bottom left @click="signOut('/index.html', $event)" style="margin-left:50px">
             <v-icon color="#9FABB6">fas fa-sign-out-alt</v-icon>
         </v-btn>              
     </div>
@@ -74,8 +74,19 @@ export default {
         goTo:function(url, event){
             event.preventDefault();
             document.location.href = url;
-        }        
-    }
+        },
+        signOut:function(url, event){
+            localStorage.clear();
+            this.$store.commit('setUserLoggedOut');
+            event.preventDefault();
+            document.location.href = url;
+        }             
+    },
+    computed:{
+        avatar: function () {
+            return this.$store.getters.vxUser.avatar
+        }
+    } 
 }
 </script>
 

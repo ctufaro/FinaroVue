@@ -136,8 +136,14 @@ export default {
                 {
                     username: this.newLogin.username,
                     password: this.newLogin.password,
-                }).then(()=>{
-                    localStorage.username = this.newLogin.username;                
+                }).then(response =>{
+                    this.$store.commit('setUserId', {id:response.data.id,
+                                                     username:response.data.username,
+                                                     balance:response.data.balance,
+                                                     email:response.data.email,
+                                                     avatar:response.data.avatar,
+                                                     isloggedin:true,
+                                                     isnewuser:false});
                     this.$emit('close');
                 }).catch(error => {
                     this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});
@@ -167,8 +173,14 @@ export default {
                     mobile: this.newSignUp.mobile,
                     publickey: '',
                     privatekey: ''
-                }).then(()=>{   
-                    localStorage.username = this.newSignUp.username;               
+                }).then(response=>{   
+                    this.$store.commit('setUserId', {id:response.data.id,
+                                                     username:response.data.username,
+                                                     balance:response.data.balance,
+                                                     email:response.data.email,
+                                                     avatar:response.data.avatar,
+                                                     isloggedin:true,
+                                                     isnewuser:true});
                     this.$emit('close');
                 }).catch(error => {
                     this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});

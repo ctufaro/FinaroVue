@@ -57,7 +57,7 @@ export default {
             return this.$store.getters.vxTrend.name;
         },
         price: function () {            
-            return this.$store.getters.vxTrend.price;
+            return this.$store.getters.vxTrend.pricetxt;
         },     
         color: function () {            
             return this.$store.getters.vxTrend.color;

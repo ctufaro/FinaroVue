@@ -4,24 +4,28 @@
     <v-card-title>
         <v-icon @click="show=false">fas fa-times</v-icon>
         <v-spacer></v-spacer>
-        <div class="page-title text-secondary">Order Form</div>
+        <div class="page-title text-secondary">Order Form</div>        
     </v-card-title>
     <div class="order-form">
+        <div>{{name}}</div>
         <div>
             <div class="line-title">Price</div>
+            <input class="text-line w-100" min="0" readonly="true" v-model="price"/>
+            <!--
             <div class="text-line">
                 <input type="tel" min="0" style="width:75%;text-align:right;" placeholder="$0" v-mask="'#########'" />
                 <span >.</span>
                 <input type="tel" min="0" @focus="$event.target.select()" style="width:50px;" class="three-border" placeholder="00" v-mask="'##'" />
             </div>
+            -->
         </div>
         <div>
             <div class="line-title">Shares</div>
-            <input type="tel" class="text-line w-100" min="0" placeholder="0" v-mask="'############'" />
+            <input type="tel" class="text-line w-100" min="0" placeholder="0" v-model="shares" />
         </div>
         <div>
             <div class="line-title">Cost</div>
-            <input class="text-line w-100" min="0" readonly="true" value="$100.50"/>
+            <input class="text-line w-100" min="0" readonly="true" v-model="cost"/>
         </div>        
         <div style="padding-top:32px;">
             <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
@@ -40,6 +44,9 @@ export default {
     name: 'OrderFrom',
     mixins:[uiMixin],
     props: ['visible'],
+    data: () => ({
+        shares: 0
+    }),    
     computed:{
         show:{
             get(){
@@ -50,7 +57,22 @@ export default {
                     this.$emit('close');
                 }
             }
-        }
+        },
+        name: function () {            
+            return this.$store.getters.vxTrend.name;
+        },
+        price: function () {            
+            return parseFloat(this.$store.getters.vxTrend.price).toFixed(2);
+        },     
+        color: function () {            
+            return this.$store.getters.vxTrend.color;
+        },
+        change: function () {            
+            return this.$store.getters.vxTrend.changeIn;
+        },
+        cost: function(){
+            return (parseFloat(this.shares) * parseFloat(this.price)).toFixed(2);
+        }         
     },    
     created(){
         const el = document.createElement('div');

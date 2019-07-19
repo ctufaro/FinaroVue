@@ -6,15 +6,16 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({  
   state: {
-    selectedTrend:{name:null, price: null, color:null, changeIn:null, priceHistory:[], dateHistory:[]},
+    selectedTrend:{name:null, price: null, pricetxt:null, color:null, changeIn:null, priceHistory:[], dateHistory:[]},
     trendVolSent:{tweetVolume:[], loadDate:[], avgSentiment:[]},
-    user:{id:null, name:null}
+    user:{id:null, username:null, balance:null, email:null, avatar:null, isloggedin:false, isnewuser:null}
   },
   plugins: [createPersistedState()],
   mutations: {
     changeTrend (state, trend) {
         state.selectedTrend.name = trend.Name;
-        state.selectedTrend.price = trend.PriceText;
+        state.selectedTrend.price = trend.Price;
+        state.selectedTrend.pricetxt = trend.PriceText;
         state.selectedTrend.color = trend.Gains == true? "#63C394" : "#EF4139";
         state.selectedTrend.changeIn = trend.ChangeIn;
     },
@@ -29,7 +30,15 @@ export const store = new Vuex.Store({
     },
     setUserId(state, user){
         state.user.id = user.id;
-        state.user.name = user.name;
+        state.user.username = user.username;
+        state.user.balance = user.balance;
+        state.user.email = user.email;
+        state.user.avatar = require(`@/assets/images/${user.avatar}`);
+        state.user.isloggedin = user.isloggedin;
+        state.user.isnewuser = user.isnewuser;
+    },
+    setUserLoggedOut(state){
+        state.user.isloggedin = false;
     }
   },
   getters: {
