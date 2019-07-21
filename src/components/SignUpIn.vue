@@ -269,7 +269,7 @@ export default {
 /*MOBILE*/
 @media (max-width: 768px) {
     .mint .v-card{
-        background-color: rgba(255, 255, 255, 0.5)!important;
+        background-color: rgba(255, 255, 255, 0.6)!important;
     }
     .mint .v-stepper{
         background-color: rgba(255, 255, 255, 0.0)!important;

@@ -28,6 +28,22 @@
     border-color: #63C394 !important; 
 }
 
+.btn-success{
+    color: white !important;
+    background-color: #63C394 !important;
+    border-color: #63C394 !important;
+}
+
+.btn-success:hover {
+    color: #fff !important;
+    background-color: rgb(106, 201, 155) !important;
+    border-color: rgb(106, 201, 155) !important;
+}
+
+.btn-success:active{
+    background-color: rgb(92, 175, 135) !important;
+    border-color: rgb(92, 175, 135) !important;
+}
 
 .badge-danger{
     background-color:#EF4139 !important;

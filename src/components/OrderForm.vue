@@ -7,7 +7,7 @@
         <div class="page-title text-secondary">Order Form</div>        
     </v-card-title>
     <div class="order-form">
-        <div>{{name}}</div>
+        <div class="trnd-txt">{{name}}</div>
         <div>
             <div class="line-title">Price</div>
             <input class="text-line w-100" min="0" readonly="true" v-model="price"/>
@@ -28,8 +28,8 @@
             <input class="text-line w-100" min="0" readonly="true" v-model="cost"/>
         </div>        
         <div style="padding-top:32px;">
-            <div class="btn-group w-100 searchcolumn-filters" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-success btn-rnd">Place Order</button>
+            <div :class="this.isMobile() ? 'btn-group fixed-bottom' : 'btn-group w-100 searchcolumn-filters'" style="height:10%;" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-success btn-rnd"><h5>Place Order</h5></button>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@ export default {
     mixins:[uiMixin],
     props: ['visible'],
     data: () => ({
-        shares: 0
+        shares: null
     }),    
     computed:{
         show:{
@@ -71,6 +71,9 @@ export default {
             return this.$store.getters.vxTrend.changeIn;
         },
         cost: function(){
+            var result = (parseFloat(this.shares) * parseFloat(this.price)).toFixed(2)
+            if(isNaN(result))
+                return 0
             return (parseFloat(this.shares) * parseFloat(this.price)).toFixed(2);
         }         
     },    

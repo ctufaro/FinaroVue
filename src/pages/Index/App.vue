@@ -4,7 +4,7 @@
         <v-toolbar dense fixed flat color="transparent">
             <v-spacer></v-spacer>
             <div>
-                <v-btn class="menu-btn" outline flat v-on:click="goTo('/exchange.html#/search', $event)">Visit Exchange</v-btn>
+                <v-btn class="menu-btn" style="display:none" outline flat v-on:click="goTo('/exchange.html#/search', $event)">Visit Exchange</v-btn>
                 <v-btn class="menu-btn" outline flat @click.stop="dialog = true">Sign Up/In</v-btn>
             </div>
         </v-toolbar>
