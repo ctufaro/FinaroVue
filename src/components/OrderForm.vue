@@ -7,7 +7,8 @@
         <div class="page-title text-secondary">Order Form</div>        
     </v-card-title>
     <div class="order-form">
-        <div class="trnd-txt">{{name}}</div>
+        <v-alert :value="true" color="#63C394" class="order-details">You are {{buysell}}ing the trend below. Please enter the amount of shares you wish to {{buysell}} before placing order.</v-alert>
+        <div class="trnd-txt mt-1 mb-1">{{name}}</div>
         <div>
             <div class="line-title">Price</div>
             <input class="text-line w-100" min="0" readonly="true" v-model="price"/>
@@ -29,7 +30,7 @@
         </div>        
         <div style="padding-top:32px;">
             <div :class="this.isMobile() ? 'btn-group fixed-bottom' : 'btn-group w-100 searchcolumn-filters'" style="height:10%;" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-success btn-rnd"><h5>Place Order</h5></button>
+                <button type="button" class="btn btn-success btn-rnd" @click.stop="placeOrder" :disabled="disbtn"><h5>Place Order</h5></button>
             </div>
         </div>
     </div>
@@ -43,9 +44,10 @@ import uiMixin from '@/mixins/uimixin.js'
 export default {
     name: 'OrderFrom',
     mixins:[uiMixin],
-    props: ['visible'],
+    props: ['visible','buysell'],
     data: () => ({
-        shares: null
+        shares: null,
+        disbtn:false
     }),    
     computed:{
         show:{
@@ -76,6 +78,28 @@ export default {
                 return 0
             return (parseFloat(this.shares) * parseFloat(this.price)).toFixed(2);
         }         
+    },
+    watch:{
+        visible(){
+            this.resetForm();
+        }
+    },
+    methods:{
+        placeOrder(){
+            this.disbtn = true;
+            var self = this;
+            // WHEN RETURNED FROM CALL, SHOW SWEETALERT SUCCESS/ERROR
+            this.$swal({type: 'success',title: 'Success!',text: 'Your Order Has Been Placed'}).then((result) => {
+                if(result.value) {
+                    self.show=false;
+                }
+            });                        
+            //console.log(`Price: ${this.price} Shares: ${this.shares} Cost: ${this.cost} Buy/Sell: ${this.buysell} User: ${this.$store.getters.vxUser.id}`);
+        },
+        resetForm(){
+            this.shares = null;
+            this.disbtn = false;
+        }
     },    
     created(){
         const el = document.createElement('div');

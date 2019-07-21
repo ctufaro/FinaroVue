@@ -63,6 +63,10 @@ export default {
             this.dialog = false;
             document.location.href = '/exchange.html#/search';
         }
+    },
+    mounted(){
+        if(this.$store.getters.vxUser.isloggedin)
+            document.location.href = '/exchange.html#/search';
     }
 }
 </script>
