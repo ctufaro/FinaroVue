@@ -29,8 +29,8 @@
             <input class="text-line w-100" min="0" readonly="true" v-model="cost"/>
         </div>        
         <div style="padding-top:32px;">
-            <div :class="this.isMobile() ? 'btn-group fixed-bottom' : 'btn-group w-100 searchcolumn-filters'" style="height:10%;" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-success btn-rnd" @click.stop="placeOrder" :disabled="disbtn"><h5>Place Order</h5></button>
+            <div :class="this.isMobile() ? 'btn-group w-100 fixed-bottom' : 'btn-group w-100 searchcolumn-filters'" style="height:10%;" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-success btn-rnd" @click.prevent="placeOrder"><h5>Place Order</h5></button>
             </div>
         </div>
     </div>
@@ -46,8 +46,7 @@ export default {
     mixins:[uiMixin],
     props: ['visible','buysell'],
     data: () => ({
-        shares: null,
-        disbtn:false
+        shares: null
     }),    
     computed:{
         show:{
@@ -86,19 +85,13 @@ export default {
     },
     methods:{
         placeOrder(){
-            this.disbtn = true;
-            var self = this;
+            this.show=false;
             // WHEN RETURNED FROM CALL, SHOW SWEETALERT SUCCESS/ERROR
-            this.$swal({type: 'success',title: 'Success!',text: 'Your Order Has Been Placed'}).then((result) => {
-                if(result.value) {
-                    self.show=false;
-                }
-            });                        
+            this.$swal({type: 'success',title: 'Success!',text: 'Your Order Has Been Placed',allowOutsideClick: false});                       
             //console.log(`Price: ${this.price} Shares: ${this.shares} Cost: ${this.cost} Buy/Sell: ${this.buysell} User: ${this.$store.getters.vxUser.id}`);
         },
         resetForm(){
             this.shares = null;
-            this.disbtn = false;
         }
     },    
     created(){
