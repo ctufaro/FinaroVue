@@ -1,14 +1,14 @@
 <template>
 <v-dialog v-model="show" :fullscreen="this.isMobile()" hide-overlay transition="dialog-bottom-transition" width="500">
     <v-card>
-    <v-card-title>
+    <v-card-title class="pb-0">
         <v-icon @click="show=false">fas fa-times</v-icon>
         <v-spacer></v-spacer>
         <div class="page-title text-secondary">Order Form</div>        
     </v-card-title>
     <div class="order-form">
-        <v-alert :value="true" color="#63C394" class="order-details">You are {{buysell}}ing the trend below. Please enter the amount of shares you wish to {{buysell}} before placing order.</v-alert>
-        <div class="trnd-txt mt-1 mb-1">{{name}}</div>
+        <v-alert icon="new_releases" :value="true" color="#63C394" class="order-details">You are <strong>{{buysell}}ing</strong> the trend below. Please enter the amount of shares you wish to {{buysell}} before placing order.</v-alert>
+        <div class="trnd-txt mt-3 mb-1">{{name}}</div>
         <div>
             <div class="line-title">Price</div>
             <input class="text-line w-100" min="0" readonly="true" v-model="price"/>
