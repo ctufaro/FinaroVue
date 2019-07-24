@@ -23,6 +23,9 @@
                 <BottomMenu v-if="this.isMobile()"/>
              </div>
         </div>
+
+        <!-- Snackbar -->
+        <SnackBar/>
     </div>
 </template>
 
@@ -31,6 +34,7 @@ import TrendPane from '@/components/TrendPane.vue'
 import TopMenu from '@/components/TopMenu.vue'
 import BottomMenu from '@/components/BottomMenu.vue'
 import SlideOutPanel from '@/components/SlideOutPanel.vue'
+import SnackBar from '@/components/SnackBar.vue'
 import uiMixin from '@/mixins/uimixin.js'
 
 export default {
@@ -40,7 +44,8 @@ export default {
     TrendPane,
     TopMenu,
     BottomMenu,
-    SlideOutPanel
+    SlideOutPanel,
+    SnackBar
   },
   data: () => ({
     isActive:false,

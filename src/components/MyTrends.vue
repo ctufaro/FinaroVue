@@ -20,7 +20,7 @@
             </v-layout>
         </v-container>
         <v-expansion-panel>
-            <v-expansion-panel-content v-for="(item,i) in ['Ordered Trends','Sold Trends','Awards','Friends']" :key="i">
+            <v-expansion-panel-content v-for="(item,i) in ['Purchased Trends','Sold Trends']" :key="i">
                 <template v-slot:header>
                     <div><strong>{{item}}</strong></div>
                 </template>

@@ -10,9 +10,28 @@ input[type=number] {
 }
 
 .order-form{
-    padding: 5px 15px 0px 15px;
+    padding: 0px 15px 0px 15px;
     color:#495057;
 }
+
+.balance{
+    float:right;
+}
+.lbl{
+    float:left !important;
+    font-size:12px;
+    font-weight: bold;
+}
+
+.balance .value{
+    font-size:30px;
+}
+
+.balance .unit{
+    font-size:15px;
+    margin-left:5px;
+}
+
 
 .order-details{
     padding:5px 10px !important;
@@ -30,7 +49,8 @@ input[type=number] {
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid #63C394 1px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
     font-size: 40px;
     text-align: right;
     line-height:63px;

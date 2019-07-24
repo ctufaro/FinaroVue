@@ -53,6 +53,23 @@
     color:#EF4139 !important;
 }
 
+.btn-danger{
+    color: white !important;
+    background-color: #EF4139 !important;
+    border-color: #EF4139 !important;
+}
+
+.btn-danger:hover {
+    color: #fff !important;
+    background-color: #EF4139 !important;
+    border-color: #EF4139 !important;
+}
+
+.btn-danger:active{
+    background-color: #EF4139 !important;
+    border-color: #EF4139 !important;
+}
+
 .btn-outline-danger{
     color: #EF4139 !important;
     border-color: #EF4139 !important;

@@ -4,21 +4,20 @@
     <v-card-title class="pb-0">
         <v-icon @click="show=false">fas fa-times</v-icon>
         <v-spacer></v-spacer>
-        <div class="page-title text-secondary">Order Form</div>        
+        <div class="page-title text-secondary">{{buysell}} Order Form</div>        
     </v-card-title>
-    <div class="order-form">
-        <v-alert icon="new_releases" :value="true" color="#63C394" class="order-details">You are <strong>{{buysell}}ing</strong> the trend below. Please enter the amount of shares you wish to {{buysell}} before placing order.</v-alert>
+    <div class="order-form">        
+        <v-alert :value="true" :color="buysell=='buy'?'#63C394':'#EF4139'" class="order-details">
+        <span class="lbl">balance</span>
+        <div class="balance">            
+            <span class="value">{{this.$store.getters.vxUser.balance}}</span>
+            <span class="unit">TDX</span>
+        </div><!--Please enter the amount of shares you wish to {{buysell}} before placing order.-->
+        </v-alert>        
         <div class="trnd-txt mt-3 mb-1">{{name}}</div>
         <div>
             <div class="line-title">Price</div>
             <input class="text-line w-100" min="0" readonly="true" v-model="price"/>
-            <!--
-            <div class="text-line">
-                <input type="tel" min="0" style="width:75%;text-align:right;" placeholder="$0" v-mask="'#########'" />
-                <span >.</span>
-                <input type="tel" min="0" @focus="$event.target.select()" style="width:50px;" class="three-border" placeholder="00" v-mask="'##'" />
-            </div>
-            -->
         </div>
         <div>
             <div class="line-title">Shares</div>
@@ -30,7 +29,7 @@
         </div>        
         <div style="padding-top:32px;">
             <div :class="this.isMobile() ? 'btn-group w-100 fixed-bottom' : 'btn-group w-100 searchcolumn-filters'" style="height:10%;" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-success btn-rnd" @click.prevent="placeOrder"><h5>Place Order</h5></button>
+                <button type="button" :class="`btn btn-${this.buysell=='buy'?`success`:`danger`} btn-rnd`" style="text-transform:capitalize;" @click.prevent="placeOrder"><h5>Place {{buysell}} Order</h5></button>
             </div>
         </div>
     </div>
@@ -85,9 +84,23 @@ export default {
     },
     methods:{
         placeOrder(){
-            this.show=false;
-            // WHEN RETURNED FROM CALL, SHOW SWEETALERT SUCCESS/ERROR
-            this.$swal({type: 'success',title: 'Success!',text: 'Your Order Has Been Placed',allowOutsideClick: false});                       
+            //this.show=false;
+            this.axios.post(`${this.$hostname}/api/orders/new`,
+            {
+                userId:this.$store.getters.vxUser.id,
+                trendId:this.$store.getters.vxTrend.id,
+                trendName:this.$store.getters.vxTrend.name,
+                tradeTypeId: (this.buysell=='buy') ? 1 : 2,
+                price:this.price,
+                quantity: (this.shares==null) ? 0:this.shares           
+            }).then((response) =>{
+                this.$store.commit('setUserBalance',parseFloat(response.data));
+                this.resetForm();
+                this.$swal({type: 'success',title: 'Success!',text: 'Your Order Has Been Placed',allowOutsideClick: false});                       
+            }).catch(error => {
+                this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});
+            });
+            
             //console.log(`Price: ${this.price} Shares: ${this.shares} Cost: ${this.cost} Buy/Sell: ${this.buysell} User: ${this.$store.getters.vxUser.id}`);
         },
         resetForm(){

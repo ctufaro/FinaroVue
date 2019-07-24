@@ -15,6 +15,7 @@
 .page-title{
   font-size:22px;
   font-weight:bold;
+  text-transform: capitalize;
 }
 
 /* Pre Loader */
