@@ -31,10 +31,10 @@
                     <router-link to="/search" @click.native="toggleSidebar();">Trends</router-link>
                 </li>
                 <li>
-                    <router-link to="/myfeed" @click.native="toggleSidebar();">My Feed</router-link>
+                    <router-link to="/myfeed" @click.native="toggleSidebar();">Feed</router-link>
                 </li>                               
                 <li>
-                    <router-link to="/mytrends" @click.native="toggleSidebar();">My Trends<span class="float-right circle">22</span></router-link>
+                    <router-link to="/portfolio" @click.native="toggleSidebar();">Portfolio<span class="float-right circle">22</span></router-link>
                 </li>
                 <li>
                     <router-link to="/notifications" @click.native="toggleSidebar();">Notifications</router-link>

@@ -31,7 +31,7 @@
 
 <script>
 export default {
-    name: "MyTrends",
+    name: "Portfolio",
     data: () => ({
     }),
     computed: {

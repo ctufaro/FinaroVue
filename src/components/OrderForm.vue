@@ -20,7 +20,7 @@
             <input class="text-line w-100" min="0" readonly="true" v-model="price"/>
         </div>
         <div>
-            <div class="line-title">Shares</div>
+            <div class="line-title">Shares<span v-if="buysell=='sell' && ownedshares > 0"><v-chip color="#CCC" @click.prevent="shares=ownedshares">{{ownedshares}}</v-chip></span></div>
             <input type="tel" class="text-line w-100" min="0" placeholder="0" v-model="shares" />
         </div>
         <div>
@@ -45,7 +45,8 @@ export default {
     mixins:[uiMixin],
     props: ['visible','buysell'],
     data: () => ({
-        shares: null
+        shares: null,
+        ownedshares:0
     }),    
     computed:{
         show:{
@@ -78,8 +79,10 @@ export default {
         }         
     },
     watch:{
-        visible(){
+        visible(val){
             this.resetForm();
+            if(val)
+                this.formJustOpened();
         }
     },
     methods:{
@@ -96,15 +99,23 @@ export default {
             }).then((response) =>{
                 this.$store.commit('setUserBalance',parseFloat(response.data));
                 this.resetForm();
+                this.getUserShareCount();
                 this.$swal({type: 'success',title: 'Success!',text: 'Your Order Has Been Placed',allowOutsideClick: false});                       
             }).catch(error => {
                 this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});
             });
-            
-            //console.log(`Price: ${this.price} Shares: ${this.shares} Cost: ${this.cost} Buy/Sell: ${this.buysell} User: ${this.$store.getters.vxUser.id}`);
         },
         resetForm(){
             this.shares = null;
+        },
+        formJustOpened(){
+            this.getUserShareCount();
+        },
+        getUserShareCount(){
+            let userId = parseInt(this.$store.getters.vxUser.id);
+            this.axios.get(`${this.$hostname}/api/trends/user/count/${userId}/${this.name.replace("#", "%23")}`).then(response => {
+                this.ownedshares = parseFloat(response.data);
+            });
         }
     },    
     created(){

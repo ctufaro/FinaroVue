@@ -5,12 +5,12 @@
             <i class="fas fa-chart-line bottom-icons"></i>
         </v-btn>
         <v-btn color="#63C394" flat to="/myfeed">
-            <span>My Feed</span>
+            <span>Feed</span>
             <i class="fas fa-home bottom-icons"></i>
         </v-btn>
-        <v-btn color="#63C394" flat to="/mytrends">
-            <span>My Trends</span>
-            <i class="fas fa-poll bottom-icons"></i>
+        <v-btn color="#63C394" flat to="/portfolio">
+            <span>Portfolio</span>
+            <i class="fas fa-chart-pie bottom-icons"></i>
         </v-btn>        
         <v-btn color="#63C394" flat to="/notifications">
             <span>Notifs</span>

@@ -2,7 +2,7 @@
     <span>
         <v-tabs fixed-tabs height="40" light slider-color="#EF4139" color="transparent" style="padding:5px 15px 5px 15px !important;">
             <v-tab @click="sift('trending')">Trending</v-tab>
-            <v-tab @click="sift('community')">Community</v-tab>
+            <v-tab @click="sift('mytrends')">My Trends</v-tab>
         </v-tabs>
         <div class="searchcolumn-table">
             <span v-for="trend in trends" :key="trend.Id">
@@ -94,7 +94,7 @@ export default {
         sift(selection){
             let url = `${this.$hostname}/api/trends/filter`
             let loader = this.showLoader();
-            url =(selection === 'community') ? `${url}/1` : `${url}/0`
+            url =(selection === 'mytrends') ? `${url}/${this.$store.getters.vxUser.id}` : `${url}/0`
             this.axios.get(url).then(response => {
                 this.trends = response.data;
                 this.savedTrends = this.trends;
