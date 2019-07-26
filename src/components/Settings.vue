@@ -13,6 +13,12 @@
             </div>
         </div>
         <div class="setting">
+            <p>Delete All Buy/Sell Orders</p>
+            <div>
+                <button type="button" class="btn btn-outline-success btn-rnd" @click.prevent="deleteOrders">Run It!</button>
+            </div>
+        </div>        
+        <div class="setting">
             <p>Clear Cache</p>
             <div>
                 <button type="button" class="btn btn-outline-success btn-rnd" @click.prevent="pageRefresh">Run It!</button>
@@ -55,6 +61,18 @@ export default {
                 this.$swal({type: 'error',title: 'Error!',text: error});
             });             
         },
+        deleteOrders(){
+            let loader = this.showLoader();
+            this.axios.get(`${this.$hostname}/api/utils/orders/clear`)
+            .then(() => {
+                this.hideLoader(loader);
+                this.$swal({type: 'success',title: 'Success!',text: 'Orders Deleted'});
+            })
+            .catch(error => {
+                this.hideLoader(loader);
+                this.$swal({type: 'error',title: 'Error!',text: error});
+            });             
+        },        
         pageRefresh(){
             document.location.reload();
             this.$swal({type: 'success',title: 'Success!',text: 'Page Refreshing'});
