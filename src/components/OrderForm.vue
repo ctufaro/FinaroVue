@@ -29,7 +29,10 @@
         </div>        
         <div style="padding-top:32px;">
             <div :class="this.isMobile() ? 'btn-group w-100 fixed-bottom' : 'btn-group w-100 searchcolumn-filters'" style="height:10%;" role="group" aria-label="Basic example">
-                <button type="button" :class="`btn btn-${this.buysell=='buy'?`success`:`danger`} btn-rnd`" style="text-transform:capitalize;" @click.prevent="placeOrder"><h5>Place {{buysell}} Order</h5></button>
+                <button type="button" :loading="loading" :class="`btn btn-${this.buysell=='buy'?`success`:`danger`} btn-rnd`" style="text-transform:capitalize;" @click.prevent="placeOrder">
+                    <h5 v-if="!loading">Place {{buysell}} Order</h5>
+                    <v-progress-circular indeterminate color="white" v-if="loading"></v-progress-circular>
+                </button>
             </div>
         </div>
     </div>
@@ -46,7 +49,8 @@ export default {
     props: ['visible','buysell'],
     data: () => ({
         shares: null,
-        ownedshares:0
+        ownedshares:0,
+        loading:false
     }),    
     computed:{
         show:{
@@ -87,7 +91,7 @@ export default {
     },
     methods:{
         placeOrder(){
-            //this.show=false;
+            this.loading = true;
             this.axios.post(`${this.$hostname}/api/orders/new`,
             {
                 userId:this.$store.getters.vxUser.id,
@@ -96,13 +100,15 @@ export default {
                 tradeTypeId: (this.buysell=='buy') ? 1 : 2,
                 price:this.price,
                 quantity: (this.shares==null) ? 0:this.shares           
-            }).then((response) =>{
+            }).then((response) =>{                
                 this.$store.commit('setUserBalance',parseFloat(response.data));
                 this.resetForm();
-                this.getUserShareCount();
-                this.$swal({type: 'success',title: 'Success!',text: 'Your Order Has Been Placed',allowOutsideClick: false});                       
+                this.getUserShareCount();                
+                this.$swal({type: 'success',title: 'Success!',text: 'Your Order Has Been Placed',showConfirmButton: false});                       
+                this.loading = false;
             }).catch(error => {
-                this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});
+                this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message, showConfirmButton: false});
+                this.loading = false;
             });
         },
         resetForm(){
