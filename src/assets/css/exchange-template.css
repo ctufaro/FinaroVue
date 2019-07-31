@@ -179,9 +179,9 @@ a.article:hover {
 
 .pricecolumn{
     background: white;
-    -moz-box-shadow: 0 0 8px 3px rgb(223, 223, 223);
-    -webkit-box-shadow: 0 0 8px 3px rgb(223, 223, 223);
-    box-shadow: 0 0 8px 3px rgb(223, 223, 223);
+    -moz-box-shadow: 0px 5px 10px rgb(223, 223, 223);
+    -webkit-box-shadow: 0px 5px 10px rgb(223, 223, 223);
+    box-shadow: 0px 5px 10px rgb(223, 223, 223);
 }
 
 
