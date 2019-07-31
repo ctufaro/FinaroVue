@@ -22,8 +22,8 @@ Vue.use(Loading);
 Vue.use(VueSlideoutPanel);
 Vue.component('vue-headful', vueHeadful);
 
-//Vue.prototype.$hostname = 'http://localhost:7071'
-Vue.prototype.$hostname = 'https://finarofunc.azurewebsites.net'
+Vue.prototype.$hostname = 'http://localhost:7071'
+//Vue.prototype.$hostname = 'https://finarofunc.azurewebsites.net'
 
 new Vue({
   store,

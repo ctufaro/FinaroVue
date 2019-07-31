@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
   state: {
     selectedTrend:{id:null,name:null, price: null, pricetxt:null, color:null, changeIn:null, priceHistory:[], dateHistory:[]},
     trendVolSent:{tweetVolume:[], loadDate:[], avgSentiment:[]},
-    user:{id:null, username:null, balance:null, email:null, avatar:null, isloggedin:false, isnewuser:null}
+    user:{id:null, username:null, balance:null, email:null, avatar:null, isloggedin:false, isnewuser:null},
+    snackbar:{show:false,color:'',text:'',position:'top'}
   },
   plugins: [createPersistedState()],
   mutations: {
@@ -43,11 +44,18 @@ export const store = new Vuex.Store({
     },
     setUserBalance(state,balance){
         state.user.balance = balance;
+    },
+    openSnack(state,snack){
+        state.snackbar.show = true;
+        state.snackbar.color = snack.color;
+        state.snackbar.text = snack.text;
+        state.snackbar.position = snack.position;
     }
   },
   getters: {
     vxUser: state => state.user,
     vxTrend: state => state.selectedTrend,
-    vxTrendVol: state => state.trendVolSent
+    vxTrendVol: state => state.trendVolSent,
+    vxSnackBar: state => state.snackbar
   }
 })
