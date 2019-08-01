@@ -43,8 +43,7 @@ export default {
     },
     mounted(){
         if(this.$store.getters.vxUser.isnewuser){
-            this.text = "Welcome! You have 1000 TDX in your account"
-            this.$store.commit('openSnack', {type:'success',  text:'You have 1000 TDX in your account!', position:'bottom'});
+            this.$store.commit('openSnack', {type:'success',  text:'Welcome! You have 1000 TDX in your account!', position:'bottom'});
         }        
     }
 }
