@@ -4,7 +4,7 @@
             <v-card-title class="pb-0">
                 <v-icon @click="show=false">fas fa-times</v-icon>
                 <v-spacer></v-spacer>
-                <div class="page-title text-secondary">{{buysell}} Order Form</div>
+                <div class="page-title text-secondary">{{buysell}} some shares</div>
             </v-card-title>
             <div class="order-form">
                 <v-alert :value="true" :color="buysell=='buy'?'#63C394':'#EF4139'" class="order-details">
@@ -23,16 +23,18 @@
                                 <v-img :src="card.src" class="white--text" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
                                     <v-card-title class="fill-height align-end pr-0">
                                         <div style="width:100%;background-color: rgba(0,0,0,0.3);">
-                                            <span style="font-size:14px;font-weight:bold;">{{card.title}}</span>
+                                            <span style="font-size:16px;font-weight:bold;">{{card.title}}</span>
                                         </div>
                                     </v-card-title>
                                 </v-img>
+                                <!--
                                 <v-card-actions>
                                     <v-spacer></v-spacer>
                                     <v-btn icon>
                                         <h3>{{`${Math.floor(Math.random() * (100 - 0 + 1)) + 0}`}}</h3>
                                     </v-btn>
                                 </v-card-actions>
+                                -->
                             </v-card>
                         </v-flex>
                     </v-layout>
@@ -76,22 +78,22 @@ export default {
         ownedshares: 0,
         loading: false,
         cards: [{
-                title: 'Large 10',
+                title: '10 Shares',
                 src: 'https://image.flaticon.com/icons/svg/138/138292.svg',
                 flex: 6
             },
             {
-                title: 'Go Big! 100',
+                title: '100 Shares',
                 src: 'https://image.flaticon.com/icons/svg/138/138255.svg',
                 flex: 6
             },
             {
-                title: 'Go Huge!! 1000',
+                title: '1000 Shares',
                 src: 'https://www.flaticon.com/premium-icon/icons/svg/733/733186.svg',
                 flex: 6
             },
             {
-                title: 'Whale! 10000',
+                title: '10000 Shares',
                 src: 'https://image.flaticon.com/icons/svg/1327/1327029.svg',
                 flex: 6
             },            

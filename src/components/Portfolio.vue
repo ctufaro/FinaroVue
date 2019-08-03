@@ -33,10 +33,12 @@
                 <v-card-text>
                     <div style="font-size:15px;font-weight:bold;background-color:#F4F6F7;" class="pa-1">{{ props.item.name }}</div>
                     <div class="flex-container flex-pos">        
-                        <div class="pr-5"><v-spacer></v-spacer></div>                
+                        <div>
+                            <button type="button" :class="'btn btn-outline-success ml-3'">Sell</button>
+                        </div>                
                         <div style="font-size:18px;text-align:right;">
-                            <div>$10.00</div>
-                            <div style="font-size:16px">1.00</div>
+                            <div>$31.24</div>
+                            <div style="font-size:16px">2.00</div>
                         </div>
                         <div style="font-size:18px;font-weight:bold;text-align:right;">
                             <div>$15.62 <i style="color:#63C394;" class="fas fa-arrow-up"></i></div>
