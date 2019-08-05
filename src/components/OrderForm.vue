@@ -15,14 +15,20 @@
                     </div>
                     <!--Please enter the amount of shares you wish to {{buysell}} before placing order.-->
                 </v-alert>
-                <div class="trnd-txt mt-1 mb-0">{{name}}</div>
-                <v-container fluid grid-list-md pa-2>
+                <div class="trnd-txt mt-1 mb-0">{{name}}</div>                
+                <div>
+                    <div class="line-title">Price</div>
+                    <input class="text-line w-100" min="0" readonly="true" v-model="price"/>
+                </div>
+                <div>
+                    <div class="line-title">Shares<span v-if="buysell=='sell' && ownedshares > 0"><v-chip color="#CCC" @click.prevent="shares=ownedshares">{{ownedshares}}</v-chip></span></div>
+                <v-container fluid grid-list-md pa-2 v-if="buysell=='buy'">
                     <v-layout wrap>
                         <v-flex v-for="card in cards" :key="card.title" v-bind="{ [`xs${card.flex}`]: true }">
-                            <v-card @click.prevent="testOrder">
+                            <v-card @click.prevent="shareSelect(card.count)">
                                 <v-img :src="card.src" class="white--text" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
                                     <v-card-title class="fill-height align-end pr-0">
-                                        <div style="width:100%;background-color: rgba(0,0,0,0.3);">
+                                        <div style="width:100%;background-color: rgba(0,0,0,0.2);">
                                             <span style="font-size:16px;font-weight:bold;">{{card.title}}</span>
                                         </div>
                                     </v-card-title>
@@ -38,14 +44,7 @@
                             </v-card>
                         </v-flex>
                     </v-layout>
-                </v-container>
-                <!--
-                <div>
-                    <div class="line-title">Price</div>
-                    <input class="text-line w-100" min="0" readonly="true" v-model="price"/>
-                </div>
-                <div>
-                    <div class="line-title">Shares<span v-if="buysell=='sell' && ownedshares > 0"><v-chip color="#CCC" @click.prevent="shares=ownedshares">{{ownedshares}}</v-chip></span></div>
+                </v-container>                    
                     <input type="tel" class="text-line w-100" min="0" placeholder="0" v-model="shares" />
                 </div>
                 <div>
@@ -60,7 +59,7 @@
                         </button>
                     </div>
                 </div>
-                -->
+                
             </div>
         </v-card>
     </v-dialog>
@@ -78,24 +77,28 @@ export default {
         ownedshares: 0,
         loading: false,
         cards: [{
-                title: '10 Shares',
+                title: 'x10',
                 src: 'https://image.flaticon.com/icons/svg/138/138292.svg',
-                flex: 6
+                flex: 3,
+                count:10
             },
             {
-                title: '100 Shares',
+                title: 'x100',
                 src: 'https://image.flaticon.com/icons/svg/138/138255.svg',
-                flex: 6
+                flex: 3,
+                count:100
             },
             {
-                title: '1000 Shares',
+                title: 'x1000',
                 src: 'https://www.flaticon.com/premium-icon/icons/svg/733/733186.svg',
-                flex: 6
+                flex: 3,
+                count:1000
             },
             {
-                title: '10000 Shares',
+                title: 'x10000',
                 src: 'https://image.flaticon.com/icons/svg/1327/1327029.svg',
-                flex: 6
+                flex: 3,
+                count:10000
             },            
         ],
     }),
@@ -157,6 +160,9 @@ export default {
                     showConfirmButton: false
                 });
                 this.loading = false;
+                this.show=false; //closes the dialog pop-up
+                this.$parent.$parent.$parent.slideIn = false; //closes the pane (mobile)
+                this.$router.push('portfolio'); //navigate to portfolio 
             }).catch(error => {
                 this.$swal({
                     type: 'error',
@@ -167,7 +173,9 @@ export default {
                 this.loading = false;
             });
         },
-        testOrder(){
+        shareSelect(selshares){
+            this.shares = selshares;
+            /*
             this.$swal({
                 type: 'success',
                 title: 'Success!',
@@ -176,7 +184,8 @@ export default {
             });
             this.show=false; //closes the dialog pop-up
             this.$parent.$parent.$parent.slideIn = false; //closes the pane (mobile)
-            this.$router.push('portfolio'); //navigate to portfolio
+            this.$router.push('portfolio'); //navigate to portfolio 
+            */
         },
         resetForm() {
             this.shares = null;

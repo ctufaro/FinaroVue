@@ -21,12 +21,13 @@
         </v-container>
         <v-data-iterator :items="trends" hide-actions>
             <template v-slot:header>
-                <div class="flex-container flex-pos tb-header">
+                <div class="flex-container flex-pos tb-header" :class="{ 'sticky-header': sticky && isMobile()}">
                     <div>Trend</div>
                     <div>Holdings</div>
                     <div>Price</div>
                     <div>Alert</div>
-                </div> 
+                </div>
+                <div style="padding-bottom:29px;" v-if="sticky && isMobile()"></div> 
             </template>            
             <template v-slot:item="props">
             <v-card>
@@ -54,10 +55,13 @@
 </template>
 
 <script>
+import uiMixin from '@/mixins/uimixin.js'
 export default {
     name: "Portfolio",
+    mixins: [uiMixin],
     data: () => ({
-        trends: [{name: '#StarbucksCoffee'},{name: '#BadHairDay'},{name: '#GrabYourSchwartz'},{name: '#McDonalds'},{name: '#NYMets'},{name: '#AintYouASmarty'},{name: '#JohnBombAndHisMom'},{name: '#FinalCall'}]
+        sticky:false,
+        trends: [{name: '#StarbucksCoffee'},{name: '#BadHairDay'},{name: '#SomeRubbishTrend'},{name: '#ItsOverJohnny'},{name: '#GrabYourSchwartz'},{name: '#McDonalds'},{name: '#NYMets'},{name: '#AintYouASmarty'},{name: '#JohnBombAndHisMom'},{name: '#FinalCall'}]
     }),
     computed: {
         username: function () {            
@@ -70,6 +74,17 @@ export default {
         avatar: function () {
             return this.$store.getters.vxUser.avatar
         }
+    },
+    mounted:function(){
+        var vm = this
+        window.addEventListener('scroll', function(){
+            var scrollPos = window.scrollY;
+            if(scrollPos >= 166){
+                vm.sticky = true;
+            } else {
+                vm.sticky = false;
+            }
+        })
     }
 } 
 </script>
@@ -134,6 +149,14 @@ export default {
     background-color:#6B757B;
     color:white;
     font-size:12px;
+}
+
+.sticky-header{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin-top: -166px;
 }
 
 </style>
