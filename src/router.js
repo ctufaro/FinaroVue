@@ -10,6 +10,7 @@ import TrendData from './components/TrendData.vue'
 import PriceVol from './components/PriceVol.vue'
 import TweetVol from './components/TweetVol.vue'
 import TrendFad from './components/TrendFad.vue'
+import Account from './components/Account.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,13 @@ export default new Router({
       name: 'Settings',
       components: {
         secondpane:Settings
+      }
+    },
+    {
+      path: '/account',
+      name: 'My Account',
+      components: {
+        secondpane:Account
       }
     },
     {

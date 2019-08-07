@@ -2,7 +2,7 @@
     <div class="panel">
         <nav id="sidebar" :class="{ active: isActive }">
             <div class="sidebar-header profile">
-                <div style="flex:40%;">
+                <div style="flex:40%;" @click.prevent="toggleSidebar();$router.push('/account')">
                     <img :src="avatar" style="width:65px;padding-left:5px;"/>
                 </div>
                 <div style="flex:60%;">
