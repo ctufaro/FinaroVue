@@ -16,17 +16,22 @@
                     <div>Trend</div>
                     <div>Holdings</div>
                     <div>Price</div>
-                    <div>Alert</div>
+                    <div>Alert/Time</div>
                 </div>
                 <div style="padding-bottom:29px;" v-if="sticky && isMobile()"></div> 
             </template>            
             <template v-slot:item="props">
             <v-card>
                 <v-card-text>
-                    <div style="font-size:15px;font-weight:bold;background-color:#F4F6F7;" class="pa-1">{{ props.item.name }}</div>
+                    <div style="font-size:15px;background-color:#F4F6F7;" class="pa-1 flex-container flex-pos">
+                        <div style="font-weight:bold;">{{ props.item.name }}</div>
+                        <div style="font-size:smaller;">00:00:00:00</div>
+                    </div>
                     <div class="flex-container flex-pos">        
-                        <div>
-                            <button type="button" :class="'btn btn-outline-success ml-3'">Sell</button>
+                        <div class="liquidate">
+                            <button type="button" :class="'btn btn-outline-success'">
+                                <i class="fas fa-running"></i>
+                            </button>
                         </div>                
                         <div style="font-size:18px;text-align:right;">
                             <div>$31.24</div>
@@ -36,8 +41,13 @@
                             <div>$15.62 <i style="color:#63C394;" class="fas fa-arrow-up"></i></div>
                             <div style="color:#63C394;font-size:16px">+3.59%</div>
                         </div>
-                        <div style="font-size:20px;color:#6B757B;"><i class="far fa-bell pr-3"></i></div>                        
-                    </div>                    
+                        <div style="font-size:20px;color:#6B757B;">
+                            <i class="far fa-bell pr-3"></i>
+                        </div>                        
+                    </div>
+                    <div class="pa-0 pr-2 flex-container flex-pos-tm">
+                        <div><strong>Bonus</strong></div>
+                    </div>                 
                 </v-card-text>
             </v-card>
             </template>
@@ -52,7 +62,7 @@ export default {
     mixins: [uiMixin],
     data: () => ({
         sticky:false,
-        trends: [{name: '#StarbucksCoffee'},{name: '#BadHairDay'},{name: '#SomeRubbishTrend'},{name: '#ItsOverJohnny'},{name: '#GrabYourSchwartz'},{name: '#McDonalds'},{name: '#NYMets'},{name: '#AintYouASmarty'},{name: '#JohnBombAndHisMom'},{name: '#FinalCall'}]
+        trends: [{name: '#StarbucksCoffee', bonus:1232234456456999},{name: '#BadHairDay', bonus:1.23},{name: '#SomeRubbishTrend'},{name: '#ItsOverJohnny'},{name: '#GrabYourSchwartz'},{name: '#McDonalds'},{name: '#NYMets'},{name: '#AintYouASmarty'},{name: '#JohnBombAndHisMom'},{name: '#FinalCall'}]
     }),
     computed: {
         username: function () {            
@@ -124,6 +134,11 @@ export default {
     align-items: center;
 }
 
+.flex-pos-tm{
+    justify-content: flex-end;
+
+}
+
 .v-card__text{
     padding:0px 0px !important;
 }
@@ -149,6 +164,27 @@ export default {
     left: 0;
     right: 1px;
     margin-top: -72px;
+}
+
+.liquidate button{
+    margin-left: 10px;
+    padding: 2px 8px;
+    margin-top:6px;
+    margin-bottom:-6px;
+}
+
+.liquidate i{
+    font-size:40px;
+    margin-top:3px;
+}
+
+.bonus{
+    background-color: #10A2BD;
+    padding:1px 5px;
+    margin-bottom:8px;
+    border-radius: .25rem;
+    color:white;
+    font-size:smaller;
 }
 
 </style>
