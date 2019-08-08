@@ -148,8 +148,7 @@ export default {
                                                      email:response.data.email,
                                                      avatar:response.data.avatar,
                                                      isloggedin:true,
-                                                     isnewuser:false});
-                    this.loading = false;
+                                                     isnewuser:false});                    
                     this.$emit('close');
                 }).catch(error => {
                     this.loading = false;
