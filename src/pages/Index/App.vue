@@ -21,7 +21,7 @@
                 </v-container>
             </v-app>
             <v-footer height="auto" fixed >
-                <v-card class="flex" flat tile color="#6B757B">
+                <v-card class="flex" flat tile>
                     <v-card-actions class="justify-center">
                         <span style="color:white">Copyright © 2019 <strong>trndx</strong></span>
                     </v-card-actions>

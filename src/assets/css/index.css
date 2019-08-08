@@ -18,12 +18,17 @@ img {
     width: 20em;
 }
 
+.v-footer .v-card{
+    background-color: #63C394!important;
+}
+
 /*MOBILE*/
 
 @media (max-width: 575px) {
     img {
         width: 15em;
     }
+    /*
     .application--wrap {
         background-color: transparent;
     }
@@ -37,6 +42,7 @@ img {
     .menu-btn{
         color:#63C394 !important;
     }
+    */
 }
 
 
