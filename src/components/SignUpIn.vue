@@ -89,7 +89,10 @@
                         </v-form>
                     </v-card-text>
                     <v-card-actions class="justify-center">
-                        <v-btn class="menu-btn ml-2 mr-2" outline flat block @click.prevent="login">Log In</v-btn>
+                        <v-btn class="menu-btn ml-2 mr-2" outline flat block @click.prevent="login">
+                            <span v-if="!loading">Log In</span>
+                            <v-progress-circular indeterminate color="#63C394" v-if="loading"></v-progress-circular>
+                        </v-btn>
                     </v-card-actions>
                 </v-card>
             </span>
@@ -123,7 +126,8 @@ export default {
           required: value => !!value || 'Required.'
         },
         validSignUp:false,
-        validLogin:false        
+        validLogin:false,
+        loading:false        
     }),
     methods:{
         selectTab(indx){
@@ -132,6 +136,7 @@ export default {
         login(){
             this.$refs.form3.validate();
             if(this.validLogin){
+                this.loading = true;
                 this.axios.post(`${this.$hostname}/api/login/user`,
                 {
                     username: this.newLogin.username,
@@ -144,8 +149,10 @@ export default {
                                                      avatar:response.data.avatar,
                                                      isloggedin:true,
                                                      isnewuser:false});
+                    this.loading = false;
                     this.$emit('close');
                 }).catch(error => {
+                    this.loading = false;
                     this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});
                 }); 
             }
@@ -165,6 +172,7 @@ export default {
             // STEP 3
             } else if (this.e1 == 3 && this.newSignUp.terms == true) { 
                 this.e1 = (parseInt(this.e1) + 1);
+                this.loading = true;
                 this.axios.post(`${this.$hostname}/api/signup/user`,
                 {
                     email: this.newSignUp.email,
@@ -181,8 +189,10 @@ export default {
                                                      avatar:response.data.avatar,
                                                      isloggedin:true,
                                                      isnewuser:true});
+                    this.loading = false;                                 
                     this.$emit('close');
                 }).catch(error => {
+                    this.loading = false;
                     this.$swal({type: 'error',title: error.response.data.title, text: error.response.data.message});
                 });                
             }

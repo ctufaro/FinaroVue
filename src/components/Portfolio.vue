@@ -1,22 +1,13 @@
 <template>
     <span>
-        <v-container fluid style="padding-left:15px !important;">
+        <v-container fluid class="port-header">
             <v-layout column>
-                <div class="mt-2" style="display:flex;">
-                    <v-avatar size="96" class="mr-4">
-                        <img :src="avatar" alt="Avatar">
-                    </v-avatar>
+                <div style="display:flex;">
                     <div>
                         <div class="port-txt text-secondary">PORTFOLIO VALUE</div>
                         <div class="port-val"><span class="bal">{{balance}}</span><span class="unit">TDX</span></div>
-                        <div>
-                            <v-icon color="#D6AF36">fas fa-trophy</v-icon>
-                            <v-icon color="#D7D7D7">fas fa-trophy</v-icon>
-                            <v-icon color="#A77044">fas fa-trophy</v-icon>
-                        </div>
                     </div>
                 </div>
-                <span class="font-weight-bold text-secondary mt-2" style="font-size:20px;">{{username}}</span>
             </v-layout>
         </v-container>
         <v-data-iterator :items="trends" hide-actions>
@@ -79,7 +70,7 @@ export default {
         var vm = this
         window.addEventListener('scroll', function(){
             var scrollPos = window.scrollY;
-            if(scrollPos >= 166){
+            if(scrollPos >= 72){
                 vm.sticky = true;
             } else {
                 vm.sticky = false;
@@ -104,6 +95,11 @@ export default {
     padding:0px !important;
 }
 
+.port-header{
+    padding:15px !important; 
+    padding-bottom:0px !important; 
+}
+
 .port-txt{
     font-size:15;
 }
@@ -117,10 +113,6 @@ export default {
     font-weight:200;
     font-size:25px;
     padding-left:1px;
-}
-
-.v-icon{
-    padding-left:7px;
 }
 
 .flex-container {
@@ -155,8 +147,8 @@ export default {
     position: fixed;
     z-index: 1;
     left: 0;
-    right: 0;
-    margin-top: -166px;
+    right: 1px;
+    margin-top: -72px;
 }
 
 </style>
