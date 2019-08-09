@@ -18,6 +18,18 @@
     border-color: #63C394 !important;
 }
 
+.clicked {
+    color: #fff !important;
+    background-color: #63C394 !important;
+    border-color: #63C394 !important;
+}
+
+.notclicked {
+    color: #63C394 !important;
+    background-color: #fff !important;
+    border-color: #63C394 !important;
+}
+
 .btn-outline-success:active{
     background-color: #63C394 !important;
     border-color: #63C394 !important; 

@@ -1,5 +1,5 @@
 <template>
-    <span>
+    <div>
         <v-container fluid class="port-header">
             <v-layout column>
                 <div style="display:flex;">
@@ -25,12 +25,12 @@
                 <v-card-text>
                     <div style="font-size:15px;background-color:#F4F6F7;" class="pa-1 flex-container flex-pos">
                         <div style="font-weight:bold;">{{ props.item.name }}</div>
-                        <div style="font-size:smaller;">00:00:00:00</div>
+                        <div style="font-size:smaller;"><TrendClock :dateprop="props.item.time"></TrendClock></div>
                     </div>
                     <div class="flex-container flex-pos">        
                         <div class="liquidate">
-                            <button type="button" :class="'btn btn-outline-success'">
-                                <i class="fas fa-running"></i>
+                            <button type="button" @click.prevent="addTrend(props.item)" :class="`btn ${props.item.selected ? 'btn-outline-success clicked': 'notclicked'}`">
+                                <i class="fas fa-toilet"></i>
                             </button>
                         </div>                
                         <div style="font-size:18px;text-align:right;">
@@ -46,24 +46,63 @@
                         </div>                        
                     </div>
                     <div class="pa-0 pr-2 flex-container flex-pos-tm">
-                        <div><strong>Bonus</strong></div>
+                        <div><strong>Time Bonus:</strong></div>
                     </div>                 
                 </v-card-text>
             </v-card>
             </template>
         </v-data-iterator>
-    </span>
+        <div v-if="this.count>0" style="padding-bottom:50px;"></div>                 
+        <div v-if="this.count>0" class="fixed-bottom btn-group" style="margin-bottom:56px;" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-success btn-lg" style="border-radius:0;">Dump Trends ({{this.count}})</button>
+            <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0;padding:0px 30px;" @click.prevent="clearTrends()">Clear Trends</button>
+        </div>        
+    </div>
 </template>
 
 <script>
 import uiMixin from '@/mixins/uimixin.js'
+import TrendClock from '@/components/TrendClock.vue'
+
 export default {
     name: "Portfolio",
-    mixins: [uiMixin],
+    mixins: [uiMixin],    
+    components:{
+        TrendClock
+    },    
     data: () => ({
         sticky:false,
-        trends: [{name: '#StarbucksCoffee', bonus:1232234456456999},{name: '#BadHairDay', bonus:1.23},{name: '#SomeRubbishTrend'},{name: '#ItsOverJohnny'},{name: '#GrabYourSchwartz'},{name: '#McDonalds'},{name: '#NYMets'},{name: '#AintYouASmarty'},{name: '#JohnBombAndHisMom'},{name: '#FinalCall'}]
+        dump:new Map(),
+        count:0,
+        trends: [{name: '#StarbucksCoffee', bonus:1232234456456999, time:"2019-08-07T08:00:12", selected:false}
+                ,{name: '#BadHairDay', bonus:1.23, time:"2019-08-07T00:08:44", selected:false}
+                ,{name: '#SomeRubbishTrend', time:"2019-08-07T00:23:02", selected:false}
+                ,{name: '#ItsOverJohnny', time:"2019-08-07T12:00:17", selected:false}
+                ,{name: '#GrabYourSchwartz', time:"2019-08-07T00:05:36", selected:false}
+                ,{name: '#McDonalds', time:"2019-08-07T08:00:42", selected:false}
+                ,{name: '#NYMets', time:"2019-08-07T11:00:11", selected:false}
+                ,{name: '#AintYouASmarty', time:"2019-08-06T00:00:01", selected:false}
+                ,{name: '#JohnBombAndHisMom', time:"2019-08-05T00:00:05", selected:false}
+                ,{name: '#FinalCall', time:"2019-08-02T20:00:47", selected:false}]
     }),
+    methods:{
+        addTrend(item){
+            item.selected = !item.selected;
+            if (this.dump.has(item.name)){
+                this.dump.delete(item.name)
+            } else {
+                this.dump.set(item.name,item);
+            }
+            this.count = this.dump.size;
+        },
+        clearTrends(){
+            this.dump.clear();
+            this.count = 0;
+            for (var t of this.trends) {
+                t.selected = false;
+            }
+        }
+    },
     computed: {
         username: function () {            
             return this.$store.getters.vxUser.username;
