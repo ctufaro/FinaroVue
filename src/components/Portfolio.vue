@@ -30,7 +30,7 @@
                     <div class="flex-container flex-pos">        
                         <div class="liquidate">
                             <button type="button" @click.prevent="addTrend(props.item)" :class="`btn ${props.item.selected ? 'btn-outline-success clicked': 'notclicked'}`">
-                                <i class="fas fa-toilet"></i>
+                                <i class="fas fa-running"></i>
                             </button>
                         </div>                
                         <div style="font-size:18px;text-align:right;">
@@ -52,11 +52,13 @@
             </v-card>
             </template>
         </v-data-iterator>
-        <div v-if="this.count>0" style="padding-bottom:50px;"></div>                 
-        <div v-if="this.count>0" class="fixed-bottom btn-group" style="margin-bottom:56px;" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-success btn-lg" style="border-radius:0;">Dump Trends ({{this.count}})</button>
-            <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0;padding:0px 30px;" @click.prevent="clearTrends()">Clear Trends</button>
-        </div>        
+        <div style="position:relative; z-index:0;">
+            <div v-if="this.count>0 && this.isMobile()" style="padding-bottom:50px;"></div>                 
+            <div v-if="this.count>0" :class="this.isMobile() ? 'fixed-bottom btn-group mb-adj animate bounceIn' : 'btn-group w-100'" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-success btn-lg" style="border-radius:0;">Sell Off Trends ({{this.count}})</button>
+                <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0;padding:0px 20px;" @click.prevent="clearTrends()">Clear Selections</button>
+            </div>        
+        </div>
     </div>
 </template>
 
@@ -224,6 +226,10 @@ export default {
     border-radius: .25rem;
     color:white;
     font-size:smaller;
+}
+
+.mb-adj{
+    margin-bottom:56px
 }
 
 </style>
