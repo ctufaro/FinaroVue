@@ -56,7 +56,7 @@
             <div v-if="this.count>0 && this.isMobile()" style="padding-bottom:50px;"></div>                 
             <div v-if="this.count>0" :class="this.isMobile() ? 'fixed-bottom btn-group mb-adj animate bounceIn' : 'btn-group w-100'" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-success btn-lg" style="border-radius:0;">Sell Off Trends ({{this.count}})</button>
-                <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0;padding:0px 20px;" @click.prevent="clearTrends()">Clear Selections</button>
+                <button type="button" class="btn btn-secondary btn-lg" style="border-radius:0;" @click.prevent="clearTrends()">Clear Selections</button>
             </div>        
         </div>
     </div>
@@ -229,7 +229,11 @@ export default {
 }
 
 .mb-adj{
-    margin-bottom:56px
+    margin-bottom:56px;
+}
+
+.mb-adj .btn{
+    font-size:16px !important;
 }
 
 </style>
