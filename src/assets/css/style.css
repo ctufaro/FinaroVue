@@ -1,0 +1,113 @@
+:root {
+    --main-bg-color: #63C394;  
+    /*var(--main-bg-color)*/
+}
+
+#main-body {
+    background-color:#f4f7f9 !important;
+    font-family: 'Roboto',sans-serif !important;
+}
+
+a.__cf_email__{
+    color: var(--main-bg-color) !important;
+}
+
+a.probootstrap-forgot{
+    color: var(--main-bg-color) !important;
+}
+
+.probootstrap-hero .btn {
+    background-color: var(--main-bg-color) !important;
+    border-color: var(--main-bg-color) !important;
+}
+
+.probootstrap-hero .btn-ghost {
+    background-color: white !important;
+    color: var(--main-bg-color) !important;
+}
+
+.probootstrap-navbar .navbar-nav>li.probootstra-cta-button>a{
+    background-color: var(--main-bg-color) !important;
+    border-color: var(--main-bg-color) !important;
+}
+
+.probootstrap-navbar .navbar-nav>li.probootstra-cta-button>a.btn-ghost {
+    background-color: white !important;
+    color: var(--main-bg-color) !important;
+    border-color: var(--main-bg-color) !important;
+    border-top: 1px solid var(--main-bg-color)!important
+}
+
+.probootstrap-cta .btn.btn-ghost:hover {
+    color: var(--main-bg-color) !important;
+}
+
+.probootstrap-showcase-nav ul li.active>a {
+    color: var(--main-bg-color) !important;
+}
+
+.service .icon i{
+    color: var(--main-bg-color) !important;
+}
+
+.probootstrap-cta{
+    background-color: var(--main-bg-color) !important;
+}
+
+.navbar-brand{
+    background-size: contain !important;
+}
+
+.probootstrap-navbar .navbar-nav>li>a:active, .probootstrap-navbar .navbar-nav>li>a:focus, .probootstrap-navbar .navbar-nav>li>a:hover {
+    border-top: 2px solid var(--main-bg-color) !important;
+}
+
+.probootstrap-hero.probootstrap-hero-colored {
+    background-color: var(--main-bg-color) !important;
+}
+
+input[type=submit] {
+    background-color: var(--main-bg-color) !important;
+    border-color: var(--main-bg-color) !important;
+}
+
+.trdx-color{
+    background-color: var(--main-bg-color) !important;
+    border-color: var(--main-bg-color) !important;
+}
+
+.trdx-color-out{
+    background-color: white !important;
+    border-color: var(--main-bg-color) !important;
+    color: var(--main-bg-color) !important;
+}
+
+.probootstrap-price{
+    color: var(--main-bg-color) !important;
+}
+
+.probootstrap-pricing h3>span{
+    color: var(--main-bg-color) !important;
+}
+
+.top-btn{
+    float:right; 
+    position:relative; 
+    margin-top:9px; 
+    margin-right:12px;
+}
+
+.main-img{
+    width:50%;
+}
+
+@media screen and (max-width:768px){
+    .main-img{
+        width:70%;
+    }
+}
+
+.container{
+    padding-top:0;
+    padding-bottom:0;
+}
