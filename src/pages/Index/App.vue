@@ -68,8 +68,8 @@
                             quos quibusdam soluta at.
                         </p>
                         <p>
-                            <a href="#" class="btn btn-primary btn-lg" role="button" @click.stop="dialog = true">SIGN UP</a>
-                            <a href="#" class="btn btn-primary btn-ghost btn-lg" role="button" @click.stop="dialog = true">LOG IN</a>
+                            <a href="#" class="btn btn-primary btn-lg" role="button" @click.stop="dialog = true; touchTab = 0">SIGN UP</a>
+                            <a href="#" class="btn btn-primary btn-ghost btn-lg" role="button" @click.stop="dialog = true; touchTab = 1">LOG IN</a>
                         </p>
                     </div>
                 </div>
@@ -665,7 +665,7 @@
             </div>
         </div>
         <v-dialog v-model="dialog" max-width="550">
-            <SignUpIn @close="redirect()" v-bind:touch-close="dialog"/>
+            <SignUpIn @close="redirect()" v-bind:touch-close="dialog" v-bind:touch-tab="touchTab"/>
         </v-dialog>
     </span>
 </template>
@@ -677,7 +677,8 @@ import SignUpIn from '@/components/SignUpIn.vue'
 export default {
     name:'Index',
     data: () => ({
-        dialog: false
+        dialog: false,
+        touchTab: 0
     }),
     components:{
         SignUpIn
@@ -703,6 +704,11 @@ export default {
     mounted(){
         if(this.$store.getters.vxUser.isloggedin)
             document.location.href = '/exchange.html#/search';
+    },    
+    created() {
+        const el = document.createElement('div');
+        el.setAttribute('data-app', true);
+        document.body.appendChild(el);
     }
 }
 </script>

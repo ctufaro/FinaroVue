@@ -214,7 +214,8 @@ export default {
         }
     },
     props:{
-        touchClose:Boolean
+        touchClose:Boolean,
+        touchTab:Number
     },
     watch: {
         touchClose(val) {
@@ -222,6 +223,9 @@ export default {
                 this.reset();
                 this.selectTab(0);
             }
+        },
+        touchTab(val) {
+            this.active_tab = val;
         }
     },
     
@@ -259,6 +263,7 @@ export default {
 
 .mint .menu-btn {
     color: #63C394 !important;
+    margin-bottom:25px !important;
 }
 
 .mint .v-alert {
@@ -275,10 +280,16 @@ export default {
     color:#63C394;
 }
 
+.mint a:active, a:focus, a:hover {
+    color: #63C394 !important;
+    text-decoration: none !important;
+}
+
+
 /*MOBILE*/
 @media (max-width: 768px) {
     .mint .v-card{
-        background-color: rgba(255, 255, 255, 0.6)!important;
+        background-color: rgba(255, 255, 255, 0.7)!important;
     }
     .mint .v-stepper{
         background-color: rgba(255, 255, 255, 0.0)!important;
