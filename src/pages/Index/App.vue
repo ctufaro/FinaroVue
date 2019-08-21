@@ -71,6 +71,7 @@
                             <a href="#" class="btn btn-primary btn-lg" role="button" @click.stop="dialog = true; touchTab = 0">SIGN UP</a>
                             <a href="#" class="btn btn-primary btn-ghost btn-lg" role="button" @click.stop="dialog = true; touchTab = 1">LOG IN</a>
                         </p>
+                        <youtube video-id="BBJa32lCaaY" fitParent/>
                     </div>
                 </div>
                 <div class="row probootstrap-feature-showcase">
