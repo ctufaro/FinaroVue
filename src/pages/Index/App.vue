@@ -491,7 +491,7 @@ export default {
 <style src="@/assets/css/styles-merged.css"></style>
 <style src="@/assets/css/style.min.css"></style>
 <style src="@/assets/css/style.css"></style>
-<style src="@/assets/css/index.css"></style>
+
 
 
 
