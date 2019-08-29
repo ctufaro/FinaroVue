@@ -2,11 +2,16 @@
     <div>
         <v-container fluid class="port-header">
             <v-layout column>
-                <div style="display:flex;">
+                <!--div for video-->
+                <div style="display:flex; justify-content:space-between">
                     <div>
                         <div class="port-txt text-secondary">PORTFOLIO VALUE</div>
                         <div class="port-val"><span class="bal">{{balance}}</span><span class="unit">TDX</span></div>
-                    </div>
+                    </div>    
+                    <div class="award"><v-icon color="#EF4139">fas fa-paw</v-icon></div>              
+                    <div class="award"><v-icon color="#D7D7D7">fas fa-trophy</v-icon></div>
+                    <div class="award"><v-icon color="#63C394">fas fa-dragon</v-icon></div>
+                    <div class="award"><v-icon color="#FFC300" @click.prevent="popup">fas fa-bolt</v-icon></div>
                 </div>
             </v-layout>
         </v-container>
@@ -103,6 +108,16 @@ export default {
             for (var t of this.trends) {
                 t.selected = false;
             }
+        },
+        popup(){
+            this.$swal({
+                type: 'success',
+                title: 'Congratulations!',
+                text: 'You have traded over 1000 trndx points!!',
+                imageUrl: "https://newtonfoxbds.com/wp-content/uploads/2019/04/007-money-bag-300x300.png",
+                imageWidth: 200,
+                showConfirmButton: false
+            });
         }
     },
     computed: {
@@ -234,6 +249,25 @@ export default {
 
 .mb-adj .btn{
     font-size:16px !important;
+}
+
+
+
+/*Sweet Alert 2 Temp Awards*/
+.award{
+   padding-top:10px;
+}
+.award .v-icon{
+    font-size:40px !important;    
+}
+.swal2-success{
+    display:none !important;
+}
+.swal2-popup{
+    width:23em !important;
+}
+.swal2-container.swal2-shown {
+    background-color: rgba(0,0,0,.2) !important;
 }
 
 </style>
