@@ -7,11 +7,11 @@
                     <div>
                         <div class="port-txt text-secondary">PORTFOLIO VALUE</div>
                         <div class="port-val"><span class="bal">{{balance}}</span><span class="unit">TDX</span></div>
-                    </div>    
-                    <div class="award"><v-icon color="#EF4139">fas fa-paw</v-icon></div>              
-                    <div class="award"><v-icon color="#D7D7D7">fas fa-trophy</v-icon></div>
-                    <div class="award"><v-icon color="#63C394">fas fa-dragon</v-icon></div>
-                    <div class="award"><v-icon color="#FFC300" @click.prevent="popup">fas fa-bolt</v-icon></div>
+                    </div>                               
+                    <div class="award">
+                        <v-icon color="#D7D7D7">fas fa-trophy</v-icon>
+                        <v-icon color="#FFC300" @click.prevent="popup" class="pl-1">fas fa-bolt</v-icon>
+                    </div>
                 </div>
             </v-layout>
         </v-container>
@@ -251,15 +251,15 @@ export default {
     font-size:16px !important;
 }
 
-
-
-/*Sweet Alert 2 Temp Awards*/
 .award{
    padding-top:10px;
 }
 .award .v-icon{
     font-size:40px !important;    
 }
+
+/*Sweet Alert 2*/
+/*
 .swal2-success{
     display:none !important;
 }
@@ -269,5 +269,6 @@ export default {
 .swal2-container.swal2-shown {
     background-color: rgba(0,0,0,.2) !important;
 }
+*/
 
 </style>

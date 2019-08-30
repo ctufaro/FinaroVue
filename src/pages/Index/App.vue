@@ -60,12 +60,10 @@
                     <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center probootstrap-hero-text pb0 probootstrap-animate"
                         data-animate-effect="fadeIn">
                         <h1>
-                            <!--Got you@ Launch your awesome startup now!-->
                             <img src="@/assets/images//trndxlogo-green.png" class="main-img" />
                         </h1>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus
-                            quos quibusdam soluta at.
+                            trndx is a new platform that prices social media trends based on user sentiment and volume.
                         </p>
                         <p>
                             <a href="#" class="btn btn-primary btn-lg" role="button" @click.stop="dialog = true; touchTab = 0">SIGN UP</a>

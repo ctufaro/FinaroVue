@@ -21,6 +21,10 @@ a.probootstrap-forgot{
     border-color: var(--main-bg-color) !important;
 }
 
+.probootstrap-hero .probootstrap-hero-text {
+    padding-top:95px;
+}
+
 .probootstrap-hero .btn-ghost {
     background-color: white !important;
     color: var(--main-bg-color) !important;
