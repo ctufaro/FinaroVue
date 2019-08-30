@@ -11,6 +11,9 @@ import PriceVol from './components/PriceVol.vue'
 import TweetVol from './components/TweetVol.vue'
 import TrendFad from './components/TrendFad.vue'
 import Account from './components/Account.vue'
+import Home from './components/Home.vue'
+import Contact from './components/Contact.vue'
+import Team from './components/Team.vue'
 
 Vue.use(Router)
 
@@ -95,7 +98,28 @@ export default new Router({
         thirdpane:MyFeedTrend
       },
       props: true
-    }
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      components: {
+        indexpane:Home
+      }
+    },  
+    {
+      path: '/contact',
+      name: 'Contact',
+      components: {
+        indexpane:Contact
+      }
+    },
+    {
+      path: '/team',
+      name: 'Team',
+      components: {
+        indexpane:Team
+      }
+    }      
     //,        
     //{
       //path: '/about',

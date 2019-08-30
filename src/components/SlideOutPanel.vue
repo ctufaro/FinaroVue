@@ -49,7 +49,7 @@
         <v-btn :fixed="true" icon bottom left to="/settings" @click.native="toggleSidebar();">
             <v-icon color="#9FABB6">fas fa-cog</v-icon>
         </v-btn>
-        <v-btn :fixed="true" icon bottom left @click="signOut('/index.html', $event)" style="margin-left:50px">
+        <v-btn :fixed="true" icon bottom left @click="signOut('index.html#/home', $event)" style="margin-left:50px">
             <v-icon color="#9FABB6">fas fa-sign-out-alt</v-icon>
         </v-btn>              
     </div>

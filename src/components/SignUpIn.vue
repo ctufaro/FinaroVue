@@ -285,7 +285,6 @@ export default {
     text-decoration: none !important;
 }
 
-
 /*MOBILE*/
 @media (max-width: 768px) {
     .mint .v-card{
