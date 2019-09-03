@@ -285,6 +285,10 @@ export default {
     text-decoration: none !important;
 }
 
+.mint span .v-card__text{
+    padding:16px !important;
+}
+
 /*MOBILE*/
 @media (max-width: 768px) {
     .mint .v-card{

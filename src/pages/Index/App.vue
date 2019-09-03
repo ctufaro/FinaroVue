@@ -281,6 +281,9 @@ export default {
         const el = document.createElement('div');
         el.setAttribute('data-app', true);
         document.body.appendChild(el);
+
+        if(this.$router.currentRoute.name === null)
+            this.$router.push('home');
     }
 }
 </script>
