@@ -2,7 +2,7 @@
     <span>
         <section class="probootstrap-hero">
             <div class="container">
-                <div class="row">
+                <div class="row pb-5">
                     <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center probootstrap-hero-text pb0 probootstrap-animateX"
                         data-animate-effect="fadeIn">
                         <h1>
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row probootstrap-feature-showcase">
+                <div class="row probootstrap-feature-showcase" v-if="false">
                     <div class="col-md-4 col-md-push-8 probootstrap-showcase-nav probootstrap-animateX">
                         <ul>
                             <li class="active">
@@ -97,7 +97,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animateX"
                         data-animate-effect="fadeIn">
-                        <h2>Platform Features</h2>
+                        <h2>What is trndx?</h2>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui
                             tempore
                             natus
@@ -108,9 +108,9 @@
                 <div class="row probootstrap-gutter60">
                     <div class="col-md-4 probootstrap-animateX" data-animate-effect="fadeInLeft">
                         <div class="service text-center">
-                            <div class="icon"><i class="icon-mobile3"></i></div>
+                            <div class="icon"><i class="far fa-building"></i></div>
                             <div class="text">
-                                <h3>Responsive Design</h3>
+                                <h3>For Business</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -119,9 +119,9 @@
                     </div>
                     <div class="col-md-4 probootstrap-animateX" data-animate-effect="fadeIn">
                         <div class="service text-center">
-                            <div class="icon"><i class="icon-presentation"></i></div>
+                            <div class="icon"><i class="fab fa-ethereum"></i></div>
                             <div class="text">
-                                <h3>Business Solutions</h3>
+                                <h3>Blockchain-based</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -130,9 +130,9 @@
                     </div>
                     <div class="col-md-4 probootstrap-animateX" data-animate-effect="fadeInRight">
                         <div class="service text-center">
-                            <div class="icon"><i class="icon-circle-compass"></i></div>
+                            <div class="icon"><i class="fas fa-medal"></i></div>
                             <div class="text">
-                                <h3>Brand Identity</h3>
+                                <h3>Gamified Experience</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -141,9 +141,9 @@
                     </div>
                     <div class="col-md-4 probootstrap-animateX" data-animate-effect="fadeInLeft">
                         <div class="service text-center">
-                            <div class="icon"><i class="icon-lightbulb"></i></div>
+                            <div class="icon"><i class="far fa-clock"></i></div>
                             <div class="text">
-                                <h3>Creative Ideas</h3>
+                                <h3>Real-Time</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -152,9 +152,9 @@
                     </div>
                     <div class="col-md-4 probootstrap-animateX">
                         <div class="service text-center">
-                            <div class="icon"><i class="icon-magnifying-glass2"></i></div>
+                            <div class="icon"><i class="fas fa-user-friends"></i></div>
                             <div class="text">
-                                <h3>Search Engine Friendly</h3>
+                                <h3>Social Sharing</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -163,9 +163,9 @@
                     </div>
                     <div class="col-md-4 probootstrap-animateX" data-animate-effect="fadeInRight">
                         <div class="service text-center">
-                            <div class="icon"><i class="icon-browser2"></i></div>
+                            <div class="icon"><i class="far fa-bell"></i></div>
                             <div class="text">
-                                <h3>Easy Customization</h3>
+                                <h3>Notifications</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>

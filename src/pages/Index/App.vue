@@ -3,7 +3,7 @@
         <nav class="navbar probootstrap-megamenu navbar-default probootstrap-navbar">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    <button id="navbar-collapse-menu-btn" type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -14,11 +14,11 @@
                         <a href="#" class="btn btn-ghost trdx-color-out" data-toggle="modal"
                             data-target="#signupModal">SIGN UP/IN</a>
                     </div>
-                    <a class="navbar-brand" href="#/home"></a>
+                    <a class="navbar-brand" @click.passive="goTo('home')"></a>
                 </div>
                 <div id="navbar-collapse" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><router-link to="home">Home</router-link></li>
+                    <ul class="nav navbar-nav navbar-right" style="cursor:pointer;">
+                        <li><a @click.passive="goTo('home')">Home</a></li>
                         <!--
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
@@ -39,8 +39,8 @@
                         </ul>
                     </li>
                     -->
-                        <li><router-link to="contact">Contact</router-link></li>
-                        <li><router-link to="team">Team</router-link></li>
+                        <li><a @click.passive="goTo('contact')">Contact</a></li>
+                        <li><a @click.passive="goTo('team')">Team</a></li>
                         <!--
                     <li class="probootstra-cta-button"><a href="#" class="btn" data-toggle="modal"
                             data-target="#loginModal">Log
@@ -53,13 +53,15 @@
                 </div>
             </div>
         </nav>
+
         <router-view name="indexpane"/>
+
         <footer class="probootstrap-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="row">
-                            <div class="col-md-4 probootstrap-animateX">
+                            <div class="col-md-12 probootstrap-animateX">
                                 <div class="probootstrap-footer-widget">
                                     <h3>Links</h3>
                                     <ul>
@@ -71,7 +73,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-4 probootstrap-animateX">
+                            <div class="col-md-4 probootstrap-animateX" v-if="false">
                                 <div class="probootstrap-footer-widget">
                                     <h3>Links</h3>
                                     <ul>
@@ -83,7 +85,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-4 probootstrap-animateX">
+                            <div class="col-md-4 probootstrap-animateX" v-if="false">
                                 <div class="probootstrap-footer-widget">
                                     <h3>Links</h3>
                                     <ul>
@@ -97,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 probootstrap-animateX">
+                    <div class="col-md-8 probootstrap-animateX">
                         <div class="probootstrap-footer-widget">
                             <h3>Paragraph</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
@@ -118,11 +120,7 @@
 
                 <div class="row">
                     <div class="col-md-12 copyright probootstrap-animateX">
-                        <p><small>&copy; 2017 <a href="#">uiCookies:Inspire</a>. All Rights Reserved. <br> Designed
-                                &amp;
-                                Developed
-                                with <i class="icon icon-heart"></i> by <a
-                                    href="https://uicookies.com/">uicookies.com</a></small></p>
+                        <p><small>&copy; 2019 trndx. All Rights Reserved.</small></p>
                     </div>
                 </div>
             </div>
@@ -262,15 +260,11 @@ export default {
                 title: 'Success!',
                 text: 'Excellent Work!'
             });      
-        },
-        goTo:function(url, event){
-            this.dialog = false;
-            event.preventDefault();
-            document.location.href = url;
-        },
-        redirect(){
-            this.dialog = false;
-            document.location.href = '/exchange.html#/search';
+        },        
+        goTo(page){
+            this.$router.push(page);
+            document.getElementById("navbar-collapse").classList.remove("in");
+            document.getElementById("navbar-collapse-menu-btn").classList.add("collapsed");
         }
     },
     mounted(){
@@ -291,7 +285,6 @@ export default {
 <style src="@/assets/css/styles-merged.css"></style>
 <style src="@/assets/css/style.min.css"></style>
 <style src="@/assets/css/style.css"></style>
-
 
 
 
