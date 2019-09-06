@@ -108,24 +108,28 @@
                             a formula similar to trends.
                         </p>
                         <h2 class="pt-5">Pricing Trends</h2>
-                        <div class="lead pb-2">
-                            Nothing fancy behind our pricing algorithms. trndx prices are simply:
-                            <div class="formula mt-3">
-                                <div>
-                                    <div class="eq">Sentiment</div>
-                                    <div class="desc">(A view of or attitude toward a situation or event; an opinion)</div>
-                                </div>
-                                <div class="pl-5 pr-5 mul">x</div>
-                                <div>
-                                    <div class="eq">Volume</div>
-                                    <div class="desc">(The total amount of posts collected in a given time frame, split by posts and reactions)</div>
-                                </div>
-                            </div>
-                        </div>                                                
+                        <p class="lead">
+                            Nothing fancy behind our pricing algorithms. trndx prices are calculated using
+                            <v-tooltip bottom>
+                            <template v-slot:activator="{ on }">
+                                <v-btn color="primary" dark v-on="on">Sentiment</v-btn>
+                            </template>
+                            <span>A view of or attitude toward a situation or event; an opinion</span>
+                            </v-tooltip>  
+                            and
+                            <v-tooltip bottom>
+                            <template v-slot:activator="{ on }">
+                                <v-btn color="#63C394" dark v-on="on">Volume</v-btn>
+                            </template>
+                            <span>The total amount of posts collected in a given time frame, split by posts and reactions</span>
+                            </v-tooltip>
+                            collected from the API's provided by the top social networking sites.
+                        </p> 
+                        <h2 class="pt-5">Platform Features</h2>                                                                      
                     </div>
                 </div>
 
-                <div class="row probootstrap-gutter60">
+                <div class="row probootstrap-gutter60">                    
                     <div class="col-md-4 probootstrap-animateX" data-animate-effect="fadeInLeft">
                         <div class="service text-center">
                             <div class="icon"><i class="far fa-building"></i></div>
