@@ -10,7 +10,7 @@
                     </div>                               
                     <div class="award">
                         <v-icon color="#D7D7D7">fas fa-trophy</v-icon>
-                        <v-icon color="#FFC300" @click.prevent="popup" class="pl-1">fas fa-bolt</v-icon>
+                        <v-icon color="#FFC300" class="pl-1">fas fa-bolt</v-icon>
                     </div>
                 </div>
             </v-layout>

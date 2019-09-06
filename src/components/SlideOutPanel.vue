@@ -37,7 +37,7 @@
                     <router-link to="/portfolio" @click.native="toggleSidebar();">Portfolio</router-link>
                 </li>
                 <li>
-                    <router-link to="/notifications" @click.native="toggleSidebar();">Notifications<span class="float-right circle">4</span></router-link>
+                    <router-link to="/notifications" @click.native="toggleSidebar();">Notifications<span class="float-right circle">1</span></router-link>
                 </li>                  
                 <!--
                 <li>

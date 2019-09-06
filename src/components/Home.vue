@@ -95,13 +95,33 @@
         <section class="probootstrap-section probootstrap-bg-white probootstrap-zindex-above-showcase">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animateX"
-                        data-animate-effect="fadeIn">
+                    <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animateX"  data-animate-effect="fadeIn">
                         <h2>What is trndx?</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui
-                            tempore
-                            natus
-                            quos quibusdam soluta at.</p>
+                        <p class="lead">
+                            trndx is a new platform that prices trends across the major social networks.  
+                        </p>
+                        <h2 class="pt-5">Motivation</h2>
+                        <p class="lead">
+                            For something to go viral it takes <strong>tremendous</strong> social participation. 
+                            Can you imagine the millions of people tweeting, liking, commenting, and watching something to make it go viral? 
+                            It's astonishing. If the price of a stock is determined by factors like earnings and good/bad press, then why can't we apply
+                            a formula similar to trends.
+                        </p>
+                        <h2 class="pt-5">Pricing Trends</h2>
+                        <div class="lead pb-2">
+                            Nothing fancy behind our pricing algorithms. trndx prices are simply:
+                            <div class="formula mt-3">
+                                <div>
+                                    <div class="eq">Sentiment</div>
+                                    <div class="desc">(A view of or attitude toward a situation or event; an opinion)</div>
+                                </div>
+                                <div class="pl-5 pr-5 mul">x</div>
+                                <div>
+                                    <div class="eq">Volume</div>
+                                    <div class="desc">(The total amount of posts collected in a given time frame, split by posts and reactions)</div>
+                                </div>
+                            </div>
+                        </div>                                                
                     </div>
                 </div>
 
@@ -119,9 +139,9 @@
                     </div>
                     <div class="col-md-4 probootstrap-animateX" data-animate-effect="fadeIn">
                         <div class="service text-center">
-                            <div class="icon"><i class="fab fa-ethereum"></i></div>
+                            <div class="icon"><i class="fas fa-hashtag"></i></div>
                             <div class="text">
-                                <h3>Blockchain-based</h3>
+                                <h3>Social Networks</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -143,7 +163,7 @@
                         <div class="service text-center">
                             <div class="icon"><i class="far fa-clock"></i></div>
                             <div class="text">
-                                <h3>Real-Time</h3>
+                                <h3>Real-Time Updates</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -154,7 +174,7 @@
                         <div class="service text-center">
                             <div class="icon"><i class="fas fa-user-friends"></i></div>
                             <div class="text">
-                                <h3>Social Sharing</h3>
+                                <h3>User Feeds</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -165,7 +185,7 @@
                         <div class="service text-center">
                             <div class="icon"><i class="far fa-bell"></i></div>
                             <div class="text">
-                                <h3>Notifications</h3>
+                                <h3>Price Notifications</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
                                     natus quos
                                     quibusdam soluta at.</p>
@@ -179,9 +199,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="probootstrap-animateX" data-animate-effect="fadeInRight">We'd like to help and talk
-                            with
-                            you</h2>
+                        <h2 class="probootstrap-animateX" data-animate-effect="fadeInRight">
+                            <span>Interested in learning more about trndx?</span>
+                         </h2>
                         <a href="#/contact" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animateX"
                             data-animate-effect="fadeInLeft">Contact Us</a>
                     </div>
@@ -212,3 +232,29 @@ export default {
     }
 }
 </script>
+<style>
+
+.formula{
+    display:flex;
+    color:black;
+}
+
+.formula .eq {
+    font-size:20px;
+    font-weight:bold;
+
+}
+
+.formula .mul {
+    font-size:30px;
+    font-weight:bold;
+
+}
+
+.formula .desc {
+    font-size:12px;
+    margin-top:-5px;
+    font-weight:400;
+    line-height: 18px;
+}
+</style>

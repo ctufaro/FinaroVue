@@ -56,9 +56,9 @@
 
         <router-view name="indexpane"/>
 
-        <footer class="probootstrap-footer">
+        <footer class="probootstrap-footer" style="padding:0px">
             <div class="container">
-                <div class="row">
+                <div class="row" v-if="false">
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-12 probootstrap-animateX">
@@ -117,9 +117,8 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
-                    <div class="col-md-12 copyright probootstrap-animateX">
+                    <div class="col-md-12 copyright probootstrap-animateX" style="text-align:center">
                         <p><small>&copy; 2019 trndx. All Rights Reserved.</small></p>
                     </div>
                 </div>

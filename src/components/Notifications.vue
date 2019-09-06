@@ -22,10 +22,7 @@
     data () {
       return {       
         items: [
-          { title: 'Purchased Trend', did:'Went long on #NewYorkYankees', icon:'fas fa-money-bill-wave-alt', key:1 },
-          { title: 'Sold Trend', did:'Sold #badhairday for 1000 trndx points', icon:'fas fa-paper-plane', key:2 },
-          { title: 'Sold Trend', did:'Sold #badhairday for 1000 trndx points', icon:'fas fa-paper-plane', key:3 },
-          { title: 'Purchased Trend?', did:'Went long on #NewYorkYankees', icon:'fas fa-money-bill-wave-alt', key:4 }
+          { title: 'Sign-up Bonus', did:'You just received 1000 trndx points!', icon:'fas fa-money-bill-wave-alt', key:1 }
         ]
       }
     }

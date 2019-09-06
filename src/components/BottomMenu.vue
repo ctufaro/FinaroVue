@@ -15,7 +15,7 @@
         <v-btn color="#63C394" flat to="/notifications">
             <span>Notifs</span>
             <v-badge top color="#63C394" >
-                <span slot="badge">4</span>
+                <span slot="badge">1</span>
                 <i class="fas fa-bell bottom-icons"></i>
             </v-badge>
         </v-btn>

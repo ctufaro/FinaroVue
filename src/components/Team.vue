@@ -5,8 +5,10 @@
                 <div class="row">
                     <div class="col-md-8 text-left probootstrap-hero-text">
                         <h1 class="probootstrap-animateX">Meet The Team</h1>
-                        <p class="probootstrap-animateX">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                            provident qui tempore natus quos quibusdam soluta at.</p>
+                        <p class="probootstrap-animateX">
+                            We've assembled the best and the brightest minds spanning across multiple industries. Our people make a difference here at trndx. 
+                            Meet our team and see the people behind the trndx platform.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -100,9 +102,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="probootstrap-animateX" data-animate-effect="fadeInRight">We'd like to help and talk
-                            with you</h2>
-                        <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animateX"
+                        <h2 class="probootstrap-animateX" data-animate-effect="fadeInRight">Interested in learning more about trndx?</h2>
+                        <a href="#/contact" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animateX"
                             data-animate-effect="fadeInLeft">Contact Us</a>
                     </div>
                 </div>

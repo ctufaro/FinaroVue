@@ -1,6 +1,6 @@
 <template>
   <div class="text-xs-center">
-    <v-btn icon class="text-secondary mr-1" @click.prevent="openDialog">
+    <v-btn icon class="text-secondary mr-1">
       <v-icon>fas fa-plus-circle</v-icon>
     </v-btn>
     <v-dialog v-model="dialog" :fullscreen="this.isMobile()" hide-overlay transition="dialog-bottom-transition" width="500">
