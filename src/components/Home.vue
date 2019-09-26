@@ -135,9 +135,7 @@
                             <div class="icon"><i class="far fa-building"></i></div>
                             <div class="text">
                                 <h3>For Business</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
-                                    natus quos
-                                    quibusdam soluta at.</p>
+                                <p>trndx offers B2B plans based on the real-time analytics gained from users buying and selling trends.</p>
                             </div>
                         </div>
                     </div>
@@ -146,9 +144,7 @@
                             <div class="icon"><i class="fas fa-hashtag"></i></div>
                             <div class="text">
                                 <h3>Social Networks</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
-                                    natus quos
-                                    quibusdam soluta at.</p>
+                                <p>We leverage the APIs provided by the most popular social networks. This ensures the platform has the latest trends.</p>
                             </div>
                         </div>
                     </div>
@@ -157,9 +153,7 @@
                             <div class="icon"><i class="fas fa-medal"></i></div>
                             <div class="text">
                                 <h3>Gamified Experience</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
-                                    natus quos
-                                    quibusdam soluta at.</p>
+                                <p>Enjoy awards and milestones based on the success of your trades. Share your progress with your friends.</p>
                             </div>
                         </div>
                     </div>
@@ -168,9 +162,7 @@
                             <div class="icon"><i class="far fa-clock"></i></div>
                             <div class="text">
                                 <h3>Real-Time Updates</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
-                                    natus quos
-                                    quibusdam soluta at.</p>
+                                <p>Using feeds from the top social media sites, trends are delivered in real-time.</p>
                             </div>
                         </div>
                     </div>
@@ -179,9 +171,7 @@
                             <div class="icon"><i class="fas fa-user-friends"></i></div>
                             <div class="text">
                                 <h3>User Feeds</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
-                                    natus quos
-                                    quibusdam soluta at.</p>
+                                <p>Share with your friends the trends that you are buying and selling.</p>
                             </div>
                         </div>
                     </div>
@@ -190,9 +180,7 @@
                             <div class="icon"><i class="far fa-bell"></i></div>
                             <div class="text">
                                 <h3>Price Notifications</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore
-                                    natus quos
-                                    quibusdam soluta at.</p>
+                                <p>Interested in purchasing/selling a trend but can't stand to watch the price. Subscribe to notifications and get alerts on your favorite trends.</p>
                             </div>
                         </div>
                     </div>
@@ -261,4 +249,5 @@ export default {
     font-weight:400;
     line-height: 18px;
 }
+
 </style>
