@@ -13,9 +13,13 @@
                         </p>
                         <p>
                             <a href="#" class="btn btn-primary btn-lg" role="button"
+                                @click.stop="guestlogin()">LOGIN AS GUEST</a>
+                            <!--
+                            <a href="#" class="btn btn-primary btn-lg" role="button"
                                 @click.stop="dialog = true; touchTab = 0">SIGN UP</a>
                             <a href="#" class="btn btn-primary btn-ghost btn-lg" role="button"
                                 @click.stop="dialog = true; touchTab = 1">LOG IN</a>
+                            -->
                         </p>
                         <div style="position:relative;padding-top:56.25%;">
                             <iframe src="https://biteable.com/watch/embed/trndx-2341198" frameborder="0" allowfullscreen
@@ -216,6 +220,17 @@ export default {
     methods: {
         redirect() {
             this.dialog = false;
+            document.location.href = '/exchange.html#/search';
+        },
+        guestlogin(){
+            this.dialog = false;
+            this.$store.commit('setUserId', {id:4,
+                                                username:'demo',
+                                                balance:1000,
+                                                email:'demo@trndx.co',
+                                                avatar:'avatar-tx.png',
+                                                isloggedin:false,
+                                                isnewuser:true});            
             document.location.href = '/exchange.html#/search';
         }
     },

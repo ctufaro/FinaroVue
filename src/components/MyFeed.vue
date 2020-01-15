@@ -83,17 +83,17 @@
         tabName: 'Feed',        
         items: 
         [
-          {avatar:require(`@/assets/images/avatar-chris.jpg`),type:'Buyers',user:'@christufaro',btntext:'SELL MY TREND',class:'danger',title: '#newyorkyankees',text: "awesome series, well worth the price."},          
-          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Sellers',user:'@katlyco',btntext:'BUY THIS TREND',class:'success',title: '#mindhunter',text: "fucking garbage, buy my bags."},
-          {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Buyers',user:'@mickey',btntext:'SELL MY TREND',class:'danger',title: '#loldollz',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},          
-          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Sellers',user:'@teddyboom',btntext:'BUY THIS TREND',class:'success',title: '#tonkatrucks',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},
-          {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Buyers',user:'@chacha',btntext:'SELL MY TREND',class:'danger',title: '#poopoodiaper',text: `dog with fleas`},
-          {avatar:require(`@/assets/images/avatar-harrison.jpg`),type:'Feed',user:`@chacha`,btntext:'SELL MY TREND',class:'danger',title: '#gameofthrones',text: 'sold'},
+          {avatar:require(`@/assets/images/avatar-trndx-logo.jpg`),type:'Buyers',user:'@trndxuser',btntext:'SELL MY TREND',class:'danger',title: '#newyorkyankees',text: "awesome series, well worth the price."},          
+          {avatar:require(`@/assets/images/avatar-trndx-logo.png`),type:'Sellers',user:'@katlyco',btntext:'BUY THIS TREND',class:'success',title: '#mindhunter',text: "fucking garbage, buy my bags."},
+          {avatar:require(`@/assets/images/avatar-trndx-logo.jpg`),type:'Buyers',user:'@mickey',btntext:'SELL MY TREND',class:'danger',title: '#loldollz',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},          
+          {avatar:require(`@/assets/images/avatar-trndx-logo.png`),type:'Sellers',user:'@teddyboom',btntext:'BUY THIS TREND',class:'success',title: '#tonkatrucks',text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Eget sociis nat."},
+          {avatar:require(`@/assets/images/avatar-trndx-logo.jpg`),type:'Buyers',user:'@chacha',btntext:'SELL MY TREND',class:'danger',title: '#dogwithfleas',text: `dog with fleas`},
+          {avatar:require(`@/assets/images/avatar-trndx-logo.png`),type:'Feed',user:`@chacha`,btntext:'SELL MY TREND',class:'danger',title: '#gameofthrones',text: 'sold'},
           {type:'Feed',ad:true, adtext:'#EatThis', logo:'https://d3nuqriibqh3vw.cloudfront.net/styles/aotw_detail_ir/s3/images/loose_change1.jpg?itok=j66Otail'},
-          {avatar:require(`@/assets/images/avatar-rosie.jpg`),type:'Feed',user:'@mickey',btntext:'BUY THIS TREND',class:'success',title: '#thebachelor',text: 'purchased'},
-          {avatar:require(`@/assets/images/avatar-teddy.jpg`),type:'Feed',user:'@teddyboom',btntext:'BUY THIS TREND',class:'success',title: '#cincodemayo',text: 'purchased'},
+          {avatar:require(`@/assets/images/avatar-trndx-logo.jpg`),type:'Feed',user:'@mickey',btntext:'BUY THIS TREND',class:'success',title: '#thebachelor',text: 'purchased'},
+          {avatar:require(`@/assets/images/avatar-trndx-logo.png`),type:'Feed',user:'@teddyboom',btntext:'BUY THIS TREND',class:'success',title: '#cincodemayo',text: 'purchased'},
           {type:'Feed',ad:true, adtext:'#DrinkThis', logo:'https://i.ytimg.com/vi/SuEjGt-TPK0/maxresdefault.jpg'},
-          {avatar:require(`@/assets/images/avatar-kathleen.jpg`),type:'Feed',user:'@katlyco',btntext:'BUY THIS TREND',class:'success',title: '#fatherofthebride',text: 'purchased'},
+          {avatar:require(`@/assets/images/avatar-trndx-logo.png`),type:'Feed',user:'@katlyco',btntext:'BUY THIS TREND',class:'success',title: '#fatherofthebride',text: 'purchased'},
           {type:'Feed',ad:true, adtext:'#GoHere', logo:'https://cdn.vuetifyjs.com/images/cards/docks.jpg'}
         ]
     }),    

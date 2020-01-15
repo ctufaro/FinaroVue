@@ -40,7 +40,28 @@ export const store = new Vuex.Store({
         state.user.isnewuser = user.isnewuser;
     },
     setUserLoggedOut(state){
-        state.user.isloggedin = false;
+        state.user.id = null;
+        state.user.username = null; 
+        state.user.balance = null; 
+        state.user.email = null; 
+        state.user.avatar = null; 
+        state.user.isnewuser = null;
+        state.user.isloggedin = null;
+        state.selectedTrend.id = null;
+        state.selectedTrend.name = null;
+        state.selectedTrend.price = null
+        state.selectedTrend.pricetxt = null;
+        state.selectedTrend.color = null;
+        state.selectedTrend.changeIn = null;      
+        state.selectedTrend.priceHistory = []; 
+        state.selectedTrend.dateHistory = [];
+        state.snackBar.show = false;
+        state.snackBar.type = '';
+        state.snackBar.text = '';
+        state.snackBar.position = '';
+        state.trendVolSent.tweetVolume = [];
+        state.trendVolSent.loadDate = [];
+        state.trendVolSent.avgSentiment = [];
     },
     setUserBalance(state,balance){
         state.user.balance = balance;

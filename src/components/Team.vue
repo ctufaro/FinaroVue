@@ -7,7 +7,7 @@
                         <h1 class="probootstrap-animateX">Meet The Team</h1>
                         <p class="probootstrap-animateX">
                             We've assembled the best and the brightest minds spanning across multiple industries. Our people make a difference here at trndx. 
-                            Meet our team and see the people behind the trndx platform.
+                            Meet our team and see the talent behind the platform.
                         </p>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                             <img src="@/assets/images/chris.jpg" alt="Free Bootstrap Template by uicookies.com"
                                 class="img-responsive img-rounded">
                             <div class="probootstrap-team-info">
-                                <h3>Chris Tufaro <span class="position">Founder / Tech / Creative / Developer</span>
+                                <h3>Chris T. <span class="position">Founder / Tech / Creative / Developer</span>
                                 </h3>
                             </div>
                         </a>

@@ -46,10 +46,10 @@
                 -->                                                                                            
             </ul>
         </nav>
-        <v-btn :fixed="true" icon bottom left to="/settings" @click.native="toggleSidebar();">
+        <v-btn :fixed="true" icon bottom left to="/settings" @click.native="toggleSidebar();" style="margin-left:50px" v-if="false">
             <v-icon color="#9FABB6">fas fa-cog</v-icon>
         </v-btn>
-        <v-btn :fixed="true" icon bottom left @click="signOut('index.html#/home', $event)" style="margin-left:50px">
+        <v-btn :fixed="true" icon bottom left @click="signOut('index.html#/home', $event)" >
             <v-icon color="#9FABB6">fas fa-sign-out-alt</v-icon>
         </v-btn>              
     </div>
